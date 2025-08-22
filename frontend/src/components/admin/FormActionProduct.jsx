@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleColorChange, sendProduct, formErrors, loading, formData, manageChange, colors, isEdit = false }) => {
-    console.log(isEdit)
     return (
         <div className='form-container flex flex-col justify-center items-center'>
             <div className='bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-2xl p-4 sm:p-6 w-full md:w-1/2'>
@@ -53,7 +52,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                             )}
                         </div>
 
-                        <div className="flex gap-4">
+                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-4">
                             {/* Precio */}
                             <div className="form-group flex-1">
                                 <label htmlFor="price" className="block font-semibold text-[#9F531B] mb-2 text-sm sm:text-base">
@@ -112,7 +111,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                                 <i className="fa-solid fa-list mr-2"></i>
                                 Categoria
                             </label>
-                            <div className="relative w-2/4 sm:w-1/3 md:w-1/4 lg:w-auto">
+                            <div className="relative">
                                 <select
                                     id="category"
                                     name="category"
@@ -179,7 +178,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                                     shadow hover:shadow-md flex items-center gap-1"
                                 >
                                     <i className="fa-solid fa-plus"></i>
-                                    Agregar Color
+                                    Agregar 
                                 </button>
                             </div>
 

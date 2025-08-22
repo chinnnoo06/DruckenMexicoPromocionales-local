@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SectionWrapper } from '../components/layout/SectionWrapper'
 import { AddProductForm } from '../components/admin/AddProductForm'
 
 export const AddProduct = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <SectionWrapper className='container-main-content flex flex-col pt-32 pb-20 gap-5 mx-auto max-w-[1300px]'>
             <div className="text-center mb-8">

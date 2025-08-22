@@ -1,56 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import DruckenLogo from '../../assets/logodrucken.png';
 import { closeSession } from '../../helpers/CloseSession'; 
+import { useHeaderFooter } from '../../hooks/useHeaderFooter';
 
 export const HeaderAdmin = () => {
-    const [menuVisible, setMenuVisible] = useState(false);
-    const [showHeader, setShowHeader] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const location = useLocation();
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (menuVisible) return;
-
-            const currentScrollY = window.scrollY;
-
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setShowHeader(false);
-            } else {
-                setShowHeader(true);
-            }
-
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, menuVisible]);
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 1024) { // lg: breakpoint de Tailwind
-                setMenuVisible(false);
-            }
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        // Llamada inicial para asegurarse de que el estado sea correcto al montar
-        handleResize();
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
-    };
-
-    useEffect(() => {
-        setMenuVisible(false); 
-    }, [location]);
-
+     const {toggleMenu, menuVisible, showHeader} = useHeaderFooter();
 
     return (
         <div className={`header-container bg-[#f8dcc6] fixed top-0 left-0 w-full z-[9999] transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>

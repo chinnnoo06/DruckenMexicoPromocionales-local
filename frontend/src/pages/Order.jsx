@@ -6,7 +6,11 @@ import { OrderSummary } from '../components/order/OrderSummary';
 
 export const Order = () => {
   const [orders, setOrders] = useState([]);
-  
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const getOrders = () => {
     const storedOrders = JSON.parse(localStorage.getItem("order")) || [];
     setOrders(Array.isArray(storedOrders) ? storedOrders : [storedOrders]);
@@ -38,8 +42,8 @@ export const Order = () => {
 
           <MapOrder orders={orders} setOrders={setOrders} />
 
-          <OrderSummary  orders={orders}/>
-          
+          <OrderSummary orders={orders} />
+
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full text-center p-8 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import DruckenLogo from '../../assets/logodrucken.png';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 export const HomeMainContent = () => {
 

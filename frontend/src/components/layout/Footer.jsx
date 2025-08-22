@@ -1,28 +1,10 @@
 import React from 'react';
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import DruckenLogo from '../../assets/logodrucken.png';
+import { useHeaderFooter } from '../../hooks/useHeaderFooter';
 
 export const Footer = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const isInicio = location.pathname === '/' || location.pathname === '/inicio';
-
-    const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    const navigateToSection = (sectionId) => {
-        navigate('/inicio');
-        setTimeout(() => {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
-    };
+    const {scrollToSection, navigateToSection, isInicio} = useHeaderFooter();
 
     return (
         <div className="footer-container bg-[#f8dcc6] border-t border-[#9F531B]/20">
