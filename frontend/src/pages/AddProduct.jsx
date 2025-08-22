@@ -10,9 +10,7 @@ export const AddProduct = () => {
                     Agregar Producto
                     <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-24 h-1.5 bg-[#9F531B] rounded-full"></span>
                 </h1>
-
             </div>
-
             <AddProductForm />
         </SectionWrapper>
 
