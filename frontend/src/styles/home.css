@@ -1,0 +1,53 @@
+.hero-container {
+  position: relative;
+  background-image: url('../assets/image-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+/* Sombra/overlay sobre la imagen */
+.hero-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1); /* Ajusta la opacidad según necesidad */
+  z-index: 1;
+}
+
+/* Asegurar que el contenido esté encima del overlay */
+.hero-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari y Opera */
+}
+
+.col1 {
+  width: 60%;
+}
+
+
+@media (max-width: 900px) {
+  
+  .home-content{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col1 {
+    width: 100%;
+  }
+
+
+ }
+ 
