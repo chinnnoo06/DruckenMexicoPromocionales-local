@@ -5,7 +5,7 @@ import { Fetch } from "../helpers/Fetch";
 export const useCarousel = () => {
     const carouselRef = useRef(null);
     const [showLeftButton, setShowLeftButton] = useState(false);
-    const [showRightButton, setShowRightButton] = useState(true);
+    const [showRightButton, setShowRightButton] = useState(false);
     const [scrollAmount, setScrollAmount] = useState(220);
     const [products, setProducts] = useState([]);
 
@@ -53,8 +53,7 @@ export const useCarousel = () => {
     useEffect(() => {
         const handleResize = () => {
             setScrollAmount(calculateScrollAmount());
-            // Recalcular posición después del resize
-            setTimeout(checkScrollPosition, 100);
+            checkScrollPosition();
         };
 
         window.addEventListener('resize', handleResize);
@@ -64,6 +63,35 @@ export const useCarousel = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    // 🔑 Recalcular después de cargar productos e imágenes
+    useEffect(() => {
+        if (products.length > 0 && carouselRef.current) {
+            const imgs = carouselRef.current.querySelectorAll("img");
+            let loaded = 0;
+
+            if (imgs.length === 0) {
+                // Si no hay imágenes, verificar directamente
+                checkScrollPosition();
+            } else {
+                imgs.forEach((img) => {
+                    if (img.complete) {
+                        loaded++;
+                        if (loaded === imgs.length) {
+                            checkScrollPosition();
+                        }
+                    } else {
+                        img.addEventListener("load", () => {
+                            loaded++;
+                            if (loaded === imgs.length) {
+                                checkScrollPosition();
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }, [products]);
 
     const scroll = (direction) => {
         if (carouselRef.current) {
@@ -87,5 +115,5 @@ export const useCarousel = () => {
             setShowRightButton(scrollLeft < scrollWidth - clientWidth - 1);
         }
     };
-    return {showLeftButton, showRightButton, products, carouselRef, scroll};
+    return { showLeftButton, showRightButton, products, carouselRef, scroll };
 };

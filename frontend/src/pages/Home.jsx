@@ -29,10 +29,7 @@ export const Home = () => {
             Productos Para ti
             <span className="absolute left-0 bottom-[-6px] w-20 h-1 bg-[#9F531B] rounded-full"></span>
           </h2>
-
-       
         </div>
-
         <HomeProductsCarousel />
       </SectionWrapper>
 
