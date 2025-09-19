@@ -1,0 +1,76 @@
+import React from 'react'
+import { Link } from 'react-router-dom';
+import DruckenLogo from '../../assets/logodrucken.png';
+import SplitText from "../layout/SplitText";
+
+export const HomeMainContent = () => {
+
+    const scrollToSection = () => {
+        const element = document.getElementById("contacto");
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    return (
+        <>
+            <div className='col1 flex flex-col'>
+                {/* Badge de empresa */}
+                <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#9F531B]/10 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-full px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 w-fit">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#9F531B] rounded-full animate-pulse"></div>
+                    <span className="text-[#9F531B] font-semibold text-xs sm:text-sm md:text-base">Empresa Mexicana desde 2016</span>
+                </div>
+                <div className='text-container'>
+                    <SplitText
+                        text="Drucken México Promocionales"
+                        className="text-[#9F531B] font-bold text-[32px] sm:text-[37px] md:text-[40px] lg:text-[45px]"
+                        delay={50}
+                        duration={0.3}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                    />
+                    <h3 className='text-[#1A1615] font-semibold text-[15px] sm:text-[19px] md:text-[22px] lg:text-[25px]'>
+                        Promociona con impacto, vende con resultados.
+                    </h3>
+                    <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block'>
+                        Drucken es una empresa mexicana dedicada a la distribución de artículos promocionales, desde el año 2016 contamos
+                        con un equipo de trabajo preparado, comprometido y responsable, que busca brindarle el mejor servicio
+                        y las mejores alternativas de marketing promocional.
+                    </span>
+                </div>
+
+                <div className='butons-container flex flex-wrap gap-4 pt-4'>
+                    <Link to="/catalogo" className='no-underline'>
+                        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded hover:bg-[#7C3E13] transition font-semibold'>
+                            <span>Ver Catálogo</span>
+                        </button>
+                    </Link>
+
+
+                    <button onClick={scrollToSection} className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded hover:bg-[#7C3E13] transition font-semibold'>
+                        Contactar
+                    </button>
+
+                </div>
+
+                <div className='socialMedia-container flex gap-4 pt-4 text-lg sm:text-xl md:text-2xl'>
+                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-facebook'></i></a>
+                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-instagram'></i></a>
+                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-whatsapp'></i></a>
+                </div>
+            </div>
+
+            <div className='col2 w-full max-w-[350px]  lg:max-w-[450px]'>
+                <img
+                    src={DruckenLogo}
+                    alt='Logo Drucken México'
+                    className='w-full h-auto object-contain'
+                />
+            </div>
+        </>
+    )
+}

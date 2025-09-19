@@ -1,0 +1,27 @@
+import React from 'react'
+
+export const MapServices = ({services}) => {
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+            {services.map((service) => (
+                <div key={service.id} className="bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div className="h-60 overflow-hidden">
+                        <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div className="p-6">
+                        <h3 className="text-[#9F531B] font-semibold text-[17px] sm:text-[19px] md:text-[21px] lg:text-[23px] mb-3">
+                            {service.name}
+                        </h3>
+                        <p className="text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-relaxed">
+                            {service.description}
+                        </p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+}
