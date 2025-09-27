@@ -147,9 +147,9 @@ export const Footer = () => {
                         </h3>
                         <div className="flex gap-4">
                             {[
-                                { icon: "fab fa-facebook", url: "https://www.facebook.com", name: "Facebook" },
-                                { icon: "fab fa-instagram", url: "https://www.instagram.com", name: "Instagram" },
-                                { icon: "fab fa-whatsapp", url: "https://wa.me/523318237277", name: "WhatsApp" }
+                                { icon: "fab fa-facebook", url: "https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr", name: "Facebook" },
+                                { icon: "fab fa-instagram", url: "https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5", name: "Instagram" },
+                                { icon: "fab fa-whatsapp", url: "https://wa.me/523315876207", name: "WhatsApp" }
                             ].map((social, index) => (
                                 <a
                                     key={index}
@@ -167,20 +167,20 @@ export const Footer = () => {
                         <div className="flex flex-col gap-2 text-sm text-[#1A1615] text-center md:text-left">
                             <div className="flex items-center gap-2 justify-center md:justify-start">
                                 <i className="fa-solid fa-phone text-[#9F531B]"></i>
-                                <span>+52 33 1823 7277</span>
+                                <span>+52 33 1587 6207</span>
                             </div>
                             <div className="flex items-center gap-2 justify-center md:justify-start">
                                 <i className="fa-solid fa-envelope text-[#9F531B]"></i>
-                                <span>ventas@druckenmexico.com</span>
+                                <span>drucken2016@hotmail.com</span>
                             </div>
                             <div className="flex items-center gap-2 justify-center md:justify-start">
                                 <i className="fa-solid fa-location-dot text-[#9F531B]"></i>
-                                <span>Av. Principal #123<br />Col. Centro, Guadalajara, Jalisco</span>
+                                <span>Ramón corona 454<br />Unidad República Zapopan Jalisco 45146</span>
                             </div>
                             <div className="w-full h-[200px]">
                                 <iframe
                                     title="Mapa"
-                                    src="https://www.google.com/maps/embed?pb=!4v1755198909218!6m8!1m7!1s6pXg7LNNMSE2TS5_dtL9Ig!2m2!1d20.78464858443374!2d-103.4746609005099!3f197.54007!4f0!5f0.7820865974627469"
+                                    src="https://www.google.com/maps/embed?pb=!4v1758817539392!6m8!1m7!1s6MUCFHMBMFJ0acuw4n5Dfw!2m2!1d20.72459020010015!2d-103.3990178222977!3f24.92747185429691!4f-13.11299517827375!5f0.8173988424383203"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}

@@ -6,6 +6,7 @@ import { HomeMainContent } from '../components/home/HomeMainContent';
 import { About } from './About';
 import { OurServices } from './OurServices';
 import { Contact } from './Contact';
+import { HomeProductsCarouselBeta } from '../components/home/HomeProductsCarouselBeta';
 
 export const Home = () => {
 
@@ -30,7 +31,8 @@ export const Home = () => {
             <span className="absolute left-0 bottom-[-6px] w-20 h-1 bg-[#9F531B] rounded-full"></span>
           </h2>
         </div>
-        <HomeProductsCarousel />
+        {/* <HomeProductsCarousel />*/}
+        <HomeProductsCarouselBeta />
       </SectionWrapper>
 
       {/* Sección Nosotros */}

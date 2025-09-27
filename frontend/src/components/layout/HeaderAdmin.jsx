@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import DruckenLogo from '../../assets/logodrucken.png';
-import { closeSession } from '../../helpers/CloseSession'; 
+import { closeSession } from '../../helpers/CloseSession';
 import { useHeaderFooter } from '../../hooks/useHeaderFooter';
 
 export const HeaderAdmin = () => {
-     const {toggleMenu, menuVisible, showHeader} = useHeaderFooter();
+    const { toggleMenu, menuVisible, showHeader } = useHeaderFooter();
 
     return (
         <div className={`header-container bg-[#f8dcc6] fixed top-0 left-0 w-full z-[9999] transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
@@ -66,9 +66,9 @@ export const HeaderAdmin = () => {
                 {/* Iconos redes sociales */}
                 <div className='container-social-media flex gap-8 items-center'>
                     {[
-                        { icon: "fab fa-facebook", url: "https://www.facebook.com" },
-                        { icon: "fab fa-instagram", url: "https://www.instagram.com" },
-                        { icon: "fab fa-whatsapp", url: "https://wa.me/523318237277" }
+                        { icon: "fab fa-facebook", url: "https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr" },
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/523315876207" }
                     ].map((social, index) => (
                         <a
                             key={index}
@@ -145,9 +145,9 @@ export const HeaderAdmin = () => {
                 {/* Redes sociales en menú móvil */}
                 <div className='mt-auto p-4 flex justify-center gap-6 border-t border-[#9F531B]'>
                     {[
-                        { icon: "fab fa-facebook", url: "https://www.facebook.com" },
-                        { icon: "fab fa-instagram", url: "https://www.instagram.com" },
-                        { icon: "fab fa-whatsapp", url: "https://wa.me/523318237277" }
+                        { icon: "fab fa-facebook", url: "https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr" },
+                        { icon: "fab fa-instagram", url: "https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5" },
+                        { icon: "fab fa-whatsapp", url: "https://wa.me/523315876207" }
                     ].map((social, index) => (
                         <a
                             key={index}

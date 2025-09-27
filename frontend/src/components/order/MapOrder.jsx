@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useCart } from '../../hooks/useCart';
 import { OrderCart } from './OrderCart';
+import { OrderCartBeta } from './OrderCartBerta';
 
 export const MapOrder = ({ orders, setOrders }) => {
   const { handleAmount, deleteProduct, groupedOrders } = useCart(orders, setOrders);
@@ -16,7 +17,10 @@ export const MapOrder = ({ orders, setOrders }) => {
           );
 
           return (
-            <OrderCart key={group.ProductID} group={group} totalQuantity={totalQuantity} handleAmount={handleAmount} deleteProduct={deleteProduct} />
+            <>
+              {/*<OrderCart key={group.ProductID} group={group} totalQuantity={totalQuantity} handleAmount={handleAmount} deleteProduct={deleteProduct} />*/}
+              <OrderCartBeta key={group.ProductID} group={group} totalQuantity={totalQuantity} handleAmount={handleAmount} deleteProduct={deleteProduct} />
+            </>
           );
 
         })}

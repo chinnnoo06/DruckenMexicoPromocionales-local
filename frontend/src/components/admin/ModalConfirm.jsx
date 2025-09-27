@@ -29,7 +29,7 @@ export const ModalConfirm = ({ showModal, setShowModal, deleteProduct }) => {
                             text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13] hover:shadow-md shadow-sm flex items-center justify-center gap-3'
                             onClick={() => deleteProduct()}
                         >
-                            Si
+                            Sí
                         </button>
                     </div>
                 </div>

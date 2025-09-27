@@ -58,9 +58,9 @@ export const HomeMainContent = () => {
                 </div>
 
                 <div className='socialMedia-container flex gap-4 pt-4 text-lg sm:text-xl md:text-2xl'>
-                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-facebook'></i></a>
-                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-instagram'></i></a>
-                    <a href='' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-whatsapp'></i></a>
+                    <a href='https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-facebook'></i></a>
+                    <a href='https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-instagram'></i></a>
+                    <a href='https://wa.me/523315876207' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#7C3E13]'><i className='fab fa-whatsapp'></i></a>
                 </div>
             </div>
 

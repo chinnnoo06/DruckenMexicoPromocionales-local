@@ -102,9 +102,9 @@ export const FooterAdmin = () => {
                         </h3>
                         <div className="flex gap-4">
                             {[
-                                { icon: "fab fa-facebook", url: "https://www.facebook.com", name: "Facebook" },
-                                { icon: "fab fa-instagram", url: "https://www.instagram.com", name: "Instagram" },
-                                { icon: "fab fa-whatsapp", url: "https://wa.me/523318237277", name: "WhatsApp" }
+                                { icon: "fab fa-facebook", url: "https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr", name: "Facebook" },
+                                { icon: "fab fa-instagram", url: "https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5", name: "Instagram" },
+                                { icon: "fab fa-whatsapp", url: "https://wa.me/523315876207", name: "WhatsApp" }
                             ].map((social, index) => (
                                 <a
                                     key={index}

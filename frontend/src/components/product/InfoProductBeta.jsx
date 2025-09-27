@@ -1,24 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { ModalAddOrder } from './ModalAddOrder';
 import { useProduct } from '../../hooks/useProduct';
-import { ModalConfirm } from './ModalConfirm';
-import { Fetch } from '../../helpers/Fetch';
-import { Global } from '../../helpers/Global';
-import { useNavigate } from 'react-router-dom';
 
-
-export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) => {
-    const { } = useProduct(product, selectedColor);
-    const [showModal, setShowModal] = useState(false);
-    const navigate = useNavigate();
-
-    const deleteProduct = async () => {
-        const data = await Fetch(Global.url + "product/eliminar-producto/" + product._id, "DELETE")
-
-        if (data.status === "success") {
-            setShowModal(false);
-            navigate('/catalogo-admin', { replace: true });
-        }
-    }
+export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) => {
+    const { quantity, order, showModal, setShowModal, handleQuantityChange, saveProductLocalStorage } = useProduct(product, selectedColor);
 
     return (
         <>
@@ -26,14 +11,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                 <h3 className='text-[#9F531B] font-semibold text-[20px] sm:text-[22px] md:text-[25px] lg:text-[30px] mb-2'>
                     {product.name}
                 </h3>
-
-                {/* 
-                    <span className="text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#9F531B]">
-                        MXN {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                    </span>
-                */}
-
-
+                
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>
                     {product.description}
                 </span>
@@ -75,8 +53,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                     </div>
                 </div>
 
-
-                <div className='mb-8'>
+                <div className='mb-5'>
                     <h4 className='text-[#9F531B] font-semibold text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] mb-2'>Colores disponibles</h4>
                     <div className="flex flex-wrap gap-3">
                         {product.colors.map((c, index) => (
@@ -90,7 +67,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                                     aria-label={`Seleccionar color ${c.color}`}
                                     title={c.color}
                                 >
-
+                            
                                 </button>
                                 <span className='text-xs'>{c.color}</span>
                             </div>
@@ -99,36 +76,35 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                     </div>
                 </div>
 
+                <div className='mb-7'>
+                    <label htmlFor='quantity' className='block font-semibold text-[#9F531B] mb-2 text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px]'>Cantidad</label>
+                    <input
+                        type="number"
+                        id='quantity'
+                        name='quantity'
+                        min="1"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                        className='w-16 px-2 py-1 md:w-24 md:px-4 md:py-2 rounded-lg bg-[#EEEEEF] text-gray-700 border border-[#9F531B] 
+                                    focus:outline-none focus:ring-2 focus:ring-[#9F531B] 
+                                    focus:border-[#9F531B] focus:bg-white transition-all duration-300 
+                                    text-base hover:border-[#9F531B]/50'
+                    />
 
-
-                <div className='flex gap-5'>
-                    <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
-                        onClick={() => {
-                            navigate('/editar-producto-admin', {
-                                state: {
-                                    product
-                                }
-                            })
-                        }}
-                    >
-                        Editar
-                    </button>
-                    <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
-                        onClick={() => setShowModal(true)}
-                    >
-                        Eliminar
-                    </button>
                 </div>
+
+                <button
+                    className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
+                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
+                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                    onClick={() => saveProductLocalStorage()}
+                >
+                    <i className="fa-solid fa-bag-shopping"></i>
+                    Agregar al pedido
+                </button>
             </div>
 
-            <ModalConfirm showModal={showModal} setShowModal={setShowModal} deleteProduct={deleteProduct} />
-
+            <ModalAddOrder order={order} showModal={showModal} setShowModal={setShowModal} />
         </>
 
     )

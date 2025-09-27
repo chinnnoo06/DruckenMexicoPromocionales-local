@@ -27,7 +27,7 @@ export const ContactInfo = () => {
                             </div>
                             <div className='flex-1'>
                                 <p className='text-[#1A1615] font-semibold text-sm sm:text-base mb-1'>Teléfono</p>
-                                <p className='text-gray-700 text-xs md:text-sm font-medium'>+52 33 1823 7277</p>
+                                <p className='text-gray-700 text-xs md:text-sm font-medium'>+52 33 1587 6207</p>
                                 <p className='text-[#9F531B] text-xs mt-1'>Llamada directa y WhatsApp</p>
                             </div>
                         </div>
@@ -43,7 +43,7 @@ export const ContactInfo = () => {
                             </div>
                             <div className='flex-1'>
                                 <p className='text-[#1A1615] font-semibold text-sm sm:text-base mb-1'>Email</p>
-                                <p className='text-gray-700 text-xs md:text-sm  font-medium'>info@drucken.com.mx</p>
+                                <p className='text-gray-700 text-xs md:text-sm  font-medium'>drucken2016@hotmail.com</p>
                                 <p className='text-[#9F531B] text-xs mt-1'>Respuesta en 24h</p>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ export const ContactInfo = () => {
 
                     {/* Dirección */}
                     <div className='contact-item group'>
-                        <div className='flex items-start gap-4 p-2 bg-white rounded-xl shadow-sm border border-gray-100 
+                        <div className='flex items-center gap-4 p-2 bg-white rounded-xl shadow-sm border border-gray-100 
                         hover:shadow-lg transition-all duration-300'>
                             <div className='h-[38px] w-[38px] sm:h-[42px] sm:w-[42px] md:h-[46px] md:w-[46px] lg:h-[50px] lg:w-[50px] bg-gradient-to-br from-[#9F531B] to-[#7C3E13] rounded-full 
                             flex items-center justify-center transition-transform duration-300 mt-1'>
@@ -60,7 +60,7 @@ export const ContactInfo = () => {
                             <div className='flex-1'>
                                 <p className='text-[#1A1615] font-semibold text-sm sm:text-base mb-1'>Dirección</p>
                                 <p className='text-gray-700 text-xs md:text-sm font-medium'>
-                                    Av. Principal #123<br />Col. Centro, Guadalajara, Jalisco
+                                   Ramón corona 454<br />Unidad República Zapopan Jalisco 45146
                                 </p>
                                 <p className='text-[#9F531B] text-xs mt-1'>Visítanos</p>
                             </div>
@@ -69,7 +69,7 @@ export const ContactInfo = () => {
 
                     {/* Horarios */}
                     <div className='contact-item group'>
-                        <div className='flex items-start gap-4 p-2 bg-white rounded-xl shadow-sm border border-gray-100 
+                        <div className='flex items-center gap-4 p-2 bg-white rounded-xl shadow-sm border border-gray-100 
                         hover:shadow-lg transition-all duration-300'>
                             <div className='h-[38px] w-[38px] sm:h-[42px] sm:w-[42px] md:h-[46px] md:w-[46px] lg:h-[50px] lg:w-[50px] bg-gradient-to-br from-[#9F531B] to-[#7C3E13] rounded-full 
                             flex items-center justify-center transition-transform duration-300 mt-1'>
@@ -80,11 +80,11 @@ export const ContactInfo = () => {
                                 <div className='space-y-1'>
                                     <div className='flex justify-between items-center'>
                                         <span className='text-gray-700 text-xs md:text-sm  font-medium'>Lunes - Viernes:</span>
-                                        <span className='text-[#9F531B] text-xs md:text-sm font-semibold'>8:00 AM - 6:00 PM</span>
+                                        <span className='text-[#9F531B] text-xs md:text-sm font-semibold'>10:00 AM - 6:00 PM</span>
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <span className='text-gray-700 text-xs md:text-sm font-medium'>Sábado:</span>
-                                        <span className='text-[#9F531B] text-xs md:text-sm  font-semibold'>9:00 AM - 2:00 PM</span>
+                                        <span className='text-red-500 text-xs md:text-sm  font-semibold'>Cerrado</span>
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <span className='text-gray-700 text-xs md:text-sm  font-medium'>Domingo:</span>

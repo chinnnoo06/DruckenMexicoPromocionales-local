@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/layout/loadingSpinner';
 import { ImgProduct } from '../components/product/ImgProduct';
 import { InfoProduct } from '../components/product/InfoProduct';
 import { InfoProductAdmin } from '../components/admin/InfoProductAdmin';
+import { InfoProductBeta } from '../components/product/InfoProductBeta';
 
 export const Product = () => {
     const location = useLocation();
@@ -56,8 +57,9 @@ export const Product = () => {
                         {/* Separador visual */}
                         <div className="hidden md:block w-[2px] bg-gradient-to-b from-transparent via-[#9F531B] to-transparent mx-4"></div>
 
-                        {location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProduct product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />}
+                        {/*{location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProduct product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />} */}
 
+                        {location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProductBeta product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />}
                     </div>
                 </>
             ) : (
@@ -66,3 +68,4 @@ export const Product = () => {
         </SectionWrapper>
     );
 }
+
