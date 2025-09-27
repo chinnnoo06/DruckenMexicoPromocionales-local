@@ -113,6 +113,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                 </button>
             </div>
 
+            
             <ModalAddOrder order={order} showModal={showModal} setShowModal={setShowModal} />
         </>
 

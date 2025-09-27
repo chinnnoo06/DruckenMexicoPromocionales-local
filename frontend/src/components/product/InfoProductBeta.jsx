@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ModalAddOrder } from './ModalAddOrder';
 import { useProduct } from '../../hooks/useProduct';
+import { ModalAddOrderBeta } from './ModalAddOrderBeta';
 
 export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) => {
     const { quantity, order, showModal, setShowModal, handleQuantityChange, saveProductLocalStorage } = useProduct(product, selectedColor);
@@ -104,7 +105,7 @@ export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) =>
                 </button>
             </div>
 
-            <ModalAddOrder order={order} showModal={showModal} setShowModal={setShowModal} />
+            <ModalAddOrderBeta order={order} showModal={showModal} setShowModal={setShowModal} />
         </>
 
     )
