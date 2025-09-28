@@ -14,7 +14,7 @@ export const useFormContact = (formData, setFormData) => {
             return;
         }
 
-        const phoneNumber = "3310168320";
+        const phoneNumber = "3315876207";
         const tittle = `*${formData.tittle}*`;
         const greeting = `Hola buen día, soy ${formData.name}, visité el sitio web de Drucken México Promocionales.`;
         const message = formData.message;
