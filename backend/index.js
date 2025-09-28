@@ -30,15 +30,16 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
 
+// Primero las rutas API
 app.use("/api/product", productRoutes);
 app.use("/api/user", userRoutes);
 
-// Servir frontend React en producción
+// Luego React
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
+
 
 // Iniciar servidor
 app.listen(puerto, () => {
