@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderLogin } from '../components/layout/HeaderLogin';
-import FormLogin from "../components/admin/FormLogin";
+import { FormLogin } from "../components/admin/FormLogin";
 
 export const LoginAdmin = () => {
   return (
