@@ -31,7 +31,7 @@ export const HomeMainContent = () => {
                         to={{ opacity: 1, y: 0 }}
                         threshold={0.1}
                         rootMargin="-100px"
-                        textAlign="center"
+                        textAlign="start"
                     />
                     <h3 className='text-[#1A1615] font-semibold text-[15px] sm:text-[19px] md:text-[22px] lg:text-[25px]'>
                         Promociona con impacto, vende con resultados.
