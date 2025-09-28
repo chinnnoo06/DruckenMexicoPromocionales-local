@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadingSpinner from '../layout/loadingSpinner'
+import LoadingSpinner from '../layout/LoadingSpinner'
 import { useNavigate } from 'react-router-dom';
 import { GlobalImage } from '../../helpers/Global';
 
