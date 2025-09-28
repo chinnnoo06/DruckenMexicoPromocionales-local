@@ -27,8 +27,8 @@ export const Privacy = () => {
           <p className="text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-relaxed">
             <strong className='text-[#9F531B]'>Drucken México Promocionales</strong><br />
             Empresa mexicana dedicada a la distribución de artículos promocionales desde 2016.<br />
-            <strong className='text-[#9F531B]'>Email:</strong> ventas@druckenmexico.com<br />
-            <strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1823 7277
+            <strong className='text-[#9F531B]'>Email:</strong> drucken2016@hotmail.com<br />
+            <strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1587 6207
           </p>
         </section>
 
@@ -40,8 +40,7 @@ export const Privacy = () => {
           </p>
           <ul className="list-disc list-inside text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] ml-4 space-y-2">
             <li><strong className='text-[#9F531B]'>Nombre:</strong> Para identificarte y personalizar nuestra comunicación</li>
-            <li><strong className='text-[#9F531B]'>Email:</strong> Para responder a tu consulta y enviarte información</li>
-            <li><strong className='text-[#9F531B]'>Título del correo:</strong> Para entender el tema de tu consulta</li>
+            <li><strong className='text-[#9F531B]'>Título del mensaje:</strong> Para entender el tema de tu consulta</li>
             <li><strong className='text-[#9F531B]'>Contenido del mensaje:</strong> Para atender tu solicitud específica</li>
           </ul>
         </section>
@@ -114,9 +113,9 @@ export const Privacy = () => {
           <h3 className="text-[#9F531B] font-bold text-[20px] sm:text-[22px] md:text-[25px] lg:text-[30px] mb-4">8. Contacto para Privacidad</h3>
           <p className="text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] leading-relaxed">
             Para ejercer tus derechos o realizar consultas sobre esta política, contáctanos en:<br /><br />
-            <strong className='text-[#9F531B]'>Email:</strong> ventas@druckenmexico.com<br />
-            <strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1823 7277<br />
-            <strong className='text-[#9F531B]'>WhatsApp:</strong> +52 33 1823 7277<br /><br />
+            <strong className='text-[#9F531B]'>Email:</strong> drucken2016@hotmail.com<br />
+            <strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1587 6207<br />
+            <strong className='text-[#9F531B]'>WhatsApp:</strong> +52 33 1587 6207<br /><br />
           </p>
         </section>
 
@@ -139,7 +138,7 @@ export const Privacy = () => {
         {/* Fecha */}
         <section className="border-t border-gray-200 pt-6">
           <p className="text-gray-600 text-sm">
-            <strong className='text-[#9F531B]'>Última actualización:</strong> Agosto 2024<br />
+            <strong className='text-[#9F531B]'>Última actualización:</strong> Septiembre 2025<br />
           </p>
         </section>
 

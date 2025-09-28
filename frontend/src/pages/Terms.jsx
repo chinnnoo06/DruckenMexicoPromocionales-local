@@ -60,7 +60,7 @@ export const Terms = () => {
           <ul className="list-disc list-inside text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] ml-4 space-y-2">
             <li>Proporciona información verdadera y precisa</li>
             <li>Consiente el tratamiento de sus datos personales</li>
-            <li>Autoriza que nos comuniquemos con usted por email y WhatsApp</li>
+            <li>Autoriza que nos comuniquemos con usted por WhatsApp</li>
             <li>Acepta recibir información comercial relacionada con nuestros servicios</li>
           </ul>
         </section>
@@ -142,9 +142,9 @@ export const Terms = () => {
             Para consultas sobre estos términos, contáctenos a través de:
           </p>
           <ul className="list-disc list-inside text-gray-700 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] ml-4 space-y-2">
-            <li><strong className='text-[#9F531B]'>Email:</strong> ventas@druckenmexico.com</li>
-            <li><strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1823 7277</li>
-            <li><strong className='text-[#9F531B]'>WhatsApp:</strong> +52 33 1823 7277</li>
+            <li><strong className='text-[#9F531B]'>Email:</strong> drucken2016@hotmail.com</li>
+            <li><strong className='text-[#9F531B]'>Teléfono:</strong> +52 33 1587 6207</li>
+            <li><strong className='text-[#9F531B]'>WhatsApp:</strong> +52 33 1587 6207</li>
           </ul>
         </section>
 
@@ -162,7 +162,7 @@ export const Terms = () => {
         {/* Fecha */}
         <section className="border-t border-gray-200 pt-6">
           <p className="text-gray-600 text-sm">
-            <strong className='text-[#9F531B]'>Última actualización:</strong> Agosto 2025<br />
+            <strong className='text-[#9F531B]'>Última actualización:</strong> Septiembre 2025<br />
           </p>
         </section>
 
