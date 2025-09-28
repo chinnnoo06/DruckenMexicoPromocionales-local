@@ -51,7 +51,7 @@ export const Footer = () => {
                                         key={index}
                                         to={item.to}
                                         className={({ isActive }) =>
-                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center
+                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center md:text-left w-full
                                             ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}`
                                         }
                                     >
@@ -61,7 +61,7 @@ export const Footer = () => {
                                     <button
                                         key={index}
                                         onClick={item.action}
-                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center w-full
+                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center md:text-left w-full
                                         text-[#1A1615] hover:text-[#9F531B]"
                                     >
                                         {item.text}
@@ -83,7 +83,7 @@ export const Footer = () => {
                                         key={index}
                                         to={item.to}
                                         className={({ isActive }) =>
-                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center
+                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center md:text-left
                                             ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}`
                                         }
                                     >
@@ -93,7 +93,7 @@ export const Footer = () => {
                                     <button
                                         key={index}
                                         onClick={item.action}
-                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center w-full
+                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center md:text-left w-full
                                         text-[#1A1615] hover:text-[#9F531B]"
                                     >
                                         {item.text}
