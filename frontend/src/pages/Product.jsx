@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
-import LoadingSpinner from '../components/layout/loadingSpinner';
+import LoadingSpinner from '../components/layout/LoadingSpinner';
 import { ImgProduct } from '../components/product/ImgProduct';
 import { InfoProduct } from '../components/product/InfoProduct';
 import { InfoProductAdmin } from '../components/admin/InfoProductAdmin';
