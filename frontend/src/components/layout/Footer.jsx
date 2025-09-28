@@ -51,11 +51,8 @@ export const Footer = () => {
                                         key={index}
                                         to={item.to}
                                         className={({ isActive }) =>
-                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-left
-                                            ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}
-                                            after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                            after:bg-[#9F531B] after:transition-all after:duration-300
-                                            hover:after:w-full ${isActive ? 'after:w-full' : ''}`
+                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center
+                                            ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}`
                                         }
                                     >
                                         {item.text}
@@ -64,11 +61,8 @@ export const Footer = () => {
                                     <button
                                         key={index}
                                         onClick={item.action}
-                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-left w-full
-                                        text-[#1A1615] hover:text-[#9F531B]
-                                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                        after:bg-[#9F531B] after:transition-all after:duration-300
-                                        hover:after:w-full"
+                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center w-full
+                                        text-[#1A1615] hover:text-[#9F531B]"
                                     >
                                         {item.text}
                                     </button>
@@ -89,11 +83,8 @@ export const Footer = () => {
                                         key={index}
                                         to={item.to}
                                         className={({ isActive }) =>
-                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-left
-                                            ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}
-                                            after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                            after:bg-[#9F531B] after:transition-all after:duration-300
-                                            hover:after:w-full ${isActive ? 'after:w-full' : ''}`
+                                            `relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center
+                                            ${isActive ? 'text-[#9F531B] font-semibold' : 'text-[#1A1615] hover:text-[#9F531B]'}`
                                         }
                                     >
                                         {item.text}
@@ -102,11 +93,8 @@ export const Footer = () => {
                                     <button
                                         key={index}
                                         onClick={item.action}
-                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-left w-full
-                                        text-[#1A1615] hover:text-[#9F531B]
-                                        after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                        after:bg-[#9F531B] after:transition-all after:duration-300
-                                        hover:after:w-full"
+                                        className="relative py-1 font-medium text-sm transition-all duration-300 hover:translate-x-1 block text-center w-full
+                                        text-[#1A1615] hover:text-[#9F531B]"
                                     >
                                         {item.text}
                                     </button>
