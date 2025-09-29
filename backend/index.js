@@ -14,8 +14,8 @@ const puerto = process.env.PORT;
 
 // Configurar CORS
 app.use(cors({
-    origin: process.env.URL, // tu frontend
-    credentials: true
+    origin: process.env.URL, // tu frontend
+    credentials: true
 }));
 
 // Body parser
@@ -23,8 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Servir assets estáticos
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+// Servir assets estáticos (RUTA CORREGIDA A /files)
+app.use('/files', express.static(path.join(__dirname, 'assets')));
 
 // Rutas API
 const productRoutes = require("./routes/product");
@@ -37,11 +37,11 @@ app.use("/api/user", userRoutes);
 // Luego React
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 app.get(/^\/(?!api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 
 // Iniciar servidor
 app.listen(puerto, () => {
-    console.log("Servidor corriendo en el puerto:", puerto);
+    console.log("Servidor corriendo en el puerto:", puerto);
 });
