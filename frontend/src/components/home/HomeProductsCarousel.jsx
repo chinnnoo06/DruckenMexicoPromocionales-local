@@ -37,7 +37,7 @@ export const HomeProductsCarousel = () => {
               {/* Contenedor de imagen con aspect ratio fijo */}
               <div className='w-full aspect-[3/4] relative overflow-hidden rounded-t-lg'>
                 <img
-                  src={`${GlobalImage.url}${product.colors[0].image}`}
+                  src={product.colors.length > 1 ? `${GlobalImage.url}${product.generalImage}` : `${GlobalImage.url}${product.colors[0].image}`}
                   alt={product.name}
                   className="absolute w-full h-full object-cover object-center group-hover:opacity-90 transition-opacity duration-200"
                 />
