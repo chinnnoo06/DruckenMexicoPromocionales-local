@@ -41,12 +41,12 @@ export const HomeProductsCarousel = () => {
                   alt={product.name}
                   className="absolute w-full h-full object-cover object-center group-hover:opacity-90 transition-opacity duration-200"
                 />
-                <button className="absolute inset-0 m-auto w-[80%] h-8 sm:h-9 bg-[#9F531B]/90 text-white text-xs sm:text-sm font-medium rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+                <button className="absolute inset-0 m-auto w-[80%] h-8 sm:h-9 bg-[#9F531B]/90 text-white text-xs sm:text-sm font-medium rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                   onClick={() => {
                     navigate('/producto', {
                       state: {
                         product,
-                        scrollY: window.scrollY 
+                        scrollY: window.scrollY
                       }
                     })
                   }}>
@@ -82,7 +82,7 @@ export const HomeProductsCarousel = () => {
       </div>
 
       <Link to="/catalogo" className='no-underline flex items-center justify-center'>
-        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg border border-[#9F531B] text-[#9F531B] rounded hover:bg-[#9F531B] hover:text-[#EEEEEF] transition mt-5 font-semibold w-[200px] sm:w-[300px]'>
+        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl border border-[#9F531B] text-[#9F531B] hover:bg-[#9F531B] hover:text-[#EEEEEF] transition-all duration-300 hover:shadow-lg  hover:-translate-y-1 mt-5 font-semibold w-[200px] sm:w-[300px]'>
           Ver más productos
         </button>
       </Link>

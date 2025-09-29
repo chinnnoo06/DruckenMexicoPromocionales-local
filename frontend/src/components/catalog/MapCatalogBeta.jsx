@@ -32,7 +32,7 @@ export const MapCatalogBeta = ({ products, loading, page, isAdmin }) => {
                                     alt={product.name}
                                     className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-200"
                                 />
-                                <button className="absolute inset-0 m-auto w-[80%] h-10 bg-[#9F531B] text-white text-sm font-medium rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+                                <button className="absolute inset-0 m-auto w-[80%] h-10 bg-[#9F531B] text-white text-sm font-medium rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                                     onClick={() => {
                                         navigate(isAdmin ? '/producto-admin' : '/producto', {
                                             state: {

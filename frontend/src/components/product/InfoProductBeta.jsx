@@ -12,7 +12,7 @@ export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) =>
                 <h3 className='text-[#9F531B] font-semibold text-[20px] sm:text-[22px] md:text-[25px] lg:text-[30px] mb-2'>
                     {product.name}
                 </h3>
-                
+
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>
                     {product.description}
                 </span>
@@ -68,7 +68,7 @@ export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) =>
                                     aria-label={`Seleccionar color ${c.color}`}
                                     title={c.color}
                                 >
-                            
+
                                 </button>
                                 <span className='text-xs'>{c.color}</span>
                             </div>
@@ -95,9 +95,8 @@ export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) =>
                 </div>
 
                 <button
-                    className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                    className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                        text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                     onClick={() => saveProductLocalStorage()}
                 >
                     <i className="fa-solid fa-bag-shopping"></i>

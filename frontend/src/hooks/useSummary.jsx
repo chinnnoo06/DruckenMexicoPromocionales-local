@@ -20,8 +20,9 @@ export const useSummary = (orders = [] ) => {
         return totalQuantity < group.groupedOrders[0].minQuantity;
     })
 
+    /*
     const sendOrder = () => {
-        const phoneNumber = "3310168320";
+        const phoneNumber = "3315876207";
         const title = `*COTIZACIÓN DE PEDIDO – DRUCKEN MÉXICO PROMOCIONALES*`;
         const greeting = `Hola, visité el sitio web de *Drucken México Promocionales* y me interesan los siguientes productos:\n`;
 
@@ -59,6 +60,37 @@ export const useSummary = (orders = [] ) => {
             minimumFractionDigits: 2,
         })}\n`;
         message += `\n*Nota:* Los precios no incluyen IVA.\n`;
+
+        const encodedMessage = encodeURIComponent(`${title}\n\n${greeting}${message}`);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, "_blank");
+    };
+    */
+
+    const sendOrder = () => {
+        const phoneNumber = "3315876207";
+        const title = `*COTIZACIÓN DE PEDIDO – DRUCKEN MÉXICO PROMOCIONALES*`;
+        const greeting = `Hola, visité el sitio web de *Drucken México Promocionales* y me interesan los siguientes productos:\n`;
+
+        let message = "";
+
+        groupedOrders.forEach(group => {
+            const totalGroupQuantity = group.groupedOrders.reduce(
+                (sum, order) => sum + order.OrderQuantity,
+                0
+            );
+
+            message += `\n═════════════════════\n`;
+            message += `*${group.ProductName}*\n`;
+            message += `Cantidad total: *${totalGroupQuantity} pzs*\n\n`;
+
+            group.groupedOrders.forEach(order => {
+                message += `*Color:* ${order.ProductColor}\n`;
+                message += `    Cantidad: ${order.OrderQuantity} pzs\n`;
+                message += `    *Imagen del producto:* ${order.ProductImage ? `${GlobalImage.url}${order.ProductImage}` : "No disponible"}\n\n`;
+            });
+
+        });
 
         const encodedMessage = encodeURIComponent(`${title}\n\n${greeting}${message}`);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

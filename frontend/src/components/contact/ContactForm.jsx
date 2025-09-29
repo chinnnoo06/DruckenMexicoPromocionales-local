@@ -107,9 +107,8 @@ export const ContactForm = () => {
 
                     <div className='flex justify-center pt-4'>
                         <button
-                            className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                            text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                            shadow-lg hover:shadow-xl flex items-center gap-2'
+                            className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                            text-[#EEEEEF] bg-[#9F531B] flex items-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                             type="submit"
                         >
                             <i className="fab fa-whatsapp"></i>

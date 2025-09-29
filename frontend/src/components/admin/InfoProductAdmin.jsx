@@ -103,9 +103,8 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
 
                 <div className='flex gap-5'>
                     <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                        className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                        text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                         onClick={() => {
                             navigate('/editar-producto-admin', {
                                 state: {
@@ -117,9 +116,8 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                         Editar
                     </button>
                     <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                        text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]
-                        shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
+                        className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                        text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                         onClick={() => setShowModal(true)}
                     >
                         Eliminar

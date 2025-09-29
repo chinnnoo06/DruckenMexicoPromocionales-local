@@ -446,7 +446,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                     <div className='flex justify-center pt-4'>
                         <button
                             className={`px-7 py-1 text-sm md:px-10 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                            text-[#EEEEEF] ${loading ? 'bg-[#8e8e92] cursor-not-allowed' : 'bg-[#9F531B] hover:bg-[#7C3E13]'}
+                            text-[#EEEEEF] ${loading ? 'bg-[#8e8e92] cursor-not-allowed hover:-translate-y-1' : 'bg-[#9F531B] hover:bg-[#7C3E13] hover:-translate-y-1'}
                             shadow-lg hover:shadow-xl flex items-center gap-2`}
                             type="submit"
                             disabled={loading}

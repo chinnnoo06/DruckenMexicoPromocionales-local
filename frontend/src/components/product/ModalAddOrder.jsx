@@ -70,9 +70,9 @@ export const ModalAddOrder = ({ order, showModal, setShowModal }) => {
                     {/* Actions */}
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <button
-                            className="w-full md:w-1/2 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
+                            className="w-full md:w-1/2 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold
                                     text-[#9F531B] bg-transparent hover:bg-[#9F531B]/10
-                                    border-2 border-[#9F531B] flex items-center justify-center gap-3"
+                                    border-2 border-[#9F531B] flex items-center justify-center gap-3 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
                             onClick={() => setShowModal(false)}
                         >
                             <i className="fa-solid fa-arrow-left"></i>
@@ -81,9 +81,9 @@ export const ModalAddOrder = ({ order, showModal, setShowModal }) => {
 
                         <Link
                             to="/pedido"
-                            className='w-full md:w-1/2 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
-                                    text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13] hover:shadow-md
-                                    shadow-sm flex items-center justify-center gap-3'
+                            className='w-full md:w-1/2 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold
+                                    text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-3
+                                    hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                         >
                             <i className="fa-solid fa-bag-shopping"></i>
                             Ver mi pedido
