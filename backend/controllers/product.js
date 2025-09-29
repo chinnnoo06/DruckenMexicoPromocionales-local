@@ -180,7 +180,10 @@ const deleteProduct = async (req, res) => {
 
 const addProduct = async (req, res) => {
     try {
-        const params = JSON.parse(req.body.data);
+        // CORRECCIÓN CLAVE: Aseguramos que 'req.body.data' es una cadena limpia
+        const dataString = req.body.data.toString().trim();
+        const params = JSON.parse(dataString);
+        
         const files = req.files;
 
         // Asignar nombre de archivo de la imagen general
@@ -199,6 +202,9 @@ const addProduct = async (req, res) => {
                 return color;
             });
         }
+        
+        // 3️⃣ Asignar span aleatorio (Asumiendo que spanOptions está definido)
+        const spanOptions = ["Destacado", "Para ti", "Novedad", "Recomendado", "Favorito"];
         params.span = spanOptions[Math.floor(Math.random() * spanOptions.length)];
 
         const newProduct = new Product(params);
@@ -221,7 +227,10 @@ const addProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
     try {
-        const params = JSON.parse(req.body.data);
+        // CORRECCIÓN CLAVE: Aseguramos que 'req.body.data' es una cadena limpia
+        const dataString = req.body.data.toString().trim();
+        const params = JSON.parse(dataString);
+        
         const files = req.files;
 
         // Obtener el producto actual
@@ -230,6 +239,9 @@ const updateProduct = async (req, res) => {
             return res.status(404).json({ status: "error", mensaje: "Producto no encontrado" });
         }
 
+        // Lógica de eliminación de imágenes antiguas (solo si existen y hay nuevas para reemplazar)
+        // Nota: Esta lógica elimina TODAS las imágenes del producto anterior. 
+        // Si no quieres eliminar las imágenes que NO se reemplazan, esta lógica necesita ser revisada.
         if (product.colors && product.colors.length > 0) {
             product.colors.forEach(c => {
                 if (c.image) {
@@ -250,21 +262,28 @@ const updateProduct = async (req, res) => {
             });
         }
 
-        // Asignar nombre de archivo de la imagen general
+        // Asignar nombre de archivo de la imagen general (nuevas subidas)
         if (files.generalImage && files.generalImage.length > 0) {
             params.generalImage = files.generalImage[0].filename;
+        } else {
+            // Si no se sube una nueva imagen general, mantenemos la anterior (o la ponemos a null si no queremos guardarla)
+             params.generalImage = product.generalImage;
         }
 
-        // Asignar nombres de archivo a cada color
+        // Asignar nombres de archivo a cada color (nuevas subidas)
         if (files.colorImages && files.colorImages.length > 0) {
             params.colors = params.colors.map((color, index) => {
                 if (files.colorImages[index]) {
                     color.image = files.colorImages[index].filename;
                 } else {
-                    color.image = null;
+                    // Si no se subió una nueva imagen para este color, mantenemos la antigua
+                    color.image = product.colors[index] ? product.colors[index].image : null;
                 }
                 return color;
             });
+        } else {
+            // Si no se subieron nuevas imágenes de color, mantenemos las antiguas
+             params.colors = product.colors;
         }
 
         // 3️⃣ Asignar span aleatorio
