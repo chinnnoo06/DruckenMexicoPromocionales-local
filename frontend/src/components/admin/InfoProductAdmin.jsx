@@ -24,7 +24,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
         <>
             <div className='w-full md:w-1/2 flex flex-col justify-center'>
                 <h3 className='text-[#9F531B] font-semibold text-[20px] sm:text-[22px] md:text-[25px] lg:text-[30px] mb-2'>
-                    {product.name}
+                    {product.name} ({product.key})
                 </h3>
 
                 {/* 

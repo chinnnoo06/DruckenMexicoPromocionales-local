@@ -10,7 +10,7 @@ export const InfoProductBeta = ({ product, selectedColor, setSelectedColor }) =>
         <>
             <div className='w-full md:w-1/2 flex flex-col justify-center'>
                 <h3 className='text-[#9F531B] font-semibold text-[20px] sm:text-[22px] md:text-[25px] lg:text-[30px] mb-2'>
-                    {product.name}
+                    {product.name} ({product.key})
                 </h3>
 
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>

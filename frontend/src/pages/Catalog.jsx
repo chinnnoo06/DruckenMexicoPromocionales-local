@@ -39,7 +39,7 @@ export const Catalog = () => {
           <input
             type="text"
             name="query"
-            placeholder="Buscar productos..."
+            placeholder="Buscar por nombre o clave..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="text-sm md:text-base w-full pl-10 pr-4 py-2 rounded-lg border-2 border-[#9F531B]/30 focus:outline-none focus:ring-2 focus:ring-[#9F531B]/50 focus:border-[#9F531B] transition-all duration-300 hover:border-[#9F531B]/50"
