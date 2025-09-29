@@ -46,8 +46,6 @@ export const useFormProduct = (colors, setColors, formData, setFormData, update 
     e.preventDefault();
     setLoading(true);
 
-    console.log(formData);
-
     const { errors } = Validation(formData);
     setFormErrors(errors);
 
