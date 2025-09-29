@@ -53,9 +53,7 @@ export const Catalog = () => {
             className="text-sm md:text-base w-full px-4 py-2 pr-10 rounded-lg bg-white text-[#9F531B] border-2 border-[#9F531B]/30 focus:outline-none focus:ring-2 focus:ring-[#9F531B]/50 focus:border-[#9F531B] transition-all duration-300 hover:border-[#9F531B]/50 appearance-none"
           >
             <option value="all">Todos</option>
-            <option value="Termos">Bebidas</option>
-            <option value="Tazas">Tazas</option>
-            <option value="Botellas">Botellas</option>
+            <option value="Bebidas">Bebidas</option>
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#9F531B]">
             <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

@@ -143,9 +143,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                                         value={formData.category}
                                     >
                                         <option>Selecciona una</option>
-                                        <option value="Termos">Bebidas</option>
-                                        <option value="Tazas">Tazas</option>
-                                        <option value="Botellas">Botellas</option>
+                                        <option value="Bebidas">Bebidas</option>
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#9F531B]">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
