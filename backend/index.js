@@ -15,7 +15,7 @@ const puerto = process.env.PORT || 3000;
 
 // Configurar CORS
 app.use(cors({
-    origin: process.env.URL, // tu frontend
+    origin: process.env.URL, // URL de tu frontend
     credentials: true
 }));
 
@@ -33,17 +33,19 @@ const userRoutes = require("./routes/user");
 app.use("/api/product", productRoutes);
 app.use("/api/user", userRoutes);
 
-// Servir frontend React
+// Servir frontend React (Vite)
 const frontendPath = path.join(__dirname, '../frontend');
 
-// Detectar si estamos en producción (build) o desarrollo
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(frontendPath, 'build')));
+    // Servir archivos de la carpeta dist generada por Vite
+    app.use(express.static(path.join(frontendPath, 'dist')));
+
+    // Todas las rutas que no sean /api/... van al index.html de Vite
     app.get(/^\/(?!api).*/, (req, res) => {
-        res.sendFile(path.join(frontendPath, 'build', 'index.html'));
+        res.sendFile(path.join(frontendPath, 'dist', 'index.html'));
     });
 } else {
-    // En desarrollo puede apuntar al build de Vite si lo quieres servir así
+    // Desarrollo: mostrar mensaje simple
     app.get('/', (req, res) => {
         res.send('Backend corriendo en modo desarrollo');
     });
