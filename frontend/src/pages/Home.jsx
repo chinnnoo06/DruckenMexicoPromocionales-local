@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { SectionWrapper } from '../components/layout/SectionWrapper'
 import '../styles/home.css'
 import { HomeProductsCarousel } from '../components/home/HomeProductsCarousel';
@@ -17,11 +17,12 @@ export const Home = () => {
   return (
     <>
       {/* Sección Hero */}
-      <div id="inicio" className='hero-container mt-0'>
-        <SectionWrapper className='container-main-content home-content flex h-screen justify-center items-center gap-10 mx-auto max-w-[1300px] pt-20 lg:pt-0'>
+      <div id="inicio" className="hero-container mt-0">
+        <SectionWrapper className="container-main-content home-content flex min-h-screen justify-center items-center gap-10 mx-auto max-w-[1300px] pt-20 lg:pt-0 ">
           <HomeMainContent />
         </SectionWrapper>
       </div>
+
 
       {/* Sección Productos */}
       <SectionWrapper>
@@ -37,17 +38,17 @@ export const Home = () => {
 
       {/* Sección Nosotros */}
       <section id="nosotros" className=" bg-gray-50">
-        <About/>
+        <About />
       </section>
 
       {/* Sección Servicios */}
       <section id="servicios">
-        <OurServices/>
+        <OurServices />
       </section>
 
       {/* Sección Contacto */}
       <section id="contacto" className=" bg-gray-50">
-        <Contact/>
+        <Contact />
       </section>
     </>
   );
