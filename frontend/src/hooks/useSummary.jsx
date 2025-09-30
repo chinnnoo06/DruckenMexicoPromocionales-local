@@ -81,7 +81,7 @@ export const useSummary = (orders = [] ) => {
             );
 
             message += `\n═════════════════════\n`;
-            message += `*${group.ProductName}*\n`;
+            message += `*${group.ProductName}  (${group.ProductKey})*\n`;
             message += `Cantidad total: *${totalGroupQuantity} pzs*\n\n`;
 
             group.groupedOrders.forEach(order => {
@@ -89,7 +89,6 @@ export const useSummary = (orders = [] ) => {
                 message += `    Cantidad: ${order.OrderQuantity} pzs\n`;
                 message += `    *Imagen del producto:* ${order.ProductImage ? `${GlobalImage.url}${order.ProductImage}` : "No disponible"}\n\n`;
             });
-
         });
 
         const encodedMessage = encodeURIComponent(`${title}\n\n${greeting}${message}`);

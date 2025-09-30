@@ -17,13 +17,16 @@ export const MapOrder = ({ orders, setOrders }) => {
           );
 
           return (
-            <>
-              {/*<OrderCart key={group.ProductID} group={group} totalQuantity={totalQuantity} handleAmount={handleAmount} deleteProduct={deleteProduct} />*/}
-              <OrderCartBeta key={group.ProductID} group={group} totalQuantity={totalQuantity} handleAmount={handleAmount} deleteProduct={deleteProduct} />
-            </>
+            <OrderCartBeta
+              key={group.ProductID}
+              group={group}
+              totalQuantity={totalQuantity}
+              handleAmount={handleAmount}
+              deleteProduct={deleteProduct}
+            />
           );
-
         })}
+
 
       </div>
 

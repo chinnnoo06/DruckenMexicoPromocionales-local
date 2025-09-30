@@ -6,7 +6,7 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
     return (
         <div className="p-4 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 hover:shadow-md transition-shadow duration-300 rounded-lg" key={group.ProductID}>
             <h3 className="font-semibold text-[#9F531B] text-[17px] sm:text-[19px] md:text-[21px] lg:text-[23px] mb-3 w-full">
-                {group.ProductName}
+                 {group.ProductName} ({group.ProductKey})
             </h3>
 
             <div className="space-y-4">

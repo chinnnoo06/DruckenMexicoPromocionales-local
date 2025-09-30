@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSummary } from '../../hooks/useSummary';
 
 export const OrderSummaryBeta = ({ orders }) => {
-    const {isDisabled, sendOrder, total} = useSummary(orders);
-    
+    const { isDisabled, sendOrder, total } = useSummary(orders);
+
     return (
         <div className="col2 flex flex-col flex-[30%] h-1/2 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 p-6 rounded-xl border border-[#9F531B]/20 shadow-sm">
             <div className='flex flex-col space-y-6'>
@@ -19,11 +19,11 @@ export const OrderSummaryBeta = ({ orders }) => {
                         <span className="font-medium">{orders.length}</span>
                     </div>
 
-           
+
                 </div>
 
                 {/* Botones de acción */}
-      <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-4'>
                     <div className='flex flex-col'>
                         <button
                             className={`w-full 

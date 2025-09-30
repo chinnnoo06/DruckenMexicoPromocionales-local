@@ -17,6 +17,7 @@ export const useCart = (orders = [], setOrders) => {
         if (!acc[order.ProductID]) {
           acc[order.ProductID] = {
             ProductID: order.ProductID,
+            ProductKey: order.ProductKey,
             ProductName: order.ProductName,
             minQuantity: order.minQuantity,
             groupedOrders: [],

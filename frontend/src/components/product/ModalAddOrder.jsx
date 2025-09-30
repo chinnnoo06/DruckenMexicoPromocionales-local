@@ -35,7 +35,7 @@ export const ModalAddOrder = ({ order, showModal, setShowModal }) => {
 
                         {/* Product Details */}
                         <div className="w-full md:w-3/4 flex flex-col ">
-                            <h4 className="text-[#9F531B] font-semibold text-left text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] mb-2">{order.ProductName}</h4>
+                            <h4 className="text-[#9F531B] font-semibold text-left text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] mb-2">{order.ProductName} ({order.ProductKey})</h4>
 
                             <div className="space-y-2 mb-2">
                                 <div className="flex items-center gap-2 text-[13px] sm:text-[13px] md:text-[15px] lg:text-[17px]">

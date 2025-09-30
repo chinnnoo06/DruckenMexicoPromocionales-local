@@ -16,6 +16,7 @@ export const useProduct = (product, selectedColor) => {
 
     const newOrder = {
       ProductID: product._id,
+      ProductKey: product.key,
       ProductName: product.name,
       ProductPrice: product.price,
       ProductColor: product.colors[selectedColor].color,
