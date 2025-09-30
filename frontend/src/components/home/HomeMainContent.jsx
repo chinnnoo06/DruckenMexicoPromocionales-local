@@ -13,7 +13,7 @@ export const HomeMainContent = () => {
     };
     return (
         <>
-            <div className='col1 flex flex-col md:mt-16'>
+            <div className='col1 flex flex-col'>
                 {/* Badge de empresa */}
                 <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#9F531B]/10 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-full px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 w-fit">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#9F531B] rounded-full animate-pulse"></div>
@@ -22,7 +22,7 @@ export const HomeMainContent = () => {
                 <div className='text-container  '>
                     <SplitText
                         text="Drucken México Promocionales"
-                        className="text-[#9F531B] font-extrabold text-[35px] sm:text-[38px] md:text-[42px] lg:text-[50px]"
+                        className="text-[#9F531B] font-extrabold text-[32px] sm:text-[37px] md:text-[40px] lg:text-[45px]"
                         delay={50}
                         duration={0.3}
                         ease="power3.out"
@@ -33,7 +33,7 @@ export const HomeMainContent = () => {
                         rootMargin="-100px"
                         textAlign="start"
                     />
-                    <h3 className='text-[#1A1615] font-semibold text-[19px] sm:text-[21px] md:text-[23px] lg:text-[25px]'>
+                    <h3 className='text-[#1A1615] font-semibold text-[17px] sm:text-[19px] md:text-[22px] lg:text-[25px]'>
                         Promociona con impacto, vende con resultados.
                     </h3>
                     <span className='text-[#1A1615] text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-medium mt-2 block '>
@@ -65,7 +65,7 @@ export const HomeMainContent = () => {
                 </div>
             </div>
 
-            <div className='col2 w-full max-w-[350px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[650px] relative'>
+            <div className='col2 w-full max-w-[350px] lg:max-w-[600px] xl:max-w-[650px] relative'>
                 <div className='relative group'>
                     <img
                         src={DruckenLogo}
