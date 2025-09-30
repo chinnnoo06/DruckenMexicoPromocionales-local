@@ -4,9 +4,7 @@ import serigrafia from '../assets/images_services/serigrafia.jpg';
 import tampografia from '../assets/images_services/tampografia.jpg';
 import subliminado from '../assets/images_services/subliminado.jpg';
 import esmaltado2D from '../assets/images_services/esmaltado2D.jpg';
-import resinado2 from '../assets/images_services/resinado-2.jpg';
-import resinado3 from '../assets/images_services/resinado-3.jpg';
-import resinado4 from '../assets/images_services/resinado-4.jpg';
+
 import grabadoLaser from '../assets/images_services/grabadoLaser.jpg';
 import bordado from '../assets/images_services/bordado.jpg';
 import rotulosPublicitarios from '../assets/images_services/rotulosPublicitarios.jpg';
