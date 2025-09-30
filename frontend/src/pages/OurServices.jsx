@@ -4,7 +4,9 @@ import serigrafia from '../assets/images_services/serigrafia.jpg';
 import tampografia from '../assets/images_services/tampografia.jpg';
 import subliminado from '../assets/images_services/subliminado.jpg';
 import esmaltado2D from '../assets/images_services/esmaltado2D.jpg';
-
+import esmaltado2D2 from '../assets/images_services/esmaltado2D-2.jpg';
+import esmaltado2D3 from '../assets/images_services/esmaltado2D-3.jpg';
+import esmaltado2D4 from '../assets/images_services/esmaltado2D-4.jpg';
 import grabadoLaser from '../assets/images_services/grabadoLaser.jpg';
 import bordado from '../assets/images_services/bordado.jpg';
 import rotulosPublicitarios from '../assets/images_services/rotulosPublicitarios.jpg';
@@ -37,7 +39,7 @@ export const OurServices = () => {
       id: 4,
       name: "Esmaltados 2D",
       description: "Imprime a todo color, con corte a la medida y gran durabilidad gracias a nuestras resinas de alta resitencia.",
-      image: esmaltado2D
+      images: [esmaltado2D, esmaltado2D2, esmaltado2D3, esmaltado2D4]
     },
     {
       id: 5,
