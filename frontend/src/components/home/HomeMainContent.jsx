@@ -13,7 +13,7 @@ export const HomeMainContent = () => {
     };
     return (
         <>
-            <div className='col1 flex flex-col md:mt-16'>
+            <div className='col1 flex flex-col mt-16'>
                 {/* Badge de empresa */}
                 <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#9F531B]/10 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-full px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 w-fit">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#9F531B] rounded-full animate-pulse"></div>
@@ -65,7 +65,7 @@ export const HomeMainContent = () => {
                 </div>
             </div>
 
-            <div className='col2 w-full max-w-[350px] lg:max-w-[600px] xl:max-w-[650px] relative'>
+            <div className='col2 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[600px] xl:max-w-[650px] relative mb-16 md:mb-0'>
                 <div className='relative group'>
                     <img
                         src={DruckenLogo}
