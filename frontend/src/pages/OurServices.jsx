@@ -35,7 +35,7 @@ export const OurServices = () => {
     },
     {
       id: 4,
-      name: "ESMALTADOS 2D",
+      name: "Esmaltados 2D",
       description: "Imprime a todo color, con corte a la medida y gran durabilidad gracias a nuestras resinas de alta resitencia.",
       image: esmaltado2D
     },
