@@ -3,7 +3,10 @@ import { SectionWrapper } from '../components/layout/SectionWrapper'
 import serigrafia from '../assets/images_services/serigrafia.jpg';
 import tampografia from '../assets/images_services/tampografia.jpg';
 import subliminado from '../assets/images_services/subliminado.jpg';
-import resinado from '../assets/images_services/resinado.jpg';
+import esmaltado2D from '../assets/images_services/esmaltado2D.jpg';
+import resinado2 from '../assets/images_services/resinado-2.jpg';
+import resinado3 from '../assets/images_services/resinado-3.jpg';
+import resinado4 from '../assets/images_services/resinado-4.jpg';
 import grabadoLaser from '../assets/images_services/grabadoLaser.jpg';
 import bordado from '../assets/images_services/bordado.jpg';
 import rotulosPublicitarios from '../assets/images_services/rotulosPublicitarios.jpg';
@@ -34,9 +37,9 @@ export const OurServices = () => {
     },
     {
       id: 4,
-      name: "Resinado",
+      name: "ESMALTADOS 2D",
       description: "Imprime a todo color, con corte a la medida y gran durabilidad gracias a nuestras resinas de alta resitencia.",
-      image: resinado
+      image: esmaltado2D
     },
     {
       id: 5,
