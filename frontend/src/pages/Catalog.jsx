@@ -68,7 +68,7 @@ export const Catalog = () => {
 
       {/*   <MapCatalog products={products} loading={loading} page={page} isAdmin={isAdmin} />*/}
 
-      <MapCatalogBeta products={products} loading={loading} page={page} isAdmin={isAdmin} />
+      <MapCatalogBeta products={products} loading={loading} page={page} searchCategory={searchCategory} isAdmin={isAdmin} />
 
       <PaginationButtons
         totalPages={totalPages}

@@ -30,6 +30,8 @@ export const Product = () => {
         }
     }, [location, navigate]);
 
+    console.log(location.state?.searchCategory)
+
     return (
         <SectionWrapper className='container-main-content pt-32 pb-20 flex flex-col justify-center gap-2 mx-auto max-w-[1300px]'>
             {product ? (
@@ -40,6 +42,7 @@ export const Product = () => {
                             className="text-amber-700 hover:text-amber-800 transition-colors duration-200"
                             state={{
                                 page: location.state?.page || 1,
+                                selectCategory: location.state?.searchCategory,
                                 scrollY: location.state?.scrollY || 0
                             }}
                         >

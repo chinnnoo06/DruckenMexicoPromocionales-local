@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GlobalImage } from '../../helpers/Global';
 
 
-export const MapCatalogBeta = ({ products, loading, page, isAdmin }) => {
+export const MapCatalogBeta = ({ products, loading, page, searchCategory, isAdmin }) => {
     const navigate = useNavigate();
 
     if (loading) {
@@ -38,6 +38,7 @@ export const MapCatalogBeta = ({ products, loading, page, isAdmin }) => {
                                             state: {
                                                 product,
                                                 page,
+                                                searchCategory,
                                                 scrollY: window.scrollY ,
                                                 isAdmin
                                             }

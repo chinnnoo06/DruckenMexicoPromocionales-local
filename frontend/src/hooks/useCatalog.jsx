@@ -31,12 +31,18 @@ export const useCatalog = (isAdmin = false) => {
         if (location.state?.page) {
             setPage(location.state.page);
             pendingScrollY.current = location.state.scrollY || 0;
+
+            if (location.state?.selectCategory) {
+                setSearchCategory(location.state.selectCategory);
+            }
         } else {
             window.scrollTo(0, 0);
             setPage(1);
+            setSearchCategory("all");
             pendingScrollY.current = 0;
         }
     }, [location.state]);
+
 
     // Cada vez que cambian searchCategory o page, se llama fetchProducts.
     useEffect(() => {
