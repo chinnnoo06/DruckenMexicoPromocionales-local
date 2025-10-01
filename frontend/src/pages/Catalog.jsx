@@ -18,27 +18,39 @@ export const Catalog = () => {
           <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-10px] w-24 h-1.5 bg-[#9F531B] rounded-full"></span>
         </h1>
         <p className="text-gray-700 text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-medium mt-2 block">
-          Explora nuestra gran variedad de productos promocionales de la mejor calidad que tenemos para ti.
+          Explora nuestros productos promocionales y revisa los catálogos completos en los siguientes enlaces.
         </p>
-        <div className='flex flex-col md:flex-row md:gap-5 justify-center '>
+
+
+        {/* Enlaces de catálogos mejorados */}
+        <div className='flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mt-6 px-2'>
           <a
             href="https://online.flippingbook.com/view/904760688/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium mt-2 block underline hover:text-[#9F531B] transition-all duration-300"
+            className="inline-flex items-center px-3 py-1 bg-orange-50 border-2 border-orange-200 text-[#9F531B] font-semibold rounded-lg hover:bg-orange-100 hover:border-orange-300 hover:shadow-md transition-all duration-300 text-[14px] sm:text-[15px] md:text-[16px] whitespace-nowrap"
           >
-            Ve nuestro catálogo completo dando click aquí
+            Catálogo General
           </a>
+          <span className="text-gray-300 hidden sm:inline">•</span>
           <a
             href="https://drucken.com.mx/files/catalogo%20gorras.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium mt-2 block underline hover:text-[#9F531B] transition-all duration-300"
+            className="inline-flex items-center px-3 py-1 bg-orange-50 border-2 border-orange-200 text-[#9F531B] font-semibold rounded-lg hover:bg-orange-100 hover:border-orange-300 hover:shadow-md transition-all duration-300 text-[14px] sm:text-[15px] md:text-[16px] whitespace-nowrap"
           >
-            Ve nuestro catálogo de gorras dando click aquí
+            Catálogo Gorras
+          </a>
+          <span className="text-gray-300 hidden sm:inline">•</span>
+          <a
+            href="https://heyzine.com/flip-book/7c655c971b.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-3 py-1 bg-orange-50 border-2 border-orange-200 text-[#9F531B] font-semibold rounded-lg hover:bg-orange-100 hover:border-orange-300 hover:shadow-md transition-all duration-300 text-[14px] sm:text-[15px] md:text-[16px] whitespace-nowrap"
+          >
+            Catálogo Calendarios
           </a>
         </div>
-
       </div>
 
       {/* Barra de búsqueda */}
