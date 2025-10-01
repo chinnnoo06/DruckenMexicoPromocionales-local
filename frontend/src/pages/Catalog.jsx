@@ -20,14 +20,25 @@ export const Catalog = () => {
         <p className="text-gray-700 text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-medium mt-2 block">
           Explora nuestra gran variedad de productos promocionales de la mejor calidad que tenemos para ti.
         </p>
-        <a
-          href="https://online.flippingbook.com/view/904760688/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium mt-2 block underline hover:text-[#9F531B] transition-all duration-300"
-        >
-          Ve nuestro catálogo completo dando click aquí
-        </a>
+        <div className='flex flex-col md:flex-row md:gap-5 justify-center '>
+          <a
+            href="https://online.flippingbook.com/view/904760688/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium mt-2 block underline hover:text-[#9F531B] transition-all duration-300"
+          >
+            Ve nuestro catálogo completo dando click aquí
+          </a>
+          <a
+            href="https://drucken.com.mx/files/catalogo%20gorras.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-medium mt-2 block underline hover:text-[#9F531B] transition-all duration-300"
+          >
+            Ve nuestro catálogo de gorras dando click aquí
+          </a>
+        </div>
+
       </div>
 
       {/* Barra de búsqueda */}
