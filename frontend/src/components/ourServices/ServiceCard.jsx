@@ -18,12 +18,12 @@ export const ServiceCard = ({ service }) => {
   }, [service.images]);
 
   return (
-    <div className="bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="max-w-md w-full mx-auto bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <div className="h-96 overflow-hidden">
         <img
           src={currentImage}
           alt={service.name}
-          className="w-full h-full object-cover transition-transform duration-500"
+          className="w-full h-full object-cover transition-opacity duration-700"
         />
       </div>
       <div className="p-6">
