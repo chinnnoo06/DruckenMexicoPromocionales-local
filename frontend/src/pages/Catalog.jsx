@@ -15,23 +15,22 @@ export const Catalog = () => {
     {
       title: "General",
       href: "https://online.flippingbook.com/view/904760688/",
-      icon: "📚",
-      color: "from-blue-500 to-purple-600",
-      borderColor: "border-blue-200 hover:border-blue-400"
+      icon: "📚"
     },
     {
       title: "Gorras",
       href: "https://drucken.com.mx/files/catalogo%20gorras.pdf",
-      icon: "🧢",
-      color: "from-green-500 to-emerald-600",
-      borderColor: "border-green-200 hover:border-green-400"
+      icon: "🧢"
     },
     {
       title: "Calendarios",
       href: "https://heyzine.com/flip-book/7c655c971b.html",
-      icon: "📅",
-      color: "from-orange-500 to-red-600",
-      borderColor: "border-orange-200 hover:border-orange-400"
+      icon: "📅"
+    },
+    {
+      title: "Sellos",
+      href: "https://drucken.com.mx/files/catalogo%20sellos.pdf",
+      icon: "🔖"
     }
   ];
 
