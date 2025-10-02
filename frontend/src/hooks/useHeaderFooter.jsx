@@ -81,22 +81,18 @@ export const useHeaderFooter = () => {
 
     const navigateToSection = (sectionId) => {
         navigate('/inicio');
-        const scrollWhenReady = () => {
+        setTimeout(() => {
             const element = document.getElementById(sectionId);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
                 setMenuVisible(false);
-            } else {
-                requestAnimationFrame(scrollWhenReady);
             }
-        };
-        requestAnimationFrame(scrollWhenReady);
+        }, 400);
     };
-
 
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
     };
 
-    return { scrollToSection, navigateToSection, toggleMenu, menuVisible, activeSection, showHeader, isInicio };
+    return {scrollToSection, navigateToSection, toggleMenu, menuVisible, activeSection, showHeader, isInicio};
 }
