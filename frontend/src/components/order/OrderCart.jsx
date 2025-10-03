@@ -6,7 +6,7 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
     return (
         <div className="p-4 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 hover:shadow-md transition-shadow duration-300 rounded-lg" key={group.ProductID}>
             <h3 className="font-semibold text-[#9F531B] text-[17px] sm:text-[19px] md:text-[21px] lg:text-[23px] mb-3 w-full">
-                 {group.ProductName} ({group.ProductKey})
+                {group.ProductName} ({group.ProductKey})
             </h3>
 
             <div className="space-y-4">
@@ -52,9 +52,16 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
                                         <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-[#9f531b]">
                                             Precio Unitario:
                                         </span>
-                                        <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-gray-700">
-                                            MXN {order.ProductPrice.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
-                                        </span>
+                                        {order.ProductCategory == "Agendas" ? (
+                                            <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-gray-700">
+                                                MXN {order.ProductPrice.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
+                                            </span>
+                                        ) : (
+                                            <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-gray-700">
+                                                No especificado
+                                            </span>
+                                        )}
+
                                     </div>
                                 </div>
 
@@ -87,9 +94,16 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
                                     </button>
                                 </div>
 
-                                <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-bold text-[#9F531B]">
-                                    MXN {order.Subtotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                                </p>
+                                {order.ProductCategory == "Agendas" ? (
+                                    <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-bold text-[#9F531B]">
+                                        MXN {order.Subtotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                                    </p>
+                                ) : (
+                                    <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-bold text-[#9F531B]">
+                                        No especificado
+                                    </p>
+                                )}
+
                             </div>
                         </div>
                     </div>

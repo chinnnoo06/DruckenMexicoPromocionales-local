@@ -17,7 +17,7 @@ export const MapOrder = ({ orders, setOrders }) => {
           );
 
           return (
-            <OrderCartBeta
+            <OrderCart
               key={group.ProductID}
               group={group}
               totalQuantity={totalQuantity}

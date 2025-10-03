@@ -3,7 +3,6 @@ import LoadingSpinner from '../layout/LoadingSpinner'
 import { useNavigate } from 'react-router-dom';
 import { GlobalImage } from '../../helpers/Global';
 
-
 export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin }) => {
     const navigate = useNavigate();
 
@@ -39,7 +38,7 @@ export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin })
                                                 product,
                                                 searchCategory,
                                                 page,
-                                                scrollY: window.scrollY ,
+                                                scrollY: window.scrollY,
                                                 isAdmin
                                             }
                                         })
@@ -58,11 +57,14 @@ export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin })
                                 </div>
 
                                 {/* Precio del producto */}
-                                <div>
-                                    <p className="text-[#9F531B] text-base font-semibold">
-                                        MXN {product.price.toFixed(2)}
-                                    </p>
-                                </div>
+                                {product.category == "Agendas" && (
+                                    <div>
+                                        <p className="text-[#9F531B] text-base font-semibold">
+                                            MXN {product.price.toFixed(2)}
+                                        </p>
+                                    </div>
+                                )}
+
                             </div>
                         </div>
                     ))}

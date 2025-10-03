@@ -12,9 +12,12 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                     {product.name} ({product.key})
                 </h3>
 
-                <span className="text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#9F531B]">
-                    MXN {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                </span>
+                {product.category == "Agendas" && (
+                    <span className="text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#9F531B]">
+                        MXN {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                    </span>
+                )}
+
 
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>
                     {product.description}
@@ -61,9 +64,8 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                     <h4 className='text-[#9F531B] font-semibold text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] mb-2'>Colores disponibles</h4>
                     <div className="flex flex-wrap gap-3">
                         {product.colors.map((c, index) => (
-                            <div className='flex flex-col gap-2 items-center'>
+                            <div className='flex flex-col gap-2 items-center' key={index}>
                                 <button
-                                    key={index}
                                     onClick={() => setSelectedColor(index)}
                                     className={`w-6 h-6 md:w-9 md:h-9 rounded-full border-2 transition-all flex items-center justify-center
                                                 ${selectedColor === index ? 'border-[#7C3E13] scale-110' : 'border-gray-200 hover:border-gray-300'}`}
@@ -71,7 +73,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                                     aria-label={`Seleccionar color ${c.color}`}
                                     title={c.color}
                                 >
-                            
+
                                 </button>
                                 <span className='text-xs'>{c.color}</span>
                             </div>
@@ -94,12 +96,22 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                                     focus:border-[#9F531B] focus:bg-white transition-all duration-300 
                                     text-base hover:border-[#9F531B]/50'
                     />
-                    <p className="mt-1 text-xs text-gray-500">
+                    {/* 
+                         <p className="mt-1 text-xs text-gray-500">
                         * El precio unitario puede variar según cantidad y acabados especiales, aclarar por mensaje directo
                     </p>
                     <p className="mt-1 text-xs text-gray-500">
                         * La cantidad mínima de pedido es de {product.minQuantity}
                     </p>
+                    
+                    */}
+
+                    {product.category == "Agendas" && (
+                        <p className="mt-1 text-xs text-gray-500">
+                            * El precio mostrado es unitario, medio mayoreo a partir de 6 piezas  / mayoreo a partir de 12 piezas
+                        </p>
+                    )}
+
                 </div>
 
                 <button
@@ -112,7 +124,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                 </button>
             </div>
 
-            
+
             <ModalAddOrder order={order} showModal={showModal} setShowModal={setShowModal} />
         </>
 

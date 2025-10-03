@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useSummary } from '../../hooks/useSummary';
 
 export const OrderSummary = ({ orders }) => {
-    const {isDisabled, sendOrder, total} = useSummary(orders);
-    
+    const { isDisabled, sendOrder, total, showPrice, showLeyend } = useSummary(orders);
+
+
     return (
         <div className="col2 flex flex-col flex-[30%] h-1/2 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 p-6 rounded-xl border border-[#9F531B]/20 shadow-sm">
             <div className='flex flex-col space-y-6'>
@@ -19,19 +20,29 @@ export const OrderSummary = ({ orders }) => {
                         <span className="font-medium">{orders.length}</span>
                     </div>
 
-                    <div className="flex justify-between items-center pt-2 border-t border-[#9F531B]/20 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[17px]">
-                        <span className="text-[#1A1615] font-semibold ">Total:</span>
-                        <span className="font-bold text-[#9F531B]">
-                            MXN {total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                        </span>
-                    </div>
-                    <p className="text-xs text-[#9F531B]/70  mt-2">
-                        * Los Precios no incluyen IVA.
-                    </p>
+                    {showPrice && (
+                        <>
+                            <div className="flex justify-between items-center pt-2 border-t border-[#9F531B]/20 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[17px]">
+                                <span className="text-[#1A1615] font-semibold ">Total:</span>
+                                <span className="font-bold text-[#9F531B]">
+                                    MXN {total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                                </span>
+                            </div>
+                            {showLeyend && (
+                                <p className="text-xs text-[#9F531B]/70  mt-2">
+                                    * Hay productos que no tienen precio especificado
+                                </p>
+                            )}
+                            <p className="text-xs text-[#9F531B]/70  mt-2">
+                                * Los Precios no incluyen IVA.
+                            </p>
+                        </>
+                    )}
+
                 </div>
 
                 {/* Botones de acción */}
-      <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-4'>
                     <div className='flex flex-col'>
                         <button
                             className={`w-full 

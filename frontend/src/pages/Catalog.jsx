@@ -3,7 +3,6 @@ import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { MapCatalog } from '../components/catalog/MapCatalog';
 import { PaginationButtons } from '../components/catalog/PaginationButtons';
 import { useCatalog } from '../hooks/useCatalog';
-import { MapCatalogBeta } from '../components/catalog/MapCatalogBeta';
 
 export const Catalog = () => {
 
@@ -120,7 +119,7 @@ export const Catalog = () => {
         </div>
       </div>
 
-      <MapCatalogBeta products={products} loading={loading} page={page} searchCategory={searchCategory} isAdmin={isAdmin} />
+      <MapCatalog products={products} loading={loading} page={page} searchCategory={searchCategory} isAdmin={isAdmin} />
 
       <PaginationButtons
         totalPages={totalPages}

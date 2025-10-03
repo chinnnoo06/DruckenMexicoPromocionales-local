@@ -6,7 +6,6 @@ import LoadingSpinner from '../components/layout/LoadingSpinner';
 import { ImgProduct } from '../components/product/ImgProduct';
 import { InfoProduct } from '../components/product/InfoProduct';
 import { InfoProductAdmin } from '../components/admin/InfoProductAdmin';
-import { InfoProductBeta } from '../components/product/InfoProductBeta';
 
 export const Product = () => {
     const location = useLocation();
@@ -29,8 +28,6 @@ export const Product = () => {
             }
         }
     }, [location, navigate]);
-
-    console.log(location.state?.searchCategory)
 
     return (
         <SectionWrapper className='container-main-content pt-32 pb-20 flex flex-col justify-center gap-2 mx-auto max-w-[1300px]'>
@@ -60,9 +57,7 @@ export const Product = () => {
                         {/* Separador visual */}
                         <div className="hidden md:block w-[2px] bg-gradient-to-b from-transparent via-[#9F531B] to-transparent mx-4"></div>
 
-                        {/*{location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProduct product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />} */}
-
-                        {location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProductBeta product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />}
+                        {location.state?.isAdmin ? <InfoProductAdmin product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} /> : <InfoProduct product={product} selectedColor={selectedColor} setSelectedColor={setSelectedColor} />}
                     </div>
                 </>
             ) : (

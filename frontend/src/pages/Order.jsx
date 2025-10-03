@@ -3,7 +3,7 @@ import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { Link } from 'react-router-dom';
 import { MapOrder } from '../components/order/MapOrder';
 import { OrderSummary } from '../components/order/OrderSummary';
-import { OrderSummaryBeta } from '../components/order/OrderSummaryBeta';
+
 
 export const Order = () => {
   const [orders, setOrders] = useState([]);
@@ -44,7 +44,7 @@ export const Order = () => {
           <MapOrder orders={orders} setOrders={setOrders} />
 
           {/*  <OrderSummary orders={orders} />*/}
-          <OrderSummaryBeta orders={orders} />
+          <OrderSummary orders={orders} />
 
         </div>
       ) : (

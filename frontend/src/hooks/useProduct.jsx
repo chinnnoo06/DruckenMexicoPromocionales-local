@@ -18,6 +18,7 @@ export const useProduct = (product, selectedColor) => {
       ProductID: product._id,
       ProductKey: product.key,
       ProductName: product.name,
+      ProductCategory: product.category,
       ProductPrice: product.price,
       ProductColor: product.colors[selectedColor].color,
       ProductHexColor: product.colors[selectedColor].hex,
