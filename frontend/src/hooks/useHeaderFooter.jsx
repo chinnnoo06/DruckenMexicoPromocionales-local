@@ -87,7 +87,7 @@ export const useHeaderFooter = () => {
                 element.scrollIntoView({ behavior: 'smooth' });
                 setMenuVisible(false);
             }
-        }, 500);
+        }, 400);
     };
 
     const toggleMenu = () => {

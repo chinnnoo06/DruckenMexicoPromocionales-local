@@ -5,7 +5,7 @@ export const SectionWrapper = ({ children, className = 'container-main-content f
 
   const sectionRef = useRef(null);
   const isVisible = useIntersectionObserver(sectionRef, {
-    threshold: 0.1,
+    threshold: 0,
     triggerOnce: true
   });
   return (
