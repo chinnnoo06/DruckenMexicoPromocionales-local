@@ -61,11 +61,16 @@ export const HomeProductsCarousel = () => {
                     {product.name} ({product.key})
                   </h3>
                 </div>
-                <div className='mt-1 sm:mt-2'>
-                  <p className="text-[#9F531B] text-sm sm:text-base font-semibold">
-                    ${product.price.toFixed(2)}
-                  </p>
-                </div>
+
+                {/* Precio del producto */}
+                {product.category == "Agendas" && (
+                  <div className='mt-1 sm:mt-2'>
+                    <p className="text-[#9F531B] text-sm sm:text-base font-semibold">
+                      ${product.price.toFixed(2)}
+                    </p>
+                  </div>
+                )}
+
               </div>
             </div>
           ))}
