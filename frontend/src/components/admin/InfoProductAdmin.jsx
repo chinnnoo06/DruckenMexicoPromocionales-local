@@ -27,11 +27,11 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                     {product.name} ({product.key})
                 </h3>
 
-                {/* 
+                {product.category == "Agendas" && (
                     <span className="text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#9F531B]">
                         MXN {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
                     </span>
-                */}
+                )}
 
 
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>
