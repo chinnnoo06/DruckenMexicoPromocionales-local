@@ -3,6 +3,7 @@ import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { MapCatalog } from '../components/catalog/MapCatalog';
 import { PaginationButtons } from '../components/catalog/PaginationButtons';
 import { useCatalog } from '../hooks/useCatalog';
+import CategoryDropdown from '../components/catalog/CategoryDropdown ';
 
 export const Catalog = () => {
 
@@ -99,25 +100,8 @@ export const Catalog = () => {
           />
         </div>
 
-        <div className="relative w-2/4 sm:w-1/3 md:w-1/4 lg:w-auto">
-          <select
-            value={searchCategory}
-            onChange={(e) => selectCategory(e.target.value)}
-            className="text-sm md:text-base w-full px-4 py-2 pr-10 rounded-lg bg-white text-[#9F531B] border-2 border-[#9F531B]/30 focus:outline-none focus:ring-2 focus:ring-[#9F531B]/50 focus:border-[#9F531B] transition-all duration-300 hover:border-[#9F531B]/50 appearance-none"
-          >
-            <option value="all">Todos</option>
-            <option value="Bebidas">Bebidas</option>
-            <option value="Arte">Arte</option>
-            <option value="Bic">Bic</option>
-            <option value="Bolígrafos Metálicos">Bolígrafos Metálicos</option>
-            <option value="Agendas">Agendas</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#9F531B]">
-            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
-          </div>
-        </div>
+        <CategoryDropdown searchCategory={searchCategory} selectCategory={selectCategory} />
+
       </div>
 
       <MapCatalog products={products} loading={loading} page={page} searchCategory={searchCategory} isAdmin={isAdmin} />
