@@ -35,7 +35,7 @@ export const HomeProductsCarousel = () => {
               </span>
 
               {/* Contenedor de imagen con aspect ratio fijo */}
-              <div className='w-full aspect-[3/4] relative overflow-hidden rounded-t-lg'>
+              <div className='w-full aspect-[3/4] relative overflow-hidden rounded-md'>
                 <img
                   src={product.colors.length > 1 ? `${GlobalImage.url}${product.generalImage}` : `${GlobalImage.url}${product.colors[0].image}`}
                   alt={product.name}
@@ -87,7 +87,7 @@ export const HomeProductsCarousel = () => {
       </div>
 
       <Link to="/catalogo" className='no-underline flex items-center justify-center'>
-        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl border border-[#9F531B] text-[#9F531B] hover:bg-[#9F531B] hover:text-[#EEEEEF] transition-all duration-300 hover:shadow-lg  hover:-translate-y-1 mt-5 font-semibold w-[200px] sm:w-[300px]'>
+        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl border border-[#9F531B] text-[#9F531B] hover:bg-[#9F531B] hover:text-[#EEEEEF] transition-all duration-300 hover:shadow-lg  hover:-translate-y-1  font-semibold w-[200px] sm:w-[300px]'>
           Ver más productos
         </button>
       </Link>
