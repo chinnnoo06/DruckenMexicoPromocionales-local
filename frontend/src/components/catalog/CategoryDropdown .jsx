@@ -49,7 +49,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
 
       {/* Menú desplegable */}
       {open && (
-        <div className="absolute z-20 mt-2 w-full bg-white border border-[#9F531B]/30 rounded-lg shadow-lg overflow-hidden animate-fadeIn">
+        <div className="absolute z-20 mt-2 w-full bg-white border border-[#9F531B]/30 rounded-lg shadow-lg overflow-hidden animate-fadeIn max-h-72  overflow-y-auto ">
           {categories.map((category) => (
             <button
               key={category.value}
