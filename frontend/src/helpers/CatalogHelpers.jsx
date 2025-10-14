@@ -14,10 +14,10 @@ export const getProducts = async (category, page, isAdmin) => {
 
 export const findProducts = async (category, query, page, isAdmin) => {
     if (isAdmin) {
-        const data = await Fetch(`${Global.url}product/buscar-productos-admin/${category}/${query}?page=${page}`, "GET");
+        const data = await Fetch(`${Global.url}product/buscar-productos-admin/${category}/${query}/${page}`, "GET");
         return data;
     } else {
-        const data = await Fetch(`${Global.url}product/buscar-productos/${category}/${query}?page=${page}`, "GET");
+        const data = await Fetch(`${Global.url}product/buscar-productos/${category}/${query}/${page}`, "GET");
         return data;
     }
 };

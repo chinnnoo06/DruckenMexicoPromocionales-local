@@ -13,59 +13,59 @@ const prueba = async (req, res) => {
 
 // Shuffle determinista usando seed
 function shuffleWithSeed(array, seed) {
-  let m = array.length, t, i;
-  const arr = [...array];
-  while (m) {
-    i = Math.floor(random(seed) * m--);
-    t = arr[m];
-    arr[m] = arr[i];
-    arr[i] = t;
-    seed++;
-  }
-  return arr;
+    let m = array.length, t, i;
+    const arr = [...array];
+    while (m) {
+        i = Math.floor(random(seed) * m--);
+        t = arr[m];
+        arr[m] = arr[i];
+        arr[i] = t;
+        seed++;
+    }
+    return arr;
 }
 
 // Generador pseudoaleatorio simple
 function random(seed) {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
 }
 
 const getProducts = async (req, res) => {
-  const category = req.params.category;
-  let page = parseInt(req.params.page);
-  if (isNaN(page) || page < 1) page = 1;
-  const itemsPerPage = 20;
+    const category = req.params.category;
+    let page = parseInt(req.params.page);
+    if (isNaN(page) || page < 1) page = 1;
+    const itemsPerPage = 20;
 
-  const filter = category === "all" ? {} : { category };
+    const filter = category === "all" ? {} : { category };
 
-  try {
-    const allProducts = await Product.find(filter);
+    try {
+        const allProducts = await Product.find(filter);
 
-    // 🔹 Seed basado en la hora actual (hora Unix / 3600)
-    const seed = Math.floor(Date.now() / (1000 * 60 * 60));
+        // 🔹 Seed basado en la hora actual (hora Unix / 3600)
+        const seed = Math.floor(Date.now() / (1000 * 60 * 60));
 
-    const shuffled = shuffleWithSeed(allProducts, seed);
+        const shuffled = shuffleWithSeed(allProducts, seed);
 
-    const startIndex = (page - 1) * itemsPerPage;
-    const paginated = shuffled.slice(startIndex, startIndex + itemsPerPage);
+        const startIndex = (page - 1) * itemsPerPage;
+        const paginated = shuffled.slice(startIndex, startIndex + itemsPerPage);
 
-    return res.status(200).send({
-      status: "success",
-      products: paginated,
-      total: allProducts.length,
-      page,
-      itemsPerPage,
-      pages: Math.ceil(allProducts.length / itemsPerPage)
-    });
+        return res.status(200).send({
+            status: "success",
+            products: paginated,
+            total: allProducts.length,
+            page,
+            itemsPerPage,
+            pages: Math.ceil(allProducts.length / itemsPerPage)
+        });
 
-  } catch (error) {
-    console.error("Error al listar productos", error);
-    return res.status(400).json({
-      status: "error",
-      mensaje: "Error al listar productos"
-    });
-  }
+    } catch (error) {
+        console.error("Error al listar productos", error);
+        return res.status(400).json({
+            status: "error",
+            mensaje: "Error al listar productos"
+        });
+    }
 };
 
 const getOneProduct = async (req, res) => {
@@ -93,36 +93,57 @@ const findProducts = async (req, res) => {
     const category = req.params.category || "all";
     let page = parseInt(req.params.page);
     if (isNaN(page) || page < 1) page = 1;
-    let itemsPerPage = 10;
-
-    // Construimos el filtro
-    const filter = {
-        ...(category !== "all" && { category }),
-        ...(search && {
-            $or: [
-                { name: { $regex: search, $options: "i" } },
-                { key: { $regex: search, $options: "i" } }
-            ]
-        })
-    };
+    let itemsPerPage = 20;
 
     try {
-        const products = await Product.paginate(filter, {
-            page,
-            limit: itemsPerPage,
-            sort: { _id: 1 }
-        });
 
-        setTimeout(() => {
-            return res.status(200).send({
-                status: "success",
-                products: products.docs,
-                total: products.totalDocs,
-                page: products.page,
-                itemsPerPage: products.limit,
-                pages: products.totalPages
+        // Construimos filtro base
+        const filter = {
+            ...(category !== "all" && { category }),
+            ...(search && {
+                $or: [
+                    { name: { $regex: search, $options: "i" } },
+                    { key: { $regex: search, $options: "i" } }
+                ]
+            })
+        };
+
+        // Obtenemos los productos sin paginar (para poder reordenar)
+        let allProducts = await Product.find(filter).sort({ _id: 1 });
+
+        // Reordenamos: coincidencias exactas primero
+        if (search) {
+            allProducts = allProducts.sort((a, b) => {
+                const aExact =
+                    a.name.toLowerCase() === search.toLowerCase() ||
+                    a.key.toLowerCase() === search.toLowerCase();
+                const bExact =
+                    b.name.toLowerCase() === search.toLowerCase() ||
+                    b.key.toLowerCase() === search.toLowerCase();
+
+                if (aExact && !bExact) return -1;
+                if (!aExact && bExact) return 1;
+                return 0;
             });
-        }, 1000)
+        }
+
+        // Paginamos manualmente
+        const totalDocs = allProducts.length;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const docs = allProducts.slice(start, end);
+
+        // Respondemos
+        setTimeout(() => {
+            return res.status(200).json({
+                status: "success",
+                products: docs,
+                total: totalDocs,
+                page,
+                itemsPerPage,
+                pages: Math.ceil(totalDocs / itemsPerPage)
+            });
+        }, 500);
 
     } catch (error) {
         console.error("Error al realizar busqueda", error);

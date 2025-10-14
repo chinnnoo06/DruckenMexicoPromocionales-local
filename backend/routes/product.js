@@ -104,7 +104,7 @@ const convertNewImagesToWebP = async (req, res, next) => {
 router.get("/prueba-producto", ProductController.prueba);
 router.get("/obtener-productos/:category/:page", ProductController.getProducts);
 router.get("/obtener-producto/:id", ProductController.getOneProduct);
-router.get("/buscar-productos/:category/:search", ProductController.findProducts);
+router.get("/buscar-productos/:category/:search/:page", ProductController.findProducts);
 router.get("/obtener-productos-carrusel", ProductController.getCarouselProducts);
 
 // Admin
