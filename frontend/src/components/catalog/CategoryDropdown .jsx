@@ -9,7 +9,11 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
     { value: "Arte", label: "Arte" },
     { value: "Bic", label: "Bic" },
     { value: "Bolígrafos Metálicos", label: "Bolígrafos Metálicos" },
+    { value: "Bolígrafos Multifuncionales", label: "Bolígrafos Multifuncionales" },
+    { value: "Bolígrafos de Plástico", label: "Bolígrafos de Plástico" },
+    { value: "Oficina", label: "Oficina" },
     { value: "Agendas", label: "Agendas" },
+
   ];
 
   const selected = categories.find(c => c.value === searchCategory) || categories[0];
