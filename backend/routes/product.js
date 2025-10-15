@@ -110,7 +110,7 @@ router.get("/obtener-productos-carrusel", ProductController.getCarouselProducts)
 // Admin
 router.get("/obtener-productos-admin/:category/:page", check.auth, ProductController.getProducts);
 router.get("/obtener-producto-admin/:id", check.auth, ProductController.getOneProduct);
-router.get("/buscar-productos-admin/:category/:search", check.auth, ProductController.findProducts);
+router.get("/buscar-productos-admin/:category/:search/:page", check.auth, ProductController.findProducts);
 router.delete("/eliminar-producto/:id", check.auth, ProductController.deleteProduct);
 
 // Crear producto
