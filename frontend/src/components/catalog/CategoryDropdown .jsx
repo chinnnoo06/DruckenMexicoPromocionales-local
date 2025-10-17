@@ -13,6 +13,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
     { value: "Bolígrafos de Plástico", label: "Bolígrafos de Plástico" },
     { value: "Oficina", label: "Oficina" },
     { value: "Agendas", label: "Agendas" },
+    { value: "Ecológicos", label: "Ecologicos" },
 
   ];
 
