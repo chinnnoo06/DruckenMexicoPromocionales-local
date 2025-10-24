@@ -14,6 +14,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
     { value: "Oficina", label: "Oficina" },
     { value: "Agendas", label: "Agendas" },
     { value: "Ecológicos", label: "Ecologicos" },
+    { value: "Textil", label: "Textil" },
 
   ];
 
