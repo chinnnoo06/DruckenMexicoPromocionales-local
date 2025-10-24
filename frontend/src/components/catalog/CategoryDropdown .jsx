@@ -14,8 +14,8 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
     { value: "Oficina", label: "Oficina" },
     { value: "Agendas", label: "Agendas" },
     { value: "Ecológicos", label: "Ecologicos" },
+    { value: "Targus", label: "Targus" },
     { value: "Textil", label: "Textil" },
-
   ];
 
   const selected = categories.find(c => c.value === searchCategory) || categories[0];
