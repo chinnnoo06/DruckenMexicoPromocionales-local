@@ -38,6 +38,7 @@ export const FooterAdmin = () => {
                             {[
                                 { to: "/catalogo-admin", text: "Catálogo" },
                                 { to: "/agregar-producto-admin", text: "Agregar Producto" },
+                                { to: "/categorias-admin", text: "Administrar Categorias" },
                                 { action: closeSession, text: "Cerrar Sesión" },
                             ].map((item, index) => (
                                 item.to ? (

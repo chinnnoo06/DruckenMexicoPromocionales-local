@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
+import { useCategorys } from '../../hooks/useCategorys';
 
 const CategoryDropdown = ({ searchCategory, selectCategory }) => {
   const [open, setOpen] = useState(false);
+  const {categories} = useCategorys();
 
-  const categories = [
+    const categoriesMap = [
     { value: "all", label: "Todos" },
-    { value: "Bebidas", label: "Bebidas" },
-    { value: "Arte", label: "Arte" },
-    { value: "Bic", label: "Bic" },
-    { value: "Bolígrafos Metálicos", label: "Bolígrafos Metálicos" },
-    { value: "Bolígrafos Multifuncionales", label: "Bolígrafos Multifuncionales" },
-    { value: "Bolígrafos de Plástico", label: "Bolígrafos de Plástico" },
-    { value: "Oficina", label: "Oficina" },
-    { value: "Agendas", label: "Agendas" },
-    { value: "Ecológicos", label: "Ecologicos" },
-    { value: "Targus", label: "Targus" },
-    { value: "Textil", label: "Textil" },
+    ...categories.map(cat => ({
+      value: cat.name,   // <-- Cambia según tu campo (cat._id si usas id)
+      label: cat.name
+    }))
   ];
-
-  const selected = categories.find(c => c.value === searchCategory) || categories[0];
+  const selected = categoriesMap.find(c => c.value === searchCategory) || categoriesMap[0];
 
   // Función para truncar solo en el botón principal
   const truncateLabel = (label, maxLength = 15) => {
@@ -52,7 +46,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
       {/* Menú desplegable */}
       {open && (
         <div className="absolute z-20 mt-2 w-full bg-white border border-[#9F531B]/30 rounded-lg shadow-lg overflow-hidden animate-fadeIn max-h-72  overflow-y-auto ">
-          {categories.map((category) => (
+          {categoriesMap.map((category) => (
             <button
               key={category.value}
               onClick={() => {

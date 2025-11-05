@@ -45,6 +45,16 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                     </h4>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="flex flex-col sm:col-span-2">
+                            <span className="text-[#7C3E13] text-[13px] sm:text-[14px] font-medium mb-1 flex items-center gap-2">
+                                Categoría
+                            </span>
+                            <span className="text-[#1A1615] text-[14px] sm:text-[15px] font-medium bg-white/50 
+                            rounded-lg px-3 py-2 border border-[#9F531B]/10">
+                                {product.category}
+                            </span>
+                        </div>
+                        
                         {product.material && (
                             <div className="flex flex-col">
                                 <span className="text-[#7C3E13] text-[13px] sm:text-[14px] font-medium">Material</span>
@@ -103,7 +113,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
 
                 <div className='flex gap-5'>
                     <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
                         text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                         onClick={() => {
                             navigate('/editar-producto-admin', {
@@ -113,13 +123,16 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
                             })
                         }}
                     >
+                        <i className="fas fa-edit"></i>
                         Editar
                     </button>
                     <button
-                        className='w-full md:w-56 px-3.5 py-1.5 text-x md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
+                        className='w-full md:w-56 px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold 
                         text-[#EEEEEF] bg-[#9F531B] flex items-center justify-center gap-2 hover:bg-[#7C3E13] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1'
                         onClick={() => setShowModal(true)}
                     >
+                        <i className="fas fa-trash w-4 h-4"></i>
+
                         Eliminar
                     </button>
                 </div>

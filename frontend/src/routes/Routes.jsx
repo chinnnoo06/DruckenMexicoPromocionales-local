@@ -13,6 +13,7 @@ import { DefaultLayout } from "../components/layout/DefaultLayout";
 import { AdminLayout } from "../components/layout/AdminLayout";
 import { AddProduct } from "../pages/AddProduct";
 import { EditProduct } from "../pages/EditProduct";
+import { CategorysAdmin } from "../pages/CategorysAdmin";
 
 export const MainRoutes = () => {
   return (
@@ -42,6 +43,7 @@ export const MainRoutes = () => {
         <Route path="/producto-admin" element={<Product/>} />
         <Route path="/agregar-producto-admin" element={<AddProduct/>} />
         <Route path="/editar-producto-admin" element={<EditProduct/>} />
+        <Route path="/categorias-admin" element={<CategorysAdmin/>} />
         <Route path="/privacidad" element={<Privacy />} />
         <Route path="/terminos" element={<Terms />} />
       </Route>

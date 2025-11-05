@@ -12,7 +12,6 @@ export const useForm = (initialValues = {}) => {
         });
     }
 
-
     return {
         formData,
         setFormData,

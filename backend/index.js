@@ -29,10 +29,12 @@ app.use('/files', express.static(path.join(__dirname, 'assets')));
 // Rutas API
 const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
 
 // Primero las rutas API
 app.use("/api/product", productRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/category", categoryRoutes);
 
 // Luego React
 app.use(express.static(path.join(__dirname, '../frontend/dist')));

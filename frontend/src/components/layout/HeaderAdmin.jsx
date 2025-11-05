@@ -29,6 +29,7 @@ export const HeaderAdmin = () => {
                             [
                                 { to: "/catalogo-admin", text: "Catálogo" },
                                 { to: "/agregar-producto-admin", text: "Agregar Producto" },
+                                { to: "/categorias-admin", text: "Administrar Categorias" },
                                 { id: 'Cerrar Sesión', action: closeSession, text: "Cerrar Sesión" },
                             ]
                                 .map((item, index) => (
@@ -108,6 +109,7 @@ export const HeaderAdmin = () => {
                         [
                             { to: "/catalogo-admin", text: "Catálogo" },
                             { to: "/agregar-producto-admin", text: "Agregar Producto" },
+                            { to: "/categorias-admin", text: "Administrar Categorias" },
                             { id: 'Cerrar Sesión', action: closeSession, text: "Cerrar Sesión" },
                         ]
                             .map((item, index) => (
