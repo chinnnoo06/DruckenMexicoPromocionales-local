@@ -29,7 +29,7 @@ export const MapCategory = ({ categories, loading, adding, setAdding, saveCatego
 
     return (
         <>
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col md:items-center'>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {categories.map((category) => (
                         <div
