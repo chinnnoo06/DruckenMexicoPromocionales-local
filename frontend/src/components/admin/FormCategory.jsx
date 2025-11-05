@@ -15,7 +15,7 @@ export const FormCategory = ({ setAdding, setEditing, saveCategory, formErrors, 
 
     return (
         <div className={`${setEditing ? 'flex justify-center mt-10' : ''} `}>
-            <div className="animate-scaleIn bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col justify-center gap-5">
+            <div className="animate-scaleIn bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-center gap-5">
 
                 <div className='form-group'>
                     <input
