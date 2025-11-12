@@ -33,7 +33,7 @@ export const HomeMainContent = () => {
                         rootMargin="-100px"
                         textAlign="start"
                     />
-                    <h3 className='text-[#1A1615] font-semibold text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px]'>
+                    <h3 className='text-[#1A1615] font-semibold text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px]'>
                         Promociona con impacto, vende con resultados.
                     </h3>
                     <span className='text-[#9F531B] text-[17px] sm:text-[19px] md:text-[20px] lg:text-[21px] font-medium mt-2 block '>
