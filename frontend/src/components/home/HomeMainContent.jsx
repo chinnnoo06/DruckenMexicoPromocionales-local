@@ -13,7 +13,7 @@ export const HomeMainContent = () => {
     };
     return (
         <>
-            <div className='col1 flex flex-col mt-16'>
+            <div className='col1 flex flex-col sm:mt-16'>
                 {/* Badge de empresa */}
                 <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#9F531B]/10 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-full px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 w-fit">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#9F531B] rounded-full animate-pulse"></div>
@@ -33,10 +33,10 @@ export const HomeMainContent = () => {
                         rootMargin="-100px"
                         textAlign="start"
                     />
-                    <h3 className='text-[#1A1615] font-semibold text-[17px] sm:text-[19px] md:text-[22px] lg:text-[25px]'>
+                    <h3 className='text-[#1A1615] font-semibold text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px]'>
                         Promociona con impacto, vende con resultados.
                     </h3>
-                    <span className='text-[#9F531B] text-[13px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-medium mt-2 block '>
+                    <span className='text-[#9F531B] text-[17px] sm:text-[19px] md:text-[20px] lg:text-[21px] font-medium mt-2 block '>
                         Drucken es una empresa mexicana dedicada a la distribución de artículos promocionales, desde el año 2016 contamos
                         con un equipo de trabajo preparado, comprometido y responsable, que busca brindarle el mejor servicio
                         y las mejores alternativas de marketing promocional.
@@ -45,27 +45,27 @@ export const HomeMainContent = () => {
 
                 <div className='butons-container flex flex-wrap gap-4 pt-4'>
                     <Link to="/catalogo" className='no-underline'>
-                        <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded-xl hover:bg-[#7C3E13]  hover:text-[#EEEEEF] transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1'>
+                        <button className='px-5 py-2 text-base md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded-xl hover:bg-[#7C3E13]  hover:text-[#EEEEEF] transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1'>
                             <span>Ver Catálogo</span>
                         </button>
                     </Link>
 
 
-                    <button onClick={scrollToSection} className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded-xl hover:bg-[#7C3E13]  hover:text-[#EEEEEF] transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1'>
+                    <button onClick={scrollToSection} className='px-5 py-2 text-base md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded-xl hover:bg-[#7C3E13]  hover:text-[#EEEEEF] transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1'>
                         Contactar
                     </button>
             
 
                 </div>
 
-                <div className='socialMedia-container flex gap-4 pt-4 text-lg sm:text-xl md:text-2xl'>
+                <div className='socialMedia-container flex gap-4 pt-4 text-xl md:text-2xl'>
                     <a href='https://www.facebook.com/share/1BaikYetVw/?mibextid=wwXIfr' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#9F531B] transition-all duration-300 hover:scale-110 hover:rotate-3'><i className='fab fa-facebook'></i></a>
                     <a href='https://www.instagram.com/drucken.promocionales?igsh=eGtjOHFldnR4aGE5' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#9F531B] transition-all duration-300 hover:scale-110 hover:rotate-3'><i className='fab fa-instagram'></i></a>
                     <a href='https://wa.me/523315876207' target='_blank' rel='noopener noreferrer' className='text-[#1A1615] hover:text-[#9F531B] transition-all duration-300 hover:scale-110 hover:rotate-3'><i className='fab fa-whatsapp'></i></a>
                 </div>
             </div>
 
-            <div className='col2 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[600px] xl:max-w-[650px] relative mb-16 md:mb-0'>
+            <div className='col2 w-full hidden sm:flex sm:max-w-[400px] lg:max-w-[500px] xl:max-w-[650px] relative mb-16 md:mb-0'>
                 <div className='relative group'>
                     <img
                         src={DruckenLogo}
