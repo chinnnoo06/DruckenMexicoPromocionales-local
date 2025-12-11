@@ -97,7 +97,6 @@ const findProducts = async (req, res) => {
 
     try {
 
-        // Construimos filtro base
         const filter = {
             ...(category !== "all" && { category }),
             ...(search && {
@@ -108,7 +107,6 @@ const findProducts = async (req, res) => {
             })
         };
 
-        // Obtenemos los productos sin paginar (para poder reordenar)
         let allProducts = await Product.find(filter).sort({ _id: 1 });
 
         // Reordenamos: coincidencias exactas primero
@@ -133,7 +131,6 @@ const findProducts = async (req, res) => {
         const end = start + itemsPerPage;
         const docs = allProducts.slice(start, end);
 
-        // Respondemos
         setTimeout(() => {
             return res.status(200).json({
                 status: "success",
@@ -157,7 +154,7 @@ const findProducts = async (req, res) => {
 const getCarouselProducts = async (req, res) => {
     try {
         const products = await Product.aggregate([
-            { $sample: { size: 15 } } // 15 productos random
+            { $sample: { size: 15 } }
         ]);
 
         return res.status(200).send({
@@ -226,7 +223,6 @@ const deleteProduct = async (req, res) => {
 
 const addProduct = async (req, res) => {
     try {
-        // CORRECCIÓN CLAVE: Aseguramos que 'req.body.data' es una cadena limpia
         const dataString = req.body.data.toString().trim();
         const params = JSON.parse(dataString);
 
@@ -273,21 +269,46 @@ const addProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
     try {
-        // CORRECCIÓN CLAVE: Aseguramos que 'req.body.data' es una cadena limpia
         const dataString = req.body.data.toString().trim();
         const params = JSON.parse(dataString);
 
         const files = req.files;
 
-        // Obtener el producto actual
         const product = await Product.findById(params._id);
+
         if (!product) {
-            return res.status(404).json({ status: "error", mensaje: "Producto no encontrado" });
+            const files = req.files || {};
+
+            if (files.generalImage) {
+                for (const file of files.generalImage) {
+                    const filePath = path.join(__dirname, "../assets", file.filename);
+                    try {
+                        fs.unlinkSync(filePath);
+                        console.log("Imagen eliminada:", file.filename);
+                    } catch (err) {
+                        console.error("Error eliminando archivo:", err.message);
+                    }
+                }
+            }
+
+            if (files.colorImages) {
+                for (const file of files.colorImages) {
+                    const filePath = path.join(__dirname, "../assets", file.filename);
+                    try {
+                        fs.unlinkSync(filePath);
+                        console.log("Imagen eliminada:", file.filename);
+                    } catch (err) {
+                        console.error("Error eliminando archivo:", err.message);
+                    }
+                }
+            }
+
+            return res
+                .status(404)
+                .json({ status: "error", mensaje: "Producto no encontrado" });
         }
 
-        // Lógica de eliminación de imágenes antiguas (solo si existen y hay nuevas para reemplazar)
-        // Nota: Esta lógica elimina TODAS las imágenes del producto anterior. 
-        // Si no quieres eliminar las imágenes que NO se reemplazan, esta lógica necesita ser revisada.
+        // Esta lógica elimina TODAS las imágenes del producto anterior. 
         if (product.colors && product.colors.length > 0) {
             product.colors.forEach(c => {
                 if (c.image) {
@@ -311,32 +332,17 @@ const updateProduct = async (req, res) => {
         // Asignar nombre de archivo de la imagen general (nuevas subidas)
         if (files.generalImage && files.generalImage.length > 0) {
             params.generalImage = files.generalImage[0].filename;
-        } else {
-            // Si no se sube una nueva imagen general, mantenemos la anterior (o la ponemos a null si no queremos guardarla)
-            params.generalImage = product.generalImage;
         }
 
         // Asignar nombres de archivo a cada color (nuevas subidas)
-        if (files.colorImages && files.colorImages.length > 0) {
-            params.colors = params.colors.map((color, index) => {
-                if (files.colorImages[index]) {
-                    color.image = files.colorImages[index].filename;
-                } else {
-                    // Si no se subió una nueva imagen para este color, mantenemos la antigua
-                    color.image = product.colors[index] ? product.colors[index].image : null;
-                }
-                return color;
-            });
-        } else {
-            // Si no se subieron nuevas imágenes de color, mantenemos las antiguas
-            params.colors = product.colors;
-        }
+        params.colors = params.colors.map((color, index) => {
+            color.image = files.colorImages[index].filename;
+            return color;
+        });
 
-        // 3️⃣ Asignar span aleatorio
         const spanOptions = ["Destacado", "Para ti", "Novedad", "Recomendado", "Favorito"];
         params.span = spanOptions[Math.floor(Math.random() * spanOptions.length)];
 
-        // 4️⃣ Actualizar producto
         const productUpdated = await Product.findByIdAndUpdate(params._id, params, { new: true });
 
         return res.status(200).json({

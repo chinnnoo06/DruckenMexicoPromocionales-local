@@ -33,9 +33,8 @@ export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin })
                                 />
                                 <button className="absolute inset-0 m-auto w-[80%] h-10 bg-[#9F531B] text-white text-sm font-medium rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                                     onClick={() => {
-                                        navigate(isAdmin ? '/producto-admin' : '/producto', {
+                                        navigate(isAdmin ? `/producto-admin/${product._id}` : `/producto/${product._id}`, {
                                             state: {
-                                                product,
                                                 searchCategory,
                                                 page,
                                                 scrollY: window.scrollY,

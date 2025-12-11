@@ -74,7 +74,7 @@ export const useFormProduct = (colors, setColors, formData, setFormData, update 
     });
     
     if (update) {
-      const data = await Fetch(`${Global.url}product/actualizar-producto`, "POST", form);
+      const data = await Fetch(`${Global.url}product/actualizar-producto`, "PUT", form);
 
       if (data.status === "success") {
         alert("Producto actualizado correctamente");

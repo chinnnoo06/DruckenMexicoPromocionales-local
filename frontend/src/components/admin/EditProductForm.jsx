@@ -29,7 +29,7 @@ export const EditProductForm = () => {
         name: location.state.product.name,
         key: location.state.product.key,
         description: location.state.product.description,
-        colors: initialColors, // usamos initialColors
+        colors: initialColors,
         printingTechnique: location.state.product.printingTechnique,
         material: location.state.product.material,
         measures: location.state.product.measures,
@@ -37,7 +37,7 @@ export const EditProductForm = () => {
         category: location.state.product.category,
         price: location.state.product.price,
         minQuantity: location.state.product.minQuantity,
-        generalImage: '' // obliga a subir nueva imagen general
+        generalImage: '' 
     });
 
 

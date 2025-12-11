@@ -1,33 +1,43 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
 import LoadingSpinner from '../components/layout/LoadingSpinner';
 import { ImgProduct } from '../components/product/ImgProduct';
 import { InfoProduct } from '../components/product/InfoProduct';
 import { InfoProductAdmin } from '../components/admin/InfoProductAdmin';
+import { getProduct } from '../helpers/ProductHelpers';
 
 export const Product = () => {
+    const { id } = useParams();
     const location = useLocation();
-    const navigate = useNavigate();
     const [product, setProduct] = useState();
     const [selectedColor, setSelectedColor] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const isAdmin = location.pathname === '/producto-admin';
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    useEffect(() => {
-        if (location.state?.product) {
-            setProduct(location.state.product);
-        } else {
-            if (location.state?.isAdmin) {
-                navigate('/catalogo-admin', { replace: true });
-            } else {
-                navigate('/catalogo', { replace: true });
-            }
+    const fetchProduct = async () => {
+        setLoading(true);
+
+        const data = await getProduct(id, isAdmin);
+
+        if (data.status === "success") {
+            setProduct(data.product);
         }
-    }, [location, navigate]);
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        fetchProduct()
+    }, []);
+
+    if (loading) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <SectionWrapper className='container-main-content pt-32 pb-20 flex flex-col justify-center gap-2 mx-auto max-w-[1300px]'>
