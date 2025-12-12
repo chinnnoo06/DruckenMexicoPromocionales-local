@@ -40,7 +40,7 @@ export const MainRoutes = () => {
         element={<AdminLayout />}
       >
         <Route path="/catalogo-admin" element={<Catalog/>} />
-        <Route path="/producto-admin" element={<Product/>} />
+        <Route path="/producto-admin/:id" element={<Product/>} />
         <Route path="/agregar-producto-admin" element={<AddProduct/>} />
         <Route path="/editar-producto-admin" element={<EditProduct/>} />
         <Route path="/categorias-admin" element={<CategorysAdmin/>} />
