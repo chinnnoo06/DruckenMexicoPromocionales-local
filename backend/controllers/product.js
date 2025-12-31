@@ -74,6 +74,14 @@ const getOneProduct = async (req, res) => {
     try {
         const product = await Product.findById(id);
 
+        if (!product) {
+            console.log("No se ha encontrado el producto en la base de datos");
+            return res.status(404).json({
+                status: "error",
+                mensaje: "No se ha encontrado el producto en la base de datos"
+            });
+        }
+
         return res.status(200).send({
             status: "success",
             product: product

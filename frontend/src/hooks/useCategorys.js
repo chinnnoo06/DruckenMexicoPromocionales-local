@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { addCategory, deleteCategory, getCategorys, updateCategory } from "../helpers/CategoryHelpers";
 import { Validation } from "../helpers/Validation";
-
+import { Fetch } from "../helpers/Fetch";
+import { Global } from "../helpers/Global";
 
 export const useCategorys = () => {
     const [categories, setCategories] = useState([]);
@@ -11,9 +11,7 @@ export const useCategorys = () => {
 
     const fetchCategorys = async () => {
         setLoading(true);
-        let data;
-
-        data = await getCategorys();
+         const data = await Fetch(`${Global.url}category/obtener-categorias`, "GET");
 
         if (data.status === "success") {
             setCategories(data.categorys);
@@ -51,13 +49,13 @@ export const useCategorys = () => {
         let data;
 
         if (isEditing) {
-            data = await updateCategory(dataToSend);
+            data = await Fetch(`${Global.url}category/actualizar-categoria`, "POST", dataToSend);
             if (data.status === "success") {
                 await fetchCategorys();
             }
             setEditing(false);
         } else {
-            data = await addCategory(dataToSend);
+            data = await Fetch(`${Global.url}category/crear-categoria`, "POST", dataToSend);
             if (data.status === "success") {
                 await fetchCategorys();
             }
@@ -68,13 +66,11 @@ export const useCategorys = () => {
         setLoadingAction(false)
     }
 
-    const removeCategory = async (categodyId, setShowModal) => {
-        let data;
-
-        data = await deleteCategory(categodyId);
+    const removeCategory = async (categoryId, setShowModal) => {
+        const data = await Fetch(`${Global.url}category/eliminar-categoria/` + categoryId, "DELETE");
 
         if (data.status === "success") {
-            setCategories(prev => prev.filter(cat => cat._id !== categodyId));
+            setCategories(prev => prev.filter(cat => cat._id !== categoryId));
             setShowModal(false)
         }
     }

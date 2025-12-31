@@ -34,7 +34,6 @@ const getCategorys = async (req, res) => {
             }
         ]);
 
-        console.log("Categorias obtenidas");
         return res.status(200).json({
             status: "success",
             categorys,

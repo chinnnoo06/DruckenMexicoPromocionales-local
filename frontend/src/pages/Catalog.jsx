@@ -6,9 +6,8 @@ import { useCatalog } from '../hooks/useCatalog';
 import CategoryDropdown from '../components/catalog/CategoryDropdown ';
 
 export const Catalog = () => {
-
   const isAdmin = location.pathname === '/catalogo-admin';
-  const { products, totalPages, page, setPage, loading, setLoading, searchQuery, setSearchQuery, searchCategory, selectCategory, pendingScrollY } = useCatalog(isAdmin);
+  const { products, totalPages, page, setPage, loading, setLoading, searchQuery, setSearchQuery, searchCategory, selectCategory, pendingScrollY } = useCatalog();
 
   // Datos de los catálogos para mejor organización
   const catalogs = [

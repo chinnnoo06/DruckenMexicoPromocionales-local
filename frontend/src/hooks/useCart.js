@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { updateOrderQuantity, removeOrder } from '../helpers/CartHelpers';
 
 export const useCart = (orders = [], setOrders) => {
 
@@ -10,6 +9,23 @@ export const useCart = (orders = [], setOrders) => {
   const deleteProduct = (ID, color) => {
     setOrders(prev => removeOrder(prev, ID, color));
   };
+
+  const updateOrderQuantity = (orders, ID, color, action) => {
+    return orders.map(order =>
+      order.ProductID === ID && order.ProductColor === color
+        ? {
+          ...order,
+          OrderQuantity: order.OrderQuantity + (action === 0 ? -1 : 1),
+          Subtotal: (order.OrderQuantity + (action === 0 ? -1 : 1)) * order.ProductPrice
+        }
+        : order
+    );
+  };
+
+  const removeOrder = (orders, ID, color) => {
+    return orders.filter(order => !(order.ProductID === ID && order.ProductColor === color));
+  };
+
 
   const groupedOrders = useMemo(() => {
     return Object.values(

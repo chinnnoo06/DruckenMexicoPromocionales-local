@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from 'react-router-dom';
-import { getProducts, findProducts, selectCategory as selectCategoryHelper } from '../helpers/CatalogHelpers';
+import { Fetch } from "../helpers/Fetch";
+import { Global } from "../helpers/Global";
 
-export const useCatalog = (isAdmin = false) => {
+export const useCatalog = () => {
     const [searchCategory, setSearchCategory] = useState('all');
     const [products, setProducts] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
@@ -16,9 +17,9 @@ export const useCatalog = (isAdmin = false) => {
         setLoading(true);
         let data;
         if (searchQuery.trim() === '') {
-            data = await getProducts(searchCategory, p, isAdmin);
+            data = await Fetch(`${Global.url}product/obtener-productos/${searchCategory}/${p}`, "GET");
         } else {
-            data = await findProducts(searchCategory, searchQuery, p, isAdmin);
+            data = await Fetch(`${Global.url}product/buscar-productos/${searchCategory}/${searchQuery}/${p}`, "GET");
         }
         if (data.status === "success") {
             setProducts(data.products);
@@ -42,7 +43,6 @@ export const useCatalog = (isAdmin = false) => {
             pendingScrollY.current = 0;
         }
     }, [location.state]);
-
 
     // Cada vez que cambian searchCategory o page, se llama fetchProducts.
     useEffect(() => {
@@ -68,7 +68,9 @@ export const useCatalog = (isAdmin = false) => {
         return () => clearTimeout(delayDebounceFn);
     }, [searchQuery]);
 
-    const selectCategory = selectCategoryHelper(setSearchCategory);
-
+    const selectCategory = (value) => {
+        setSearchCategory(value);
+    };
+    
     return { products, totalPages, page, setPage, loading, setLoading, searchCategory, setSearchQuery, selectCategory, pendingScrollY };
 };

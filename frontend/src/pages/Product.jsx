@@ -6,10 +6,12 @@ import LoadingSpinner from '../components/layout/LoadingSpinner';
 import { ImgProduct } from '../components/product/ImgProduct';
 import { InfoProduct } from '../components/product/InfoProduct';
 import { InfoProductAdmin } from '../components/admin/InfoProductAdmin';
-import { getProduct } from '../helpers/ProductHelpers';
+import { Fetch } from '../helpers/Fetch';
+import { Global } from '../helpers/Global';
 
 export const Product = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const location = useLocation();
     const [product, setProduct] = useState();
     const [selectedColor, setSelectedColor] = useState(0);
@@ -23,10 +25,17 @@ export const Product = () => {
     const fetchProduct = async () => {
         setLoading(true);
 
-        const data = await getProduct(id, isAdmin);
+        const data = await Fetch(`${Global.url}product/obtener-producto/${id}`, "GET");
 
         if (data.status === "success") {
             setProduct(data.product);
+        } else {
+            if (isAdmin) {
+                navigate('/catalogo-admin')
+            } else {
+                navigate('/catalogo')
+            }
+
         }
         setLoading(false);
     };

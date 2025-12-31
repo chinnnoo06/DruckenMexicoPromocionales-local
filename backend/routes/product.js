@@ -44,13 +44,11 @@ router.get("/obtener-producto/:id", ProductController.getOneProduct);
 router.get("/buscar-productos/:category/:search/:page", ProductController.findProducts);
 router.get("/obtener-productos-carrusel", ProductController.getCarouselProducts);
 
-router.get("/obtener-productos-admin/:category/:page", check.auth, ProductController.getProducts);
-router.get("/obtener-producto-admin/:id", check.auth, ProductController.getOneProduct);
-router.get("/buscar-productos-admin/:category/:search/:page", check.auth, ProductController.findProducts);
 router.delete("/eliminar-producto/:id", check.auth, ProductController.deleteProduct);
 
 router.post(
   "/crear-producto",
+  check.auth,
   (req, res, next) => { storage.counter = 0; next(); },
   upload.fields([{ name: 'generalImage', maxCount: 1 }, { name: 'colorImages', maxCount: 20 }]),
   convertNewImagesToWebP,
@@ -59,6 +57,7 @@ router.post(
 
 router.put(
   "/actualizar-producto",
+  check.auth,
   (req, res, next) => { storage.counter = 0; next(); },
   upload.fields([{ name: 'generalImage', maxCount: 1 }, { name: 'colorImages', maxCount: 20 }]),
   convertNewImagesToWebP,
