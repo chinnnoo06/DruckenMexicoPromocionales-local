@@ -47,7 +47,7 @@ export const HomeMainContent = () => {
                     </h3>
                     <span className='text-[#9F531B] text-[17px] sm:text-[19px] md:text-[20px] lg:text-[21px] font-medium mt-2 block relative pl-[15px] border-l-2 border-[#9F531B]/20'>
                         
-                        <span className="absolute left-[2px] top-0 text-[#9F531B] opacity-40 text-lg">❝</span>
+                        <span className="absolute left-[2px] top-0 text-[#9F531B] opacity-40 text-base sm:text-lg">❝</span>
                         Drucken es una empresa mexicana dedicada a la distribución de artículos promocionales, desde el año 2016 contamos
                         con un equipo de trabajo preparado, comprometido y responsable, que busca brindarle el mejor servicio
                         y las mejores alternativas de marketing promocional.
