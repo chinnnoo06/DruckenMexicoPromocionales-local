@@ -134,7 +134,7 @@ export const Header = () => {
 
             <div className={`menu-lateral fixed top-0 right-0 h-screen bg-[#f8dcc6] w-64 transform ${menuVisible ? "translate-x-0" : "translate-x-full"
                 } transition-transform duration-300 ease-in-out z-[10000] flex flex-col`}>
-                <div className="flex items-center p-5 border-b border-[#9F531B]/30 bg-white/5 backdrop-blur-sm">
+                <div className="flex items-center p-4 border-b border-[#9F531B]/30 bg-white/5 backdrop-blur-sm">
                
                     <button
                         onClick={toggleMenu}
