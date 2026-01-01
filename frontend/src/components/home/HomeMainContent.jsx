@@ -50,17 +50,23 @@ export const HomeMainContent = () => {
                         con un equipo de trabajo preparado, comprometido y responsable, que busca brindarle el mejor servicio
                         y las mejores alternativas de marketing promocional.
                     </span>
-                    
+
                     <div className="flex items-center gap-3 mt-2 pt-2 border-t border-[#9F531B]/10">
                         <div className="flex flex-col items-center">
                             <span className="text-2xl sm:text-3xl font-bold text-[#9F531B]">+9</span>
                             <span className="text-xs sm:text-sm text-[#1A1615] opacity-80">Años</span>
                         </div>
                         <div className="h-8 w-px bg-[#9F531B]/20"></div>
-             
+
                         <div className="flex flex-col items-center">
                             <span className="text-2xl sm:text-3xl font-bold text-[#9F531B]">+3000</span>
                             <span className="text-xs sm:text-sm text-[#1A1615] opacity-80">Productos</span>
+                        </div>
+                        <div className="h-8 w-px bg-[#9F531B]/20"></div>
+
+                        <div className="flex flex-col items-center">
+                            <span className="text-2xl sm:text-3xl font-bold text-[#9F531B]">100%</span>
+                            <span className="text-xs sm:text-sm text-[#1A1615] opacity-80">Mexicana</span>
                         </div>
                     </div>
                 </div>
