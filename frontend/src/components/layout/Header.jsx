@@ -134,15 +134,23 @@ export const Header = () => {
 
             <div className={`menu-lateral fixed top-0 right-0 h-screen bg-[#f8dcc6] w-64 transform ${menuVisible ? "translate-x-0" : "translate-x-full"
                 } transition-transform duration-300 ease-in-out z-[10000] flex flex-col`}>
-                <div className="flex justify-between items-center p-4 border-b border-[#9F531B]/30 ">
-         
-                    <span className="text-[#9F531B] font-semibold text-sm  uppercase">Navegación</span>
+                <div className="flex items-center p-5 border-b border-[#9F531B]/30 bg-white/5 backdrop-blur-sm">
+               
                     <button
-                        className="w-8 h-8 rounded-full flex items-center justify-center text-[#1A1615] hover:text-white hover:bg-gradient-to-r hover:from-[#9F531B] hover:to-[#7C3E13] transition-all duration-300 group shadow-sm hover:shadow-md"
                         onClick={toggleMenu}
+                        className="flex items-center gap-2 px-4 py-1.5 rounded-lg 
+                            border border-[#9F531B]/30
+                            text-[#9F531B]
+                            hover:bg-gradient-to-r hover:from-[#9F531B] hover:to-[#7C3E13]
+                            hover:text-white
+                            hover:border-transparent
+                            hover:shadow-md
+                            active:scale-95
+                            transition-all duration-300
+                            group"
                     >
-                        <i className="fa-solid fa-xmark text-lg group-hover:rotate-90 transition-transform duration-300"></i>
-                        <span className="sr-only">Cerrar menú</span>
+                        <i className="fa-solid fa-xmark text-sm transition-transform duration-300 group-hover:rotate-180" />
+                        
                     </button>
                 </div>
                 <nav className="flex flex-col p-4 gap-4">
