@@ -39,7 +39,7 @@ export const Order = () => {
       </div>
 
       {orders.length >= 1 ? (
-        <div className="flex flex-col gap-2 md:flex-row">
+        <div className="flex flex-col gap-2 lg:flex-row">
 
           <MapOrder orders={orders} setOrders={setOrders} />
 
