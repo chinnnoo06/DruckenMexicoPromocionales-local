@@ -39,7 +39,7 @@ export const Header = () => {
                                             key={index}
                                             to={item.to}
                                             className={({ isActive }) =>
-                                                `relative px-2 py-1 font-[400] text-lg transition-colors duration-300 cursor-pointer
+                                                `relative px-2 py-1 font-[400] text-lg lg:text-xl transition-colors duration-300 cursor-pointer
                                             ${isActive ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                             after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
                                             after:bg-[#9F531B] after:transition-all after:duration-300
@@ -52,7 +52,7 @@ export const Header = () => {
                                         <button
                                             key={index}
                                             onClick={item.action}
-                                            className={`relative px-2 py-1 font-[400] text-lg transition-colors duration-300 cursor-pointer
+                                            className={`relative px-2 py-1 font-[400] text-lg lg:text-xl transition-colors duration-300 cursor-pointer
                                         ${activeSection === item.id ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
                                         after:bg-[#9F531B] after:transition-all after:duration-300
@@ -77,7 +77,7 @@ export const Header = () => {
                                         key={index}
                                         to={item.to}
                                         className={({ isActive }) =>
-                                            `relative px-2 py-1 font-[400] text-lg transition-colors duration-300 cursor-pointer
+                                            `relative px-2 py-1 font-[400] text-lg lg:text-xl transition-colors duration-300 cursor-pointer
                                             ${isActive ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                             after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
                                             after:bg-[#9F531B] after:transition-all after:duration-300
@@ -90,7 +90,7 @@ export const Header = () => {
                                     <button
                                         key={index}
                                         onClick={item.action}
-                                        className="relative px-2 py-1 font-[400] text-lg transition-colors duration-300 cursor-pointer
+                                        className="relative px-2 py-1 font-[400] text-lg lg:text-xl transition-colors duration-300 cursor-pointer
                                         text-[#1A1615] hover:text-[#9F531B]
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
                                         after:bg-[#9F531B] after:transition-all after:duration-300
@@ -173,7 +173,7 @@ export const Header = () => {
                                             `relative py-2 font-[400] transition-colors duration-300 cursor-pointer text-left
                                             ${isActive ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                             after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                            after:bg-[#9F531B] after:transition-all after:duration-300
+                                            after:bg-[#9F531B] after:transition-all after:duration-300 text-lg
                                             hover:after:w-[80px] ${isActive ? 'after:w-[80px]' : ''}`
                                         }
                                     >
@@ -186,7 +186,7 @@ export const Header = () => {
                                         className={`relative py-2 font-[400] transition-colors duration-300 cursor-pointer text-left
                                         ${activeSection === item.id ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                        after:bg-[#9F531B] after:transition-all after:duration-300
+                                        after:bg-[#9F531B] after:transition-all after:duration-300 text-lg
                                         hover:after:w-[80px] ${activeSection === item.id ? 'after:w-[80px]' : ''}`}
                                     >
                                         {item.text}
@@ -211,7 +211,7 @@ export const Header = () => {
                                         `relative py-2 font-[400] transition-colors duration-300 cursor-pointer text-left
                                             ${isActive ? 'text-[#9F531B]' : 'text-[#1A1615] hover:text-[#9F531B]'}
                                             after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                            after:bg-[#9F531B] after:transition-all after:duration-300
+                                            after:bg-[#9F531B] after:transition-all after:duration-300 text-lg
                                             hover:after:w-[80px] ${isActive ? 'after:w-[80px]' : ''}`
                                     }
                                 >
@@ -224,7 +224,7 @@ export const Header = () => {
                                     className="relative py-2 font-[400] transition-colors duration-300 cursor-pointer text-left
                                         text-[#1A1615] hover:text-[#9F531B]
                                         after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
-                                        after:bg-[#9F531B] after:transition-all after:duration-300
+                                        after:bg-[#9F531B] after:transition-all after:duration-300 text-lg
                                         hover:after:w-[80px]"
                                 >
                                     {item.text}
