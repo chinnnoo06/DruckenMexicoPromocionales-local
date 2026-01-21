@@ -14,6 +14,7 @@ const prueba = async (req, res) => {
     });
 }
 
+/*
 const register = async (req, res) => {
     // Recoger parametros por post a guardar
     let params = req.body;
@@ -60,7 +61,7 @@ const register = async (req, res) => {
         });
     }
 }
-
+*/
 
 const login = async (req, res) => {
     let params = req.body;
@@ -150,8 +151,18 @@ const logout = async (req, res) => {
 module.exports = {
     prueba,
     login,
+    checkAuth,
+    logout
+
+}
+
+/*
+module.exports = {
+    prueba,
+    login,
     register,
     checkAuth,
     logout
 
 }
+    */

@@ -6,7 +6,7 @@ const check = require("../middlewares/auth");
 // Definir rutas
 router.get("/prueba-user", UserController.prueba);
 router.post("/login", UserController.login)
-router.post("/register", UserController.register);
+// router.post("/register", UserController.register);
 router.get("/check", check.auth, UserController.checkAuth);
 router.post("/logout", check.auth, UserController.logout)
 
