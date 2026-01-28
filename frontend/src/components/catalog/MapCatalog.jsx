@@ -1,9 +1,8 @@
-import React from 'react'
 import LoadingSpinner from '../layout/LoadingSpinner'
 import { useNavigate } from 'react-router-dom';
 import { GlobalImage } from '../../helpers/Global';
 
-export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin }) => {
+export const MapCatalog = ({ products, loading, currentPage, currentCategory, isAdmin }) => {
     const navigate = useNavigate();
 
     if (loading) {
@@ -17,6 +16,7 @@ export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin })
                     {products.map((product) => (
                         <div
                             key={product._id}
+                            data-product-id={product._id}
                             className="relative w-full bg-transparent flex flex-col items-center transition-all duration-200 group"
                         >
                             {/* Etiqueta destacado */}
@@ -35,9 +35,9 @@ export const MapCatalog = ({ products, loading, page, searchCategory, isAdmin })
                                     onClick={() => {
                                         navigate(isAdmin ? `/producto-admin/${product._id}` : `/producto/${product._id}`, {
                                             state: {
-                                                searchCategory,
-                                                page,
-                                                scrollY: window.scrollY,
+                                                currentCategory,
+                                                page: currentPage,
+                                                productId: product._id,
                                                 isAdmin
                                             }
                                         })

@@ -56,25 +56,36 @@ export const useFormProduct = (colors, setColors, formData, setFormData, update 
 
     // Crear FormData
     const form = new FormData();
-    form.append("data", JSON.stringify(formData));
 
-    // Imagen general
-    if (formData.generalImage) {
-      if (formData.colors.length > 1) {
-        if (formData.generalImage instanceof File) {
-          form.append("generalImage", formData.generalImage);
-        }
-      }
-    }
+    // campos simples
+    form.append("name", formData.name);
+    form.append("price", formData.price);
+    form.append("category", formData.category);
+    form.append("key", formData.key);
+    form.append("description", formData.description);
+    form.append("printingTechnique", formData.printingTechnique);
+    form.append("material", formData.material);
+    form.append("measures", formData.measures);
+    form.append("printingMeasures", formData.printingMeasures);
+    form.append("minQuantity", formData.minQuantity)
 
-    formData.colors.forEach((color) => {
+    // colores
+    formData.colors.forEach((color, index) => {
+      form.append(`colors[${index}][color]`, color.color);
+      form.append(`colors[${index}][hex]`, color.hex);
+
       if (color.image) {
-        form.append("colorImages", color.image); // TODOS con mismo fieldname
+        form.append("colorImages", color.image);
       }
     });
-    
+
+    // imagen general
+    if (formData.generalImage instanceof File) {
+      form.append("generalImage", formData.generalImage);
+    }
+
     if (update) {
-      const data = await Fetch(`${Global.url}product/actualizar-producto`, "PUT", form);
+      const data = await Fetch(`${Global.url}product/actualizar-producto/${formData._id}`, "PUT", form);
 
       if (data.status === "success") {
         alert("Producto actualizado correctamente");

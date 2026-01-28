@@ -1,37 +1,16 @@
-import React, { useState } from 'react';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { MapCatalog } from '../components/catalog/MapCatalog';
 import { PaginationButtons } from '../components/catalog/PaginationButtons';
 import { useCatalog } from '../hooks/useCatalog';
 import CategoryDropdown from '../components/catalog/CategoryDropdown ';
+import { useScrollElementFromLocation } from '../hooks/useScrollElementFromLocation';
+import { catalogs } from '../data';
 
 export const Catalog = () => {
   const isAdmin = location.pathname === '/catalogo-admin';
-  const { products, totalPages, page, setPage, loading, setLoading, searchQuery, setSearchQuery, searchCategory, selectCategory, pendingScrollY } = useCatalog();
+  const { products, totalPages, currentPage, setPage, loading, setLoading, searchQuery, setSearchQuery, currentCategory, selectCategory, pendingScrollY } = useCatalog();
 
-  // Datos de los catálogos para mejor organización
-  const catalogs = [
-    {
-      title: "General",
-      href: "https://online.flippingbook.com/view/904760688/",
-      icon: "📚"
-    },
-    {
-      title: "Gorras",
-      href: "https://drucken.com.mx/files/catalogo%20gorras.pdf",
-      icon: "🧢"
-    },
-    {
-      title: "Calendarios",
-      href: "https://heyzine.com/flip-book/7c655c971b.html",
-      icon: "📅"
-    },
-    {
-      title: "Sellos",
-      href: "https://drucken.com.mx/files/catalogo%20sellos.pdf",
-      icon: "🔖"
-    }
-  ];
+  useScrollElementFromLocation({ products })
 
   return (
     <SectionWrapper className='container-main-content flex flex-col pt-32 pb-20 gap-5 mx-auto max-w-[1300px]'>
@@ -99,21 +78,19 @@ export const Catalog = () => {
           />
         </div>
 
-        <CategoryDropdown searchCategory={searchCategory} selectCategory={selectCategory} />
+        <CategoryDropdown currentCategory={currentCategory} selectCategory={selectCategory} />
 
       </div>
 
-      <MapCatalog products={products} loading={loading} page={page} searchCategory={searchCategory} isAdmin={isAdmin} />
+      <MapCatalog products={products} loading={loading} currentPage={currentPage} currentCategory={currentCategory} isAdmin={isAdmin} />
 
       <PaginationButtons
         totalPages={totalPages}
-        page={page}
+        currentPage={currentPage}
         setPage={(p) => {
-          pendingScrollY.current = 0; // siempre sube al inicio al cambiar de página
           setPage(p);
         }}
         bool={products.length > 0 && !loading}
-        setLoading={setLoading}
       />
     </SectionWrapper>
   );

@@ -14,7 +14,7 @@ export const useCategorys = () => {
          const data = await Fetch(`${Global.url}category/obtener-categorias`, "GET");
 
         if (data.status === "success") {
-            setCategories(data.categorys);
+            setCategories(data.categories);
         }
         setLoading(false);
     };
@@ -36,20 +36,12 @@ export const useCategorys = () => {
             return;
         }
 
-        if (idCategoryEdit >= 0) {
-            formData.append(idCategoryEdit);
-        }
-
-
         const dataToSend = { ...formData }; // clona el objeto
-        if (idCategoryEdit != -1) {
-            dataToSend._id = idCategoryEdit;
-        }
-
+      
         let data;
 
         if (isEditing) {
-            data = await Fetch(`${Global.url}category/actualizar-categoria`, "POST", dataToSend);
+            data = await Fetch(`${Global.url}category/actualizar-categoria/${idCategoryEdit}`, "POST", dataToSend);
             if (data.status === "success") {
                 await fetchCategorys();
             }
@@ -67,7 +59,7 @@ export const useCategorys = () => {
     }
 
     const removeCategory = async (categoryId, setShowModal) => {
-        const data = await Fetch(`${Global.url}category/eliminar-categoria/` + categoryId, "DELETE");
+        const data = await Fetch(`${Global.url}category/eliminar-categoria/${categoryId}`, "DELETE");
 
         if (data.status === "success") {
             setCategories(prev => prev.filter(cat => cat._id !== categoryId));

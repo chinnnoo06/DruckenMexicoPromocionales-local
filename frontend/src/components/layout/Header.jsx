@@ -30,7 +30,7 @@ export const Header = () => {
                                 { id: 'nosotros', action: () => scrollToSection('nosotros'), text: "Nosotros" },
                                 { id: 'servicios', action: () => scrollToSection('servicios'), text: "Servicios" },
                                 { id: 'contacto', action: () => scrollToSection('contacto'), text: "Contacto" },
-                                { to: "/catalogo", text: "Catálogo" },
+                                { to: "/catalogo/todos/1", text: "Catálogo" },
                                 { to: "/pedido", text: "Pedido" }
                             ]
                                 .map((item, index) => (
@@ -69,7 +69,7 @@ export const Header = () => {
                                 { action: () => navigateToSection('nosotros'), text: "Nosotros" },
                                 { action: () => navigateToSection('servicios'), text: "Servicios" },
                                 { action: () => navigateToSection('contacto'), text: "Contacto" },
-                                { to: "/catalogo", text: "Catálogo" },
+                                { to: "/catalogo/todos/1", text: "Catálogo" },
                                 { to: "/pedido", text: "Pedido" }
                             ].map((item, index) => (
                                 item.to ? (

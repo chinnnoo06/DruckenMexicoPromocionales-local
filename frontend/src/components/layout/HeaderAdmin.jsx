@@ -27,7 +27,7 @@ export const HeaderAdmin = () => {
                         {(
                             // Enlaces internos cuando estamos en la página de inicio
                             [
-                                { to: "/catalogo-admin", text: "Catálogo" },
+                                { to: "/catalogo-admin/todos/1", text: "Catálogo" },
                                 { to: "/agregar-producto-admin", text: "Agregar Producto" },
                                 { to: "/categorias-admin", text: "Administrar Categorias" },
                                 { id: 'Cerrar Sesión', action: closeSession, text: "Cerrar Sesión" },

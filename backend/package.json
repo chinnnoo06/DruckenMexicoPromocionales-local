@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Api-rest drucken méxico promocionales",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "cross-env NODE_ENV=production node src/index.js"
   },
   "author": "Francisco Inda",
   "license": "ISC",
@@ -15,16 +16,19 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "express-validator": "^7.3.1",
     "fs": "^0.0.1-security",
     "jwt-simple": "^0.5.6",
     "moment": "^2.30.1",
     "mongoose": "^8.17.1",
     "mongoose-paginate-v2": "^1.9.1",
+    "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "sharp": "^0.34.3",
     "validator": "^13.15.15"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "nodemon": "^3.1.10"
   }
 }

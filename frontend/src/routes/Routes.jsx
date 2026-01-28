@@ -24,7 +24,7 @@ export const MainRoutes = () => {
       >
         <Route path="/" element={<Home />} />
         <Route path="/inicio" element={<Home />} />
-        <Route path="/catalogo" element={<Catalog />} />
+        <Route path="/catalogo/:category/:page" element={<Catalog />} />
         <Route path="/pedido" element={<Order />} />
         <Route path="/producto/:id" element={<Product />} />
         <Route path="/privacidad" element={<Privacy />} />
@@ -39,7 +39,7 @@ export const MainRoutes = () => {
       <Route
         element={<AdminLayout />}
       >
-        <Route path="/catalogo-admin" element={<Catalog/>} />
+        <Route path="/catalogo-admin/:category/:page" element={<Catalog/>} />
         <Route path="/producto-admin/:id" element={<Product/>} />
         <Route path="/agregar-producto-admin" element={<AddProduct/>} />
         <Route path="/editar-producto-admin" element={<EditProduct/>} />

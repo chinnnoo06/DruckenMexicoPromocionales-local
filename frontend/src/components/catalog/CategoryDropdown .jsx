@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useCategorys } from '../../hooks/useCategorys';
 
-const CategoryDropdown = ({ searchCategory, selectCategory }) => {
+const CategoryDropdown = ({ currentCategory, selectCategory }) => {
   const [open, setOpen] = useState(false);
   const {categories} = useCategorys();
 
     const categoriesMap = [
-    { value: "all", label: "Todos" },
+    { value: "todos", label: "Todos" },
     ...categories.map(cat => ({
-      value: cat.name,   // <-- Cambia según tu campo (cat._id si usas id)
+      value: cat.name,  
       label: cat.name
     }))
   ];
-  const selected = categoriesMap.find(c => c.value === searchCategory) || categoriesMap[0];
+  const selected = categoriesMap.find(c => c.value === currentCategory) || categoriesMap[0];
 
   // Función para truncar solo en el botón principal
   const truncateLabel = (label, maxLength = 15) => {
@@ -21,7 +21,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
 
   return (
     <div className="relative w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/6">
-      {/* Botón principal */}
+      
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -43,7 +43,6 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
         </svg>
       </button>
 
-      {/* Menú desplegable */}
       {open && (
         <div className="absolute z-20 mt-2 w-full bg-white border border-[#9F531B]/30 rounded-lg shadow-lg overflow-hidden animate-fadeIn max-h-72  overflow-y-auto ">
           {categoriesMap.map((category) => (
@@ -55,7 +54,7 @@ const CategoryDropdown = ({ searchCategory, selectCategory }) => {
               }}
               className={`block w-full text-left px-4 py-2 text-sm md:text-base 
                          transition-colors duration-200
-                ${searchCategory === category.value
+                ${currentCategory === category.value
                   ? "bg-[#FFD8A8] text-[#9F531B] font-semibold"
                   : "text-gray-700 hover:bg-[#FBE8D3] hover:text-[#9F531B]"
                 }`}

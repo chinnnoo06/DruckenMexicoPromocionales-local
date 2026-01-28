@@ -3,7 +3,7 @@ import { useCategorys } from '../../hooks/useCategorys';
 
 export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleColorChange, handleImageChange, sendProduct, formErrors, loading, formData, manageChange, colors, isEdit = false }) => {
     const { categories } = useCategorys();
-
+   
     return (
         <div className='form-container flex flex-col justify-center items-center'>
             <div className='bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-2xl p-4 sm:p-6 w-full md:w-3/4'>

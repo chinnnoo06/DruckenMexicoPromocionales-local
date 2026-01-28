@@ -54,12 +54,13 @@ export const Product = () => {
                 <>
                     <nav className="border-b border-amber-700/20 pb-2">
                         <Link
-                            to={location.state?.isAdmin ? "/catalogo-admin" : "/catalogo"}
+                            to={location.state?.isAdmin ? `/catalogo-admin/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}` 
+                            : `/catalogo/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}`}
                             className="text-amber-700 hover:text-amber-800 transition-colors duration-200"
                             state={{
                                 page: location.state?.page || 1,
-                                selectCategory: location.state?.searchCategory,
-                                scrollY: location.state?.scrollY || 0
+                                currentCategory: location.state?.currentCategory,
+                                productId: location.state?.productId,
                             }}
                         >
                             <div className="flex items-center gap-2">

@@ -43,7 +43,7 @@ export const Footer = () => {
                                 { id: 'nosotros', action: () => scrollToSection('nosotros'), text: "Nosotros" },
                                 { id: 'servicios', action: () => scrollToSection('servicios'), text: "Servicios" },
                                 { id: 'contacto', action: () => scrollToSection('contacto'), text: "Contacto" },
-                                { to: "/catalogo", text: "Catálogo" },
+                                { to: "/catalogo/todos/1", text: "Catálogo" },
                                 { to: "/pedido", text: "Pedido" }
                             ].map((item, index) => (
                                 item.to ? (
@@ -75,7 +75,7 @@ export const Footer = () => {
                                 { action: () => navigateToSection('nosotros'), text: "Nosotros" },
                                 { action: () => navigateToSection('servicios'), text: "Servicios" },
                                 { action: () => navigateToSection('contacto'), text: "Contacto" },
-                                { to: "/catalogo", text: "Catálogo" },
+                                { to: "/catalogo/todos/1", text: "Catálogo" },
                                 { to: "/pedido", text: "Pedido" }
                             ].map((item, index) => (
                                 item.to ? (

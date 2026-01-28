@@ -36,7 +36,7 @@ export const FooterAdmin = () => {
                         </h3>
                         <nav className="flex flex-col gap-2 text-center md:text-left">
                             {[
-                                { to: "/catalogo-admin", text: "Catálogo" },
+                                { to: "/catalogo-admin/todos/1", text: "Catálogo" },
                                 { to: "/agregar-producto-admin", text: "Agregar Producto" },
                                 { to: "/categorias-admin", text: "Administrar Categorias" },
                                 { action: closeSession, text: "Cerrar Sesión" },
