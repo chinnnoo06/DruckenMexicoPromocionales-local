@@ -32,7 +32,7 @@ export const useFormLogin = (formData) => {
         const data = await Fetch(`${Global.url}user/login`, "POST", cleanForm);
 
         if (data.status === "success") {
-            window.location.href = "/catalogo-admin";
+            window.location.href = "/catalogo-admin/todos/1";
         } else {
             setMessage(data.mensaje)
         }
