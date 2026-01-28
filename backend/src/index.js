@@ -45,6 +45,7 @@ app.get(/^\/(?!api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
+console.log(process.env.NODE_ENV)
 // Iniciar servidor
 app.listen(puerto, () => {
    console.log("Servidor corriendo en el puerto:", puerto);
