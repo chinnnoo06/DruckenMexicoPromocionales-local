@@ -30,7 +30,9 @@ app.use(cookieParser());
 // Servir assets estáticos (RUTA CORREGIDA A /files)
 app.use('/files', express.static(path.join(__dirname, 'assets')));
 
-app.use(morgan('dev'))
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'))
+}
 
 // Primero las rutas API
 app.use("/api/product", productRoutes);
@@ -45,7 +47,6 @@ app.get(/^\/(?!api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
-console.log(process.env.NODE_ENV)
 // Iniciar servidor
 app.listen(puerto, () => {
    console.log("Servidor corriendo en el puerto:", puerto);
