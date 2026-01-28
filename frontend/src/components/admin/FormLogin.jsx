@@ -1,13 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useFormLogin } from '../../hooks/useFormLogin';
+import { useEffect } from 'react';
 
 export const FormLogin = () => {
+    const navigate = useNavigate();
     const { formData, manageChange } = useForm({
         username: '',
         password: ''
     })
 
-    const {passwordVisibility, sendForm, message, showPassword, formErrors, loading} = useFormLogin(formData);
+    const { passwordVisibility, sendForm, message, showPassword, formErrors, loading, success } = useFormLogin(formData);
+
+    useEffect(() => {
+        if (success) {
+            navigate('/catalogo-admin/todos/1');
+        }
+    }, [success, navigate]);
 
     return (
         <div className='form-container flex flex-col justify-center items-center'>

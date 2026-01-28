@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { Fetch } from '../helpers/Fetch';
 import { Global } from '../helpers/Global';
 import { Validation } from '../helpers/Validation';
+import { useNavigate } from 'react-router-dom';
 
 export const useFormLogin = (formData) => {
     const [message, setMessage] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [formErrors, setFormErrors] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const passwordVisibility = () => {
         setShowPassword(!showPassword);
@@ -32,7 +34,8 @@ export const useFormLogin = (formData) => {
         const data = await Fetch(`${Global.url}user/login`, "POST", cleanForm);
 
         if (data.status === "success") {
-            window.location.href = "/catalogo-admin/todos/1";
+            setSuccess(true);
+            setMessage("");
         } else {
             setMessage(data.mensaje)
         }
@@ -47,6 +50,7 @@ export const useFormLogin = (formData) => {
         message,
         showPassword,
         formErrors,
-        loading
+        loading,
+        success
     }
 }
