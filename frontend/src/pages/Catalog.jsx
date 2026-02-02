@@ -7,8 +7,8 @@ import { useScrollElementFromLocation } from '../hooks/useScrollElementFromLocat
 import { catalogs } from '../data';
 
 export const Catalog = () => {
-  const isAdmin = location.pathname === '/catalogo-admin';
-  const { products, totalPages, currentPage, setPage, loading, searchQuery, setSearchQuery, currentCategory, selectCategory} = useCatalog();
+  const isAdmin = location.pathname.startsWith('/catalogo-admin')
+  const { products, totalPages, currentPage, setPage, loading, searchQuery, setSearchQuery, currentCategory, selectCategory} = useCatalog(isAdmin);
 
   useScrollElementFromLocation({ products })
 
