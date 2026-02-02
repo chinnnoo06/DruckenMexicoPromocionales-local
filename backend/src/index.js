@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Servir assets estáticos (RUTA CORREGIDA A /files)
-app.use('/files', express.static(path.join(__dirname, 'src/assets')));
+app.use('/files', express.static(path.join(__dirname, 'assets')));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
