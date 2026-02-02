@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useProduct } from '../../hooks/useProduct';
 import { ModalConfirm } from './ModalConfirm';
 import { Fetch } from '../../helpers/Fetch';
@@ -16,7 +16,7 @@ export const InfoProductAdmin = ({ product, selectedColor, setSelectedColor }) =
 
         if (data.status === "success") {
             setShowModal(false);
-            navigate('/catalogo-admin', { replace: true });
+            navigate('/catalogo-admin/todos/1', { replace: true });
         }
     }
 

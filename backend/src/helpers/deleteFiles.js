@@ -10,7 +10,7 @@ const deleteUploadedFiles = (files) => {
 
     fileArray.forEach(file => {
       try {
-        const filePath = path.join(__dirname, "../assets", file.filename);
+        const filePath = path.join(__dirname, "../../assets", file.filename);
         fs.unlinkSync(filePath);
         console.log("Eliminada basura:", file.filename);
       } catch (err) {

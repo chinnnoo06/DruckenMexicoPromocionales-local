@@ -175,7 +175,7 @@ const deleteProductService = async (id) => {
     }
 
     if (product.generalImage) {
-        const generalPath = path.join(__dirname, "../assets", product.generalImage);
+        const generalPath = path.join(__dirname, "../../assets", product.generalImage);
         fs.unlink(generalPath, (err) => {
             if (err) console.error(`Error eliminando ${product.generalImage}:`, err.message);
             else console.log(`Imagen general eliminada: ${product.generalImage}`);
@@ -226,7 +226,7 @@ const updateProductService = async (id, data, files) => {
         if (product.colors && product.colors.length > 0) {
             product.colors.forEach(c => {
                 if (c.image) {
-                    const filePath = path.join(__dirname, "../assets", c.image);
+                    const filePath = path.join(__dirname, "../../assets", c.image);
                     fs.unlink(filePath, (err) => {
                         if (err) console.error(`Error eliminando ${c.image}:`, err.message);
                         else console.log(`Imagen eliminada: ${c.image}`);
@@ -236,7 +236,7 @@ const updateProductService = async (id, data, files) => {
         }
 
         if (product.generalImage) {
-            const generalPath = path.join(__dirname, "../assets", product.generalImage);
+            const generalPath = path.join(__dirname, "../../assets", product.generalImage);
             fs.unlink(generalPath, (err) => {
                 if (err) console.error(`Error eliminando ${product.generalImage}:`, err.message);
                 else console.log(`Imagen general eliminada: ${product.generalImage}`);

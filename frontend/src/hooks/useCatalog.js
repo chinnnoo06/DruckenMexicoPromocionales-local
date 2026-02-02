@@ -16,8 +16,6 @@ export const useCatalog = (isAdmin) => {
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
 
-    const pendingScrollY = useRef(0);
-
     const fetchProducts = async () => {
         setProducts([])
         setLoading(true);
@@ -46,25 +44,22 @@ export const useCatalog = (isAdmin) => {
 
     // Cambiar categoría → URL
     const selectCategory = (newCategory) => {
-        console.log(isAdmin)
-        pendingScrollY.current = window.scrollY;
         if (isAdmin) {
             navigate(`/catalogo-admin/${newCategory}/1`);
         } else {
             navigate(`/catalogo/${newCategory}/1`);
         }
-
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     // Cambiar página → URL
     const setPage = (newPage) => {
-        pendingScrollY.current = window.scrollY;
         if (isAdmin) {
             navigate(`/catalogo-admin/${currentCategory}/${newPage}`);
         } else {
             navigate(`/catalogo/${currentCategory}/${newPage}`);
         }
-
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return { products, totalPages, currentPage, setPage, loading, setLoading, currentCategory, setSearchQuery, selectCategory };
