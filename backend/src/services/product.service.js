@@ -162,7 +162,7 @@ const deleteProductService = async (id) => {
     if (product.colors && product.colors.length > 0) {
         product.colors.forEach(c => {
             if (c.image) {
-                const filePath = path.join(__dirname, "../assets", c.image);
+                const filePath = path.join(__dirname, "../../assets", c.image);
                 fs.unlink(filePath, (err) => {
                     if (err) {
                         console.error(`Error eliminando ${c.image}:`, err.message);
