@@ -10,7 +10,7 @@ const handleInputErrors = require("../middlewares/handleInputErrors");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const uploadPath = path.join(__dirname, '../assets');
+    const uploadPath = path.join(__dirname, '../../assets');
     cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
