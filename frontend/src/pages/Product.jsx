@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
@@ -18,10 +18,6 @@ export const Product = () => {
     const [loading, setLoading] = useState(true);
     const isAdmin = location.pathname === '/producto-admin';
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     const fetchProduct = async () => {
         setLoading(true);
 
@@ -40,9 +36,16 @@ export const Product = () => {
         setLoading(false);
     };
 
+    useLayoutEffect(() => {
+        requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+        });
+    }, [id]);
+    
     useEffect(() => {
-        fetchProduct()
-    }, []);
+        fetchProduct();
+    }, [id]);
+
 
     if (loading) {
         return <LoadingSpinner />;
@@ -54,8 +57,8 @@ export const Product = () => {
                 <>
                     <nav className="border-b border-amber-700/20 pb-2">
                         <Link
-                            to={location.state?.isAdmin ? `/catalogo-admin/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}` 
-                            : `/catalogo/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}`}
+                            to={location.state?.isAdmin ? `/catalogo-admin/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}`
+                                : `/catalogo/${location.state?.currentCategory || 'todos'}/${location.state?.page || 1}`}
                             className="text-amber-700 hover:text-amber-800 transition-colors duration-200"
                             state={{
                                 page: location.state?.page || 1,
