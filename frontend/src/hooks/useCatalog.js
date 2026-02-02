@@ -4,7 +4,6 @@ import { Fetch } from "../helpers/Fetch";
 import { Global } from "../helpers/Global";
 
 export const useCatalog = (isAdmin) => {
-
     const { category = "todos", page = "1" } = useParams();
     const navigate = useNavigate();
 
@@ -38,7 +37,6 @@ export const useCatalog = (isAdmin) => {
 
     useEffect(() => {
         fetchProducts();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [currentCategory, currentPage, searchQuery]);
 
     // Cambiar categoría → URL
@@ -48,7 +46,6 @@ export const useCatalog = (isAdmin) => {
         } else {
             navigate(`/catalogo/${newCategory}/1`);
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     // Cambiar página → URL
@@ -58,7 +55,6 @@ export const useCatalog = (isAdmin) => {
         } else {
             navigate(`/catalogo/${currentCategory}/${newPage}`);
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return { products, totalPages, currentPage, setPage, loading, setLoading, currentCategory, setSearchQuery, selectCategory };
