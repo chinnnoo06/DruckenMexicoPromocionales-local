@@ -80,7 +80,7 @@ const getOneProductService = async (id) => {
 const findProductsService = async (category, page, search) => {
     let categoryName = ''
 
-    if (category !== "all") {
+    if (category !== "todos") {
         const categoryExist = await findCategoryByNameService(category)
 
         if (!categoryExist) {
@@ -92,7 +92,7 @@ const findProductsService = async (category, page, search) => {
     let itemsPerPage = 20;
 
     const filter = {
-        ...(category !== "all" && { category: categoryName }),
+        ...(category !== "todos" && { category: categoryName }),
         ...(search && {
             $or: [
                 { name: { $regex: search, $options: "i" } },

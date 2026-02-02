@@ -44,7 +44,7 @@ const getOneProduct = async (req, res, next) => {
 
 const findProducts = async (req, res, next) => {
     const search = req.params.search || "";
-    const category = req.params.category || "all";
+    const category = req.params.category;
     let page = parseInt(req.params.page);
     if (isNaN(page) || page < 1) page = 1;
 

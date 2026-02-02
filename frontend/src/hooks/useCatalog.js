@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Fetch } from "../helpers/Fetch";
 import { Global } from "../helpers/Global";
 
-export const useCatalog = () => {
+export const useCatalog = (isAdmin) => {
+
     const { category = "todos", page = "1" } = useParams();
     const navigate = useNavigate();
 
@@ -41,40 +42,30 @@ export const useCatalog = () => {
         fetchProducts();
         window.scrollTo(0, pendingScrollY.current);
         pendingScrollY.current = 0;
-    }, [currentCategory, currentPage]);
-
-    // Fetch cuando cambia el search (estado)
-    useEffect(() => {
-        if (searchQuery.trim() === "") return;
-
-        const timeout = setTimeout(() => {
-            pendingScrollY.current = 0;
-            navigate(`/catalogo/${currentCategory}/1`);
-        }, 500);
-
-        return () => clearTimeout(timeout);
-    }, [searchQuery]);
-
-    // Hacer scroll después de que los productos se carguen
-    useEffect(() => {
-        if (!loading) {
-            window.scrollTo(0, pendingScrollY.current);
-            pendingScrollY.current = 0;
-        }
-    }, [loading]);
-
+    }, [currentCategory, currentPage, searchQuery]);
 
     // Cambiar categoría → URL
     const selectCategory = (newCategory) => {
+        console.log(isAdmin)
         pendingScrollY.current = window.scrollY;
-        navigate(`/catalogo/${newCategory}/1`);
+        if (isAdmin) {
+            navigate(`/catalogo-admin/${newCategory}/1`);
+        } else {
+            navigate(`/catalogo/${newCategory}/1`);
+        }
+
     };
 
     // Cambiar página → URL
     const setPage = (newPage) => {
         pendingScrollY.current = window.scrollY;
-        navigate(`/catalogo/${currentCategory}/${newPage}`);
+        if (isAdmin) {
+            navigate(`/catalogo-admin/${currentCategory}/${newPage}`);
+        } else {
+            navigate(`/catalogo/${currentCategory}/${newPage}`);
+        }
+
     };
 
-    return { products, totalPages, currentPage, setPage, loading, setLoading, currentCategory, setSearchQuery, selectCategory, pendingScrollY };
+    return { products, totalPages, currentPage, setPage, loading, setLoading, currentCategory, setSearchQuery, selectCategory };
 };
