@@ -38,8 +38,7 @@ export const useCatalog = (isAdmin) => {
 
     useEffect(() => {
         fetchProducts();
-        window.scrollTo(0, pendingScrollY.current);
-        pendingScrollY.current = 0;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [currentCategory, currentPage, searchQuery]);
 
     // Cambiar categoría → URL
