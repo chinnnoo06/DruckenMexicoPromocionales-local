@@ -36,7 +36,11 @@ export const useCatalog = (isAdmin) => {
     };
 
     useEffect(() => {
-        fetchProducts();
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            fetchProducts();
+        }, 200);
+
     }, [currentCategory, currentPage, searchQuery]);
 
     // Cambiar categoría → URL
