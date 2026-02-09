@@ -69,6 +69,10 @@ router.get("/obtener-productos-carrusel",
   ProductController.getCarouselProducts
 );
 
+router.get("/obtener-total",
+  ProductController.getTotalCountProducts
+);
+
 router.delete("/eliminar-producto/:id",
   check.auth,
   param('id').isMongoId().withMessage('Id invalido'),

@@ -1,6 +1,6 @@
 // Importar servicios
 const jwt = require("../services/jwt.service");
-const { registerService, loginService } = require("../services/user.service");
+const userService = require("../services/user.service");
 
 const register = async (req, res, next) => {
     if (process.env.NODE_ENV === "production") {
@@ -10,7 +10,7 @@ const register = async (req, res, next) => {
     const params = req.body;
 
     try {
-        const user = await registerService(params)
+        const user = await userService.registerService(params)
 
         console.log("Usuario Registrado con exito");
         return res.status(200).json({
@@ -28,7 +28,7 @@ const login = async (req, res, next) => {
     const params = req.body;
 
     try {
-        const user = await loginService(params)
+        const user = await userService.loginService(params)
 
         // Crear token
         const token = jwt.createToken(user);

@@ -1,5 +1,6 @@
 const HttpError = require("../helpers/httpError")
 const categoryRepository = require("../repositories/category.repository");
+const productRepository = require("../repositories/product.repository");
 
 const getCategoriesService = async () => {
     const categories = await categoryRepository.getCategories()
@@ -28,10 +29,10 @@ const updateCategoryService = async (id, data) => {
 
     category.name = data.name
 
-    category.save()
+    await category.save()
 
-    if (oldCategoryName !== data.name) { // poner en repo de product
-       await categoryRepository.updateManyProductsService(oldCategoryName, data)
+    if (oldCategoryName !== data.name) {
+        await productRepository.updateMany(oldCategoryName, data.name)
     }
 
     return category
@@ -44,20 +45,14 @@ const removeCategoryService = async (id) => {
         throw new HttpError(404, "No existe la categoría");
     }
 
-   await category.deleteOne()
+    await category.deleteOne()
 
-    // Eliminar productos con esa categoría mover a repo de product
-    await categoryRepository.deleteManyProductsService(id)
-}
-
-const findCategoryByNameService = async (name) => {
-    return await categoryRepository.findByName(name)
+    await productRepository.deleteMany(category.name)
 }
 
 module.exports = {
     getCategoriesService,
     addCategoryService,
     updateCategoryService,
-    removeCategoryService,
-    findCategoryByNameService
+    removeCategoryService
 }

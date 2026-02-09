@@ -5,7 +5,7 @@ import { MapCategory } from '../components/admin/MapCategory';
 import { FormCategory } from '../components/admin/FormCategory';
 
 export const CategorysAdmin = () => {
-  const { categories, loading, saveCategory, formErrors, setFormErrors, loadingAction, removeCategory } = useCategorys();
+  const { totalCount, categories, loading, saveCategory, formErrors, setFormErrors, loadingAction, removeCategory } = useCategorys();
   const [adding, setAdding] = useState(false);
   const [editing, setEditing] = useState(false);
   const [categoryEdit, setCategoryEdit] = useState(false);
@@ -35,6 +35,8 @@ export const CategorysAdmin = () => {
         </p>
 
       </div>
+
+      <h3 className='text-center text-gray-700 text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold block'>Total de Productos: {totalCount}</h3>
 
       {!editing ? (
         <MapCategory categories={categories} loading={loading} saveCategory={saveCategory} formErrors={formErrors} setFormErrors={setFormErrors}

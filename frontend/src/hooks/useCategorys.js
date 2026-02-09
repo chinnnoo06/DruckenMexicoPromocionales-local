@@ -4,6 +4,7 @@ import { Fetch } from "../helpers/Fetch";
 import { Global } from "../helpers/Global";
 
 export const useCategorys = () => {
+    const [totalCount, setTotalCount] = useState(0);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [loadingAction, setLoadingAction] = useState(false);
@@ -11,7 +12,7 @@ export const useCategorys = () => {
 
     const fetchCategorys = async () => {
         setLoading(true);
-         const data = await Fetch(`${Global.url}category/obtener-categorias`, "GET");
+        const data = await Fetch(`${Global.url}category/obtener-categorias`, "GET");
 
         if (data.status === "success") {
             setCategories(data.categories);
@@ -19,8 +20,19 @@ export const useCategorys = () => {
         setLoading(false);
     };
 
+    const fetchTotalCountProducts = async () => {
+        setLoading(true);
+        const data = await Fetch(`${Global.url}product/obtener-total`, "GET");
+
+        if (data.status === "success") {
+            setTotalCount(data.count)
+        }
+        setLoading(false);
+    };
+
     useEffect(() => {
         fetchCategorys();
+        fetchTotalCountProducts();
     }, []);
 
     const saveCategory = async (e, formData, setAdding, setEditing, isEditing = false, idCategoryEdit = -1) => {
@@ -37,7 +49,7 @@ export const useCategorys = () => {
         }
 
         const dataToSend = { ...formData }; // clona el objeto
-      
+
         let data;
 
         if (isEditing) {
@@ -67,5 +79,5 @@ export const useCategorys = () => {
         }
     }
 
-    return { categories, loading, saveCategory, formErrors, setFormErrors, removeCategory, loadingAction };
+    return { totalCount, categories, loading, saveCategory, formErrors, setFormErrors, removeCategory, loadingAction };
 };

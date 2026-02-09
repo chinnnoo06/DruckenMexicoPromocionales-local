@@ -3,8 +3,8 @@ const spanOptions = require("../helpers/spanOptions")
 const fs = require("fs");
 const path = require("path");
 const productRepository = require("../repositories/product.repository");
-const { findCategoryByNameService } = require("./category.service");
 const deleteUploadedFiles = require("../helpers/deleteFiles");
+const categoryRepository = require("../repositories/category.repository");
 
 // Shuffle determinista usando seed
 function shuffleWithSeed(array, seed) {
@@ -30,7 +30,7 @@ const getProductsService = async (category, page) => {
     let categoryName = ''
 
     if (category !== "todos") {
-        const categoryExist = await findCategoryByNameService(category)
+        const categoryExist = await categoryRepository.findByName(category)
 
         if (!categoryExist) {
             throw new HttpError(404, "No existe esa categoría");
@@ -81,7 +81,7 @@ const findProductsService = async (category, page, search) => {
     let categoryName = ''
 
     if (category !== "todos") {
-        const categoryExist = await findCategoryByNameService(category)
+        const categoryExist = await categoryRepository.findByName(category)
 
         if (!categoryExist) {
             throw new HttpError(404, "No existe esa categoría");
@@ -267,6 +267,10 @@ const updateProductService = async (id, data, files) => {
     }
 }
 
+const getTotalCountProductsService = async () => {
+    return await productRepository.getTotalCount()
+}
+
 module.exports = {
     getProductsService,
     getOneProductService,
@@ -274,5 +278,6 @@ module.exports = {
     getCarouselProductsService,
     deleteProductService,
     addProductService,
-    updateProductService
+    updateProductService,
+    getTotalCountProductsService
 }

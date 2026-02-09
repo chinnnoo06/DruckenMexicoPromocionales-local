@@ -1,6 +1,6 @@
 const Product = require("../models/Product");
 const spanOptions = require("../helpers/spanOptions")
-const { getProductsService, getOneProductService, findProductsService, getCarouselProductsService, deleteProductService, addProductService, updateProductService } = require("../services/product.service");
+const productService = require('../services/product.service')
 
 const getProducts = async (req, res, next) => {
     const category = req.params.category;
@@ -8,7 +8,7 @@ const getProducts = async (req, res, next) => {
     if (isNaN(page) || page < 1) page = 1;
 
     try {
-        const data = await getProductsService(category, page)
+        const data = await productService.getProductsService(category, page)
 
         return res.status(200).send({
             status: "success",
@@ -29,7 +29,7 @@ const getOneProduct = async (req, res, next) => {
     const id = req.params.id;
 
     try {
-        const product = await getOneProductService(id)
+        const product = await productService.getOneProductService(id)
 
         return res.status(200).send({
             status: "success",
@@ -49,7 +49,7 @@ const findProducts = async (req, res, next) => {
     if (isNaN(page) || page < 1) page = 1;
 
     try {
-        const data = await findProductsService(category, page, search)
+        const data = await productService.findProductsService(category, page, search)
 
         setTimeout(() => {
             return res.status(200).json({
@@ -70,7 +70,7 @@ const findProducts = async (req, res, next) => {
 
 const getCarouselProducts = async (req, res, next) => {
     try {
-        const products = await getCarouselProductsService()
+        const products = await productService.getCarouselProductsService()
 
         return res.status(200).send({
             status: "success",
@@ -86,7 +86,7 @@ const deleteProduct = async (req, res, next) => {
     const id = req.params.id
 
     try {
-        await deleteProductService(id)
+        await productService.deleteProductService(id)
 
         return res.status(200).send({
             status: "success",
@@ -103,7 +103,7 @@ const addProduct = async (req, res, next) => {
     const files = req.files;
 
     try {
-        const product = await addProductService(params, files)
+        const product = await productService.addProductService(params, files)
 
         return res.status(200).json({
             status: "success",
@@ -123,7 +123,7 @@ const updateProduct = async (req, res, next) => {
     const files = req.files;
 
     try {
-        const product = await updateProductService(id, params, files)
+        const product = await productService.updateProductService(id, params, files)
 
         return res.status(200).json({
             status: "success",
@@ -132,6 +132,21 @@ const updateProduct = async (req, res, next) => {
         });
     } catch (error) {
         console.error("Error al actualizar el producto:", error);
+        next(error)
+    }
+};
+
+const getTotalCountProducts = async (req, res, next) => {
+    try {
+        const count = await productService.getTotalCountProductsService()
+
+        return res.status(200).json({
+            status: "success",
+            count,
+            mensaje: "Total obtenido con éxito"
+        });
+    } catch (error) {
+        console.error("Error al obtener total:", error);
         next(error)
     }
 };
@@ -161,5 +176,6 @@ module.exports = {
     getCarouselProducts,
     deleteProduct,
     addProduct,
-    updateProduct
+    updateProduct,
+    getTotalCountProducts
 }
