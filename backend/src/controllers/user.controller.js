@@ -30,7 +30,6 @@ const login = async (req, res, next) => {
     try {
         const user = await userService.loginService(params)
 
-        // Crear token
         const token = jwt.createToken(user);
 
         // Guardar token en cookie
