@@ -55,7 +55,7 @@ export const HomeMainContent = () => {
                 </div>
 
                 <div className='butons-container flex flex-wrap gap-4 pt-4'>
-                    <Link to="/catalogo" className='no-underline'>
+                    <Link to="/catalogo/todos/1" className='no-underline'>
                         <button className='px-5 py-2 text-base md:text-lg bg-[#9F531B] text-[#EEEEEF] rounded-xl hover:bg-[#7C3E13]  hover:text-[#EEEEEF] transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1'>
                             <span>Ver Catálogo</span>
                         </button>
