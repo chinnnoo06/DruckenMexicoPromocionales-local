@@ -38,7 +38,7 @@ const updateCategory = async (req, res, next) => {
     const { id } = req.params
 
     try {
-        const category = categoryService.updateCategoryService(id, params)
+        const category = await categoryService.updateCategoryService(id, params)
 
         console.log("Categoria y productos actualizados con éxito");
         return res.status(200).json({
