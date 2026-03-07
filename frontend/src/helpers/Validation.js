@@ -28,6 +28,7 @@ export const Validation = (data) => {
         } else {
             if (!obj || obj.toString().trim() === '') {
                 errors[path] = 'Este campo es obligatorio';
+                 return;
             }
 
             if (/^colors\[\d+\]\.color$/.test(path)) {
