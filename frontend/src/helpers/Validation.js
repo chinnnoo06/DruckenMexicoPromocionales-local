@@ -1,6 +1,8 @@
 export const Validation = (data) => {
     const errors = {};
 
+    const colorRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
     const validate = (obj, path = '') => {
 
         if (obj instanceof File) {
@@ -27,6 +29,13 @@ export const Validation = (data) => {
             if (!obj || obj.toString().trim() === '') {
                 errors[path] = 'Este campo es obligatorio';
             }
+
+            if (/^colors\[\d+\]\.color$/.test(path)) {
+                if (!colorRegex.test(obj)) {
+                    errors[path] = "El nombre del color solo puede contener letras";
+                }
+            }
+
         }
     }
 
