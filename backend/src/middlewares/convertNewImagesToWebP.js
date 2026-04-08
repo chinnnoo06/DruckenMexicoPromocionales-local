@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
+const deleteUploadedFiles = require("../helpers/deleteFiles");
 
 exports.convertNewImagesToWebP = async (req, res, next) => {
   try {
@@ -17,7 +18,7 @@ exports.convertNewImagesToWebP = async (req, res, next) => {
         continue;
       }
 
-      const outputPath = file.path.replace(ext, ".webp");
+      const outputPath = file.path.replace(path.extname(file.path), ".webp");
 
       let converted = false;
       let attempts = 0;
@@ -44,7 +45,7 @@ exports.convertNewImagesToWebP = async (req, res, next) => {
         } catch (err) {
           console.warn(`Error convirtiendo ${file.filename} a WebP (Intento ${attempts}):`, err);
           if (attempts >= maxAttempts) {
-            // ⚠️ Enviar respuesta al frontend y cortar la ejecución
+            deleteUploadedFiles(filesToConvert)
             return res.status(500).json({
               status: "error",
               mensaje: `Error al convertir la imagen ${file.filename}. Intenta nuevamente.`
