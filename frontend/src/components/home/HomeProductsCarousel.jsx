@@ -43,10 +43,9 @@ export const HomeProductsCarousel = () => {
                 />
                 <button className="absolute inset-0 m-auto w-[80%] h-8 sm:h-9 bg-[#9F531B]/90 text-white text-xs sm:text-sm font-medium rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                   onClick={() => {
-                    navigate('/producto', {
+                    navigate(`/producto/${product._id}`, {
                       state: {
-                        product,
-                        scrollY: window.scrollY
+                        productId: product._id
                       }
                     })
                   }}>
@@ -86,7 +85,7 @@ export const HomeProductsCarousel = () => {
         )}
       </div>
 
-      <Link to="/catalogo" className='no-underline flex items-center justify-center'>
+      <Link to="/catalogo/todos/1" className='no-underline flex items-center justify-center'>
         <button className='px-3.5 py-1 text-sm md:px-5 md:py-2 md:text-lg rounded-xl border border-[#9F531B] text-[#9F531B] hover:bg-[#9F531B] hover:text-[#EEEEEF] transition-all duration-300 hover:shadow-lg  hover:-translate-y-1  font-semibold w-[200px] sm:w-[300px]'>
           Ver más productos
         </button>
