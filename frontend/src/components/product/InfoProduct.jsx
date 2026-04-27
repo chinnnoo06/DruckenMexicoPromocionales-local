@@ -18,7 +18,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                     </span>
                 )}
 
-                <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5 whitespace-pre-line'>
+                <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] mt-2 block mb-5 whitespace-pre-line'>
                     {product.description}
                 </span>
 
@@ -34,7 +34,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                                 <i className="fa-solid fa-list"></i>
                                 Categoría
                             </span>
-                            <span className="text-[#1A1615] text-[14px] sm:text-[15px] font-medium bg-white/50 
+                            <span className="text-[#1A1615] text-[14px] sm:text-[15px] bg-white/50 
                             rounded-lg px-3 py-2 border border-[#9F531B]/10">
                                 {product.category}
                             </span>
