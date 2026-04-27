@@ -10,8 +10,19 @@ exports.convertNewImagesToWebP = async (req, res, next) => {
     if (req.files.generalImage) filesToConvert.push(...req.files.generalImage);
     if (req.files.colorImages) filesToConvert.push(...req.files.colorImages);
 
+    const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
+
     for (const file of filesToConvert) {
       const ext = path.extname(file.path).toLowerCase();
+
+      // Validación de formato
+      if (!allowedExtensions.includes(ext)) {
+        deleteUploadedFiles(filesToConvert);
+        return res.status(400).json({
+          status: "error",
+          mensaje: `Formato no permitido: ${file.filename}. Solo se permiten JPG, JPEG, PNG y WEBP.`
+        });
+      }
 
       if (ext === ".webp") {
         console.log(`Saltando conversión porque ya es WebP: ${file.filename}`);
