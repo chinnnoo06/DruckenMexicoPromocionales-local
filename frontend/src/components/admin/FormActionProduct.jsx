@@ -393,7 +393,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                                                 className="w-full px-3 py-2 rounded-lg bg-white text-gray-700 border border-[#9F531B]/30 
                                                 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#9F531B] 
                                                 focus:border-[#9F531B] text-xs "
-                                                accept=".jpg, .jpeg .png"
+                                                accept=".jpg, .jpeg, .png"
                                             />
 
 
@@ -432,7 +432,7 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                                 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9F531B] 
                                 focus:border-[#9F531B] focus:bg-white transition-all duration-300 
                                 text-xs sm:text-sm md:text-base hover:border-[#9F531B]/50"
-                                accept=".jpg, .jpeg .png"
+                                accept=".jpg, .jpeg, .png"
                             />
                             {formData.generalImage && (
                                 <p className="mt-1 text-xs text-gray-500">
