@@ -18,8 +18,7 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                     </span>
                 )}
 
-
-                <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5'>
+                <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-medium mt-2 block mb-5 whitespace-pre-line'>
                     {product.description}
                 </span>
 
