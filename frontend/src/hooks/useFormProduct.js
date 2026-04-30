@@ -48,7 +48,7 @@ export const useFormProduct = (colors, setColors, formData, setFormData, update 
 
     const { errors } = Validation(formData);
     setFormErrors(errors);
-
+    
     if (Object.keys(errors).length > 0) {
       setLoading(false);
       return;
@@ -59,7 +59,6 @@ export const useFormProduct = (colors, setColors, formData, setFormData, update 
 
     // campos simples
     form.append("name", formData.name);
-    form.append("price", formData.price);
     form.append("category", formData.category);
     form.append("key", formData.key);
     form.append("description", formData.description);

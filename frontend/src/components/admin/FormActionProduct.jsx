@@ -3,7 +3,7 @@ import { useCategorys } from '../../hooks/useCategorys';
 
 export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleColorChange, handleImageChange, sendProduct, formErrors, loading, formData, manageChange, colors, isEdit = false }) => {
     const { categories } = useCategorys();
-   
+
     return (
         <div className='form-container flex flex-col justify-center items-center'>
             <div className='bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 border border-[#9F531B]/20 rounded-2xl p-4 sm:p-6 w-full md:w-3/4'>
@@ -245,58 +245,29 @@ export const FormActionProduct = ({ handleAddColor, handleRemoveColor, handleCol
                             </div>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-4">
-                            {/* Precio */}
-                            <div className="form-group flex-1">
-                                <label htmlFor="price" className="block font-semibold text-[#9F531B] mb-2 text-sm sm:text-base">
-                                    <i className="fa-solid fa-hand-holding-dollar mr-2"></i>
-                                    Precio
-                                </label>
-                                <input
-                                    name='price'
-                                    type="number"
-                                    min="0"
-                                    placeholder="Ingresa el precio"
-                                    className="w-full px-4 py-3 rounded-xl bg-white text-gray-700 border-2 border-[#9F531B]/30 
+                        <div className="form-group flex-1">
+                            <label htmlFor="minQuantity" className="block font-semibold text-[#9F531B] mb-2 text-sm sm:text-base">
+                                <i className="fa-solid fa-layer-group mr-2"></i>
+                                Cantidad mínima
+                            </label>
+                            <input
+                                name='minQuantity'
+                                type="number"
+                                min="1"
+                                placeholder="Cantidad mínima"
+                                className="w-full px-4 py-3 rounded-xl bg-white text-gray-700 border-2 border-[#9F531B]/30 
                                     placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9F531B] 
                                     focus:border-[#9F531B] focus:bg-white transition-all duration-300 
                                     text-xs sm:text-sm md:text-base hover:border-[#9F531B]/50"
-                                    onChange={manageChange}
-                                    value={formData.price}
-                                />
-                                {formErrors.price && (
-                                    <span className="text-red-500 text-xs flex items-center mt-1">
-                                        <i className="fas fa-exclamation-circle mr-1"></i>
-                                        {formErrors.price}
-                                    </span>
-                                )}
-                            </div>
-
-                            {/* Cantidad mínima */}
-                            <div className="form-group flex-1">
-                                <label htmlFor="minQuantity" className="block font-semibold text-[#9F531B] mb-2 text-sm sm:text-base">
-                                    <i className="fa-solid fa-layer-group mr-2"></i>
-                                    Cantidad mínima
-                                </label>
-                                <input
-                                    name='minQuantity'
-                                    type="number"
-                                    min="1"
-                                    placeholder="Cantidad mínima"
-                                    className="w-full px-4 py-3 rounded-xl bg-white text-gray-700 border-2 border-[#9F531B]/30 
-                                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#9F531B] 
-                                    focus:border-[#9F531B] focus:bg-white transition-all duration-300 
-                                    text-xs sm:text-sm md:text-base hover:border-[#9F531B]/50"
-                                    onChange={manageChange}
-                                    value={formData.minQuantity}
-                                />
-                                {formErrors.minQuantity && (
-                                    <span className="text-red-500 text-xs flex items-center mt-1">
-                                        <i className="fas fa-exclamation-circle mr-1"></i>
-                                        {formErrors.minQuantity}
-                                    </span>
-                                )}
-                            </div>
+                                onChange={manageChange}
+                                value={formData.minQuantity}
+                            />
+                            {formErrors.minQuantity && (
+                                <span className="text-red-500 text-xs flex items-center mt-1">
+                                    <i className="fas fa-exclamation-circle mr-1"></i>
+                                    {formErrors.minQuantity}
+                                </span>
+                            )}
                         </div>
 
 

@@ -12,12 +12,6 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                     {product.name} ({product.key})
                 </h3>
 
-                {product.category == "Agendas" && (
-                    <span className="text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-[#9F531B]">
-                        MXN {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                    </span>
-                )}
-
                 <span className='text-[#1A1615] text-[11px] sm:text-[13px] md:text-[15px] lg:text-[16px] mt-2 block mb-5 whitespace-pre-line'>
                     {product.description}
                 </span>
@@ -105,21 +99,6 @@ export const InfoProduct = ({ product, selectedColor, setSelectedColor }) => {
                                     focus:border-[#9F531B] focus:bg-white transition-all duration-300 
                                     text-base hover:border-[#9F531B]/50'
                     />
-                    {/* 
-                         <p className="mt-1 text-xs text-gray-500">
-                        * El precio unitario puede variar según cantidad y acabados especiales, aclarar por mensaje directo
-                    </p>
-                    <p className="mt-1 text-xs text-gray-500">
-                        * La cantidad mínima de pedido es de {product.minQuantity}
-                    </p>
-                    
-                    */}
-
-                    {product.category == "Agendas" && (
-                        <p className="mt-1 text-xs text-gray-500">
-                            * El precio mostrado es unitario, medio mayoreo a partir de 6 piezas  / mayoreo a partir de 12 piezas
-                        </p>
-                    )}
 
                 </div>
 

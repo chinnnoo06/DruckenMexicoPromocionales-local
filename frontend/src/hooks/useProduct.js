@@ -19,12 +19,10 @@ export const useProduct = (product, selectedColor) => {
       ProductKey: product.key,
       ProductName: product.name,
       ProductCategory: product.category,
-      ProductPrice: product.price,
       ProductColor: product.colors[selectedColor].color,
       ProductHexColor: product.colors[selectedColor].hex,
       ProductImage: product.colors[selectedColor].image,
       OrderQuantity: quantity,
-      Subtotal: product.price * quantity,
       minQuantity: product.minQuantity,
     };
 
@@ -36,9 +34,6 @@ export const useProduct = (product, selectedColor) => {
         existingOrders[i].ProductColor === newOrder.ProductColor
       ) {
         existingOrders[i].OrderQuantity += newOrder.OrderQuantity;
-        existingOrders[i].Subtotal =
-          existingOrders[i].ProductPrice *
-          existingOrders[i].OrderQuantity;
         alreadyExist = true;
         break;
       }

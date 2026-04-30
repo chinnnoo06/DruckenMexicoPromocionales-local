@@ -46,23 +46,6 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
                                             </span>
                                         </div>
                                     </div>
-
-                                    {/* Precio Unitario */}
-                                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
-                                        <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-[#9f531b]">
-                                            Precio Unitario:
-                                        </span>
-                                        {order.ProductCategory == "Agendas" ? (
-                                            <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-gray-700">
-                                                MXN {order.ProductPrice.toLocaleString("es-MX", { minimumFractionDigits: 2 })}
-                                            </span>
-                                        ) : (
-                                            <span className="text-[13px] sm:text-[13px] md:text-[15px] lg:text-[16px] text-gray-700">
-                                                No especificado
-                                            </span>
-                                        )}
-
-                                    </div>
                                 </div>
 
                                 <button onClick={() => deleteProduct(order.ProductID, order.ProductColor)}>
@@ -93,16 +76,6 @@ export const OrderCart = ({ group, totalQuantity, handleAmount, deleteProduct })
                                         +
                                     </button>
                                 </div>
-
-                                {order.ProductCategory == "Agendas" ? (
-                                    <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-bold text-[#9F531B]">
-                                        MXN {order.Subtotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                                    </p>
-                                ) : (
-                                    <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-bold text-[#9F531B]">
-                                        No especificado
-                                    </p>
-                                )}
 
                             </div>
                         </div>

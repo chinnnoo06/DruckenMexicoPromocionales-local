@@ -35,11 +35,9 @@ export const EditProductForm = () => {
         measures: location.state.product.measures,
         printingMeasures: location.state.product.printingMeasures,
         category: location.state.product.category,
-        price: location.state.product.price,
         minQuantity: location.state.product.minQuantity,
         generalImage: '' 
     });
-
 
     const { handleAddColor, handleRemoveColor, handleColorChange, handleImageChange, sendProduct, formErrors, loading } = useFormProduct(colors, setColors, formData, setFormData, update)
 

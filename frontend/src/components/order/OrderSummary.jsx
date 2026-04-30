@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useSummary } from '../../hooks/useSummary';
 
 export const OrderSummary = ({ orders }) => {
-    const { isDisabled, sendOrder, total, showPrice, showLeyend } = useSummary(orders);
+    const { isDisabled, sendOrder } = useSummary(orders);
 
     return (
         <div className="col2 flex flex-col flex-[30%] h-1/2 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 p-6 rounded-xl border border-[#9F531B]/20 shadow-sm">
             <div className='flex flex-col space-y-6'>
-                {/* Resumen del pedido */}
+      
                 <div className="space-y-3">
                     <h3 className="text-[17px] sm:text-[17px] md:text-[18px] lg:text-[22px] font-semibold text-[#9F531B] border-b pb-2 border-[#9F531B]/20">
                         Resumen del pedido
@@ -18,25 +18,6 @@ export const OrderSummary = ({ orders }) => {
                         <span className="text-[#1A1615]">Productos:</span>
                         <span className="font-medium">{orders.length}</span>
                     </div>
-
-                    {showPrice && (
-                        <>
-                            <div className="flex justify-between items-center pt-2 border-t border-[#9F531B]/20 text-[14px] sm:text-[15px] md:text-[15px] lg:text-[17px]">
-                                <span className="text-[#1A1615] font-semibold ">Total:</span>
-                                <span className="font-bold text-[#9F531B]">
-                                    MXN {total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                                </span>
-                            </div>
-                            {showLeyend && (
-                                <p className="text-xs text-[#9F531B]/70  mt-2">
-                                    * Hay productos que no tienen precio especificado
-                                </p>
-                            )}
-                            <p className="text-xs text-[#9F531B]/70  mt-2">
-                                * Los Precios no incluyen IVA.
-                            </p>
-                        </>
-                    )}
 
                 </div>
 
@@ -87,7 +68,7 @@ export const OrderSummary = ({ orders }) => {
 
                 {/* Nota adicional */}
                 <p className="text-xs text-[#9F531B]/70 text-center mt-2">
-                    * El precio unitario puede variar según cantidad y acabados especiales, aclarar por mensaje directo
+                    * Los precios se proporcionarán en la cotización directamente por mensaje
                 </p>
 
             </div>

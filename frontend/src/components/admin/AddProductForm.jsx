@@ -15,7 +15,6 @@ export const AddProductForm = () => {
     measures: '',
     printingMeasures: '',
     category: '',
-    price: '',
     minQuantity: 1,
     generalImage: ''
   })

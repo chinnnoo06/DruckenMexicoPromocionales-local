@@ -42,7 +42,6 @@ export const Order = () => {
 
           <MapOrder orders={orders} setOrders={setOrders} />
 
-          {/*  <OrderSummary orders={orders} />*/}
           <OrderSummary orders={orders} />
 
         </div>
