@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { MapOrder } from '../components/order/MapOrder';
 import { OrderSummary } from '../components/order/OrderSummary';
 
-
 export const Order = () => {
   const [orders, setOrders] = useState([]);
 
@@ -13,21 +12,9 @@ export const Order = () => {
   }, []);
 
   const getOrders = () => {
-    const stored = JSON.parse(localStorage.getItem("order"));
-
-    if (!stored) return [];
-
-    const now = Date.now();
-
-    if (now > stored.expiry) {
-      localStorage.removeItem("order");
-      return [];
-    }
-
-    const validOrders = stored.orders || [];
-    setOrders(Array.isArray(validOrders) ? validOrders : [validOrders]);
-
-    return validOrders;
+    const storedOrders = JSON.parse(localStorage.getItem("order")) || [];
+    setOrders(Array.isArray(storedOrders) ? storedOrders : [storedOrders]);
+    return storedOrders;
   }
 
   useEffect(() => {
@@ -35,12 +22,7 @@ export const Order = () => {
   }, [])
 
   useEffect(() => {
-    const data = {
-      orders: orders,
-      expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
-    };
-
-    localStorage.setItem("order", JSON.stringify(data));
+    localStorage.setItem("order", JSON.stringify(orders));
   }, [orders]);
 
   return (
