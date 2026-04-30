@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useCart } from '../../hooks/useCart';
 import { OrderCart } from './OrderCart';
-import { OrderCartBeta } from './OrderCartBerta';
 
 export const MapOrder = ({ orders, setOrders }) => {
   const { handleAmount, deleteProduct, groupedOrders } = useCart(orders, setOrders);
