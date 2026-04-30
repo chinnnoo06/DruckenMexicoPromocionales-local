@@ -13,9 +13,21 @@ export const Order = () => {
   }, []);
 
   const getOrders = () => {
-    const storedOrders = JSON.parse(localStorage.getItem("order")) || [];
-    setOrders(Array.isArray(storedOrders) ? storedOrders : [storedOrders]);
-    return storedOrders;
+    const stored = JSON.parse(localStorage.getItem("order"));
+
+    if (!stored) return [];
+
+    const now = Date.now();
+
+    if (now > stored.expiry) {
+      localStorage.removeItem("order");
+      return [];
+    }
+
+    const validOrders = stored.orders || [];
+    setOrders(Array.isArray(validOrders) ? validOrders : [validOrders]);
+
+    return validOrders;
   }
 
   useEffect(() => {
@@ -23,7 +35,12 @@ export const Order = () => {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("order", JSON.stringify(orders));
+    const data = {
+      orders: orders,
+      expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
+    };
+
+    localStorage.setItem("order", JSON.stringify(data));
   }, [orders]);
 
   return (
@@ -54,7 +71,7 @@ export const Order = () => {
           </div>
           <h3 className="font-semibold text-[#9F531B] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[25px] mb-2">Tu pedido está vacío</h3>
           <p className="text-gray-500 max-w-md mx-auto mb-6">Parece que no has agregado ningún producto a tu carrito todavía.</p>
-          <Link to="/catalogo" className='no-underline'>
+          <Link to="/catalogo/todos/1" className='no-underline'>
             <button
               className='px-3.5 py-1.5 text-sm md:px-5 md:py-2 md:text-lg rounded-xl font-semibold transition-all duration-300
                         text-[#EEEEEF] bg-[#9F531B] hover:bg-[#7C3E13]

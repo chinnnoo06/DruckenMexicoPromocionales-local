@@ -5,7 +5,6 @@ import { useSummary } from '../../hooks/useSummary';
 export const OrderSummary = ({ orders }) => {
     const { isDisabled, sendOrder, total, showPrice, showLeyend } = useSummary(orders);
 
-
     return (
         <div className="col2 flex flex-col flex-[30%] h-1/2 bg-gradient-to-br from-[#9F531B]/5 to-[#7C3E13]/10 p-6 rounded-xl border border-[#9F531B]/20 shadow-sm">
             <div className='flex flex-col space-y-6'>
@@ -67,7 +66,7 @@ export const OrderSummary = ({ orders }) => {
                     </div>
 
                     <Link
-                        to="/catalogo"
+                        to="/catalogo/todos/1"
                         className="no-underline"
                     >
                         <button
