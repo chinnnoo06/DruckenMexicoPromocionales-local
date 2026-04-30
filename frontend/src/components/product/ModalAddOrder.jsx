@@ -46,17 +46,6 @@ export const ModalAddOrder = ({ order, showModal, setShowModal }) => {
                                     <span className="text-[#9F531B]">Cantidad:</span>
                                     <span className="font-medium text-gray-600">{order.OrderQuantity}</span>
                                 </div>
-                                {order.ProductCategory == "Agendas" && (
-                                    <div className="flex items-center gap-2 text-[13px] sm:text-[13px] md:text-[15px] lg:text-[17px]">
-                                        <span className="text-[#9F531B]">Precio Unitario:</span>
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="font-medium text-gray-600">MXN {order.ProductPrice.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span>
-                                            <span className="text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] text-gray-600"></span>
-                                        </div>
-
-                                    </div>
-                                )}
-
                             </div>
 
                             {order.ProductCategory == "Agendas" && (
