@@ -27,9 +27,9 @@ export const Product = () => {
             setProduct(data.product);
         } else {
             if (isAdmin) {
-                navigate('/catalogo-admin')
+                navigate('/catalogo-admin/todos/1')
             } else {
-                navigate('/catalogo')
+                navigate('/catalogo/todos/1')
             }
 
         }

@@ -11,7 +11,7 @@ export const EditProductForm = () => {
 
     useEffect(() => {
         if (!location.state?.product) {
-            navigate('/catalogo-admin', { replace: true });
+            navigate('/catalogo-admin/todos/1', { replace: true });
         }
     }, [location, navigate]);
 
